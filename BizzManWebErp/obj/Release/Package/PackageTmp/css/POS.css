@@ -1,0 +1,697 @@
+﻿.POS-Content {
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    background: #F0EEEE;
+}
+
+.window {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: table;
+    border: none;
+    overflow: hidden;
+}
+
+.screen {
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    overflow: auto;
+}
+
+.screen-content {
+    position: relative;
+    margin: 0px auto;
+    max-width: 1024px;
+    text-align: left;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-content {
+    height: 64px;
+    border-bottom: dashed 1px rgb(215,215,215);
+    text-align: center;
+    display: flex;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.buttonCreatCustomer {
+    line-height: 32px;
+    padding: 3px 13px;
+    font-size: 20px;
+    background: rgb(230, 230, 230);
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 3px;
+    border: solid 1px rgb(209, 209, 209);
+    cursor: pointer;
+    transition: all 150ms linear;
+    color: black;
+}
+
+.searchbox-client {
+    padding: 3px 13px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    position: absolute;
+    top: 9px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.search-clear-client {
+    position: absolute;
+    top: 9px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SearchCustomer {
+    width: 250px;
+    height: 41px;
+    margin-top: 12px;
+    margin-left: 341px;
+    padding: 20px;
+}
+
+.scrollable-y {
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.client-list {
+    font-size: 16px;
+    width: 100%;
+}
+
+.cardProduct {
+    flex: 1 1 auto;
+    width: 317px;
+    margin: 4px 8px;
+    padding: 8px 8px;
+    border: 1px solid #dee2e6;
+    background-color: #e2e2e2;
+    box-sizing: border-box;
+    height: 84px;
+}
+
+.cardimg {
+    float: left;
+    width: 64px;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+    height: 64px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.cardMrp {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    min-width: 0;
+    padding-left: 72px;
+}
+
+.orders {
+    align-items: center;
+    /*padding: 0 360px;*/
+    font-size: medium;
+    margin-left: 248px;
+}
+
+.Closebtn {
+    padding-top: 13px;
+    margin-left: 205px;
+    color: #DDD;
+}
+
+.searchtext {
+    margin-left: -265px;
+    padding-top: 10px;
+}
+
+.order-container {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: white;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.order {
+    background: white;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    font-size: 134px;
+    text-align: left;
+    max-width: 500px;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.order-empty {
+    text-align: center;
+    margin: 100px;
+    color: #DDD;
+}
+
+.pads {
+    border-top: solid 3px rgb(110, 200, 155);
+}
+
+.subpads {
+    display: flex;
+    flex-direction: row;
+}
+
+.actionpad {
+    padding: 0;
+    margin: 16px;
+    margin-top: 8px;
+    margin-right: 0;
+    text-align: center;
+    vertical-align: top;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-color: #bfbfbf;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    flex-grow: 1;
+}
+
+.button {
+    position: relative;
+    display: block;
+    height: 54px;
+    width: 100%;
+    font-weight: bold;
+    vertical-align: middle;
+    color: #555555;
+    font-size: 14px;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #bfbfbf;
+    transition: all 150ms linear;
+    background-color: transparent;
+}
+
+
+.pay {
+    height: 162px;
+}
+
+.pay-circle {
+    display: block;
+    font-size: 32px;
+    line-height: 54px;
+    padding-top: 6px;
+    background: rgb(86, 86, 86);
+    color: white;
+    width: 60px;
+    margin: auto;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+.numpad {
+    text-align: center;
+    width: 216px;
+    margin: 16px;
+    margin-top: 8px;
+    margin-left: 0px;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid;
+    border-color: #bfbfbf;
+    border-top-right-radius: 4px;
+    min-width: 216px;
+}
+
+.numpadbutton {
+    padding: 15px 17px 15px 17px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: 1px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbutton1 {
+    padding: 15px 17px 15px 17px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: 6px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbutton2 {
+    padding: 15px 17px 15px 17px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: -6px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbuttonqty {
+    padding: 15px 15px 15px 14px;
+    border-color: #bfbfbf;
+    margin-left: -6px;
+    margin-top: -1px;
+}
+
+.numpadbutton7 {
+    padding: 15px 17px 15px 17px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: 6px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbutton8 {
+    padding: 15px 17px 15px 17px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: -6px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbutton9 {
+    padding: 15px 17px 15px 17px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: -6px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbuttonplus {
+    padding: 15px 9px 15px 10px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: 5px;
+    margin-top: -1px;
+    color: black;
+}
+
+.numpadbuttondot {
+    padding: 15px 17px 15px 23px;
+    background-color: transparent;
+    border-color: #bfbfbf;
+    margin-left: -6px;
+    margin-top: -1px;
+    color: black;
+}
+
+.mode-button.selected-mode {
+    color: white;
+    background: #6EC89B;
+    border-color: transparent;
+}
+
+.rightpart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    flex-grow: 1;
+    width: 68%;
+    margin-left: 500px;
+    margin-top: -680px;
+}
+
+.card1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    width: 100%;
+}
+
+.cardimage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    /* border: 1px solid rgba(0,0,0,.125); */
+    border-radius: 0.25rem;
+    height: 665px;
+}
+
+.leftpart {
+    border-right: solid 3px #787878;
+    background: #e2e2e2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 500px;
+    width: 50%;
+}
+
+.client-details {
+    padding: 16px;
+    border-bottom: solid 5px rgb(110,200,155);
+}
+
+.client-picture {
+    height: 64px;
+    width: 64px;
+    border-radius: 32px;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+    margin-right: 16px;
+    background: white;
+    position: relative;
+}
+
+.image-uploader {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.client-details-box clearfix {
+    position: relative;
+    font-size: 16px;
+}
+
+.client-name {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 18px 6px;
+    width: 340px;
+}
+
+.client-details-left {
+    width: 50%;
+    float: left;
+}
+
+.client-detail {
+    line-height: 24px;
+}
+
+.leftside {
+    padding: 4px;
+    border-radius: 3px;
+    border: solid 1px #cecbcb;
+    margin-bottom: 4px;
+    background: white;
+    font-family: "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+    color: #555555;
+    width: 340px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.label {
+    font-weight: bold;
+    display: inline-block;
+    width: 75px;
+    text-align: right;
+    margin-right: 8px;
+}
+
+.client-details-right {
+    width: 50%;
+    float: right;
+}
+
+.rightside {
+    padding: 4px;
+    border-radius: 3px;
+    border: solid 1px #cecbcb;
+    margin-bottom: 4px;
+    background: white;
+    font-family: "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+    color: #555555;
+    width: 340px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.main-content {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.POS-Conten {
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    background: #F0EEEE;
+}
+
+.top-content-center {
+    flex-grow: 1;
+}
+
+.left-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: dashed 1px rgb(215,215,215);
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+.paymentmethods-container {
+    position: relative;
+    margin: 0px auto;
+    max-width: 1024px;
+    text-align: left;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentlines {
+    border-spacing: 0px 10px;
+    border-collapse: inherit;
+    margin: 16px;
+}
+
+.paymentmethods {
+    margin: 16px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.paymentmethod {
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+.payment-name {
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cashbutton {
+    background: #e2e2e2;
+    line-height: 74px;
+    font-size: 16px;
+    border: solid 1px rgb(202, 202, 202);
+    border-top-width: 0px;
+    cursor: pointer;
+}
+
+.right-content {
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentlines-container {
+    padding: 16px;
+    padding-top: 0;
+    border-bottom: dashed 1px gainsboro;
+    min-height: 154px;
+}
+
+.total {
+    text-align: center;
+    padding: 24px 0px 18px;
+    font-size: 64px;
+    color: #43996E;
+    text-shadow: 0px 2px white, 0px 2px 2px rgb(0 0 0 / 27%);
+}
+
+.message {
+    text-align: center;
+}
+
+.payment-buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.payment-numpad {
+    box-sizing: border-box;
+    margin: 16px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.numpadpay {
+    border-radius: 4px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-color: #cacaca;
+    width: 296px;
+    height: 100%;
+    margin: auto;
+}
+
+.onepay {
+    margin-left: 0px;
+}
+
+.Tenpay {
+    margin-left: 0px;
+}
+
+.Fourpay {
+    margin-top: -24px;
+}
+
+
+
+.Fivepay {
+    margin-top: -24px;
+    margin-left: 0px;
+}
+
+.twentypay {
+    margin-top: -24px;
+    margin-left: 0px;
+}
+
+
+.payment-buttons {
+    box-sizing: border-box;
+    margin: 16px;
+    padding-left: 0;
+    flex-grow: 5;
+}
+
+.customer-button {
+    margin-bottom: 10px;
+}
+
+.customerpaybtn {
+    background: #e2e2e2;
+    line-height: 73px;
+    font-size: 16px;
+    padding: 0px 8px;
+    border: solid 1px rgb(200,200,200);
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: background-color, border-color, color 150ms linear;
+    border-top-width: 1px;
+    font-family: "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+    color: #555555;
+}
+
+.highlight {
+    background: #6EC89B !important;
+    border: solid 1px #64AF8A !important;
+    color: white !important;
+}
+
+.numpadPayment {
+    width: 74px;
+    height: 74px;
+    font-weight: bold;
+    font-weight: bold;
+    color: #555555;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: #bfbfbf;
+    transition: all 150ms linear;
+    font-size: 24px;
+    background: #e2e2e2;
+    font-family: 'Lato';
+}
+
+.products-widget {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.greenborder {
+    padding: 0;
+    background: #d3d3d3;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: solid 3px rgb(110, 200, 155);
+}
+
+.username {
+    color: gray;
+    font-style: oblique;
+    font-size: larger;
+    background-color: transparent;
+}

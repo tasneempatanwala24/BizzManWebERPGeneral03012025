@@ -1,0 +1,1454 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82A094CE-2BF2-457C-83EB-739BFFB97C48}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BizzManWebErp</RootNamespace>
+    <AssemblyName>BizzManWebErp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\..\Developer\Tashneem\TaskSaleQuotation (1)_13012024\TaskSaleQuotation\CodeChanges\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\Developer\Tashneem\TaskSaleQuotation (1)_13012024\TaskSaleQuotation\CodeChanges\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\alertify.css" />
+    <Content Include="css\all.min.css" />
+    <Content Include="css\bootstrap-datepicker.min.css" />
+    <Content Include="css\bootstrap-datepicker3.css" />
+    <Content Include="css\bootstrap-timepicker.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bt.min.css" />
+    <Content Include="css\CrmLeadMaster.css" />
+    <Content Include="css\CrmLeadStyle.css" />
+    <Content Include="css\dataTables.bootstrap4.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\InventPutawayRule.css" />
+    <Content Include="css\InventWarehouseMaster.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="css\LedgerMaster.css" />
+    <Content Include="css\POS.css" />
+    <Content Include="css\SdProjectMaster.css" />
+    <Content Include="css\SdSalesOrderPaymentMaster.css" />
+    <Content Include="css\select2.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\styleo.css" />
+    <Content Include="css\VoucherEntry.css" />
+    <Content Include="Images\AddNew.gif" />
+    <Content Include="Images\AddNew2.png" />
+    <Content Include="Images\AddNew3.png" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\ErpLogo.png" />
+    <Content Include="Images\FaVoucherEntryAddNew.png" />
+    <Content Include="Images\FaVoucherEntryRemove.jpg" />
+    <Content Include="Images\fileupload.png" />
+    <Content Include="Images\kanban-view.png" />
+    <Content Include="Images\list-view.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Remove1.jpg" />
+    <Content Include="Images\Remove2.jpg" />
+    <Content Include="Images\RemoveRow.png" />
+    <Content Include="Scripts\AdminCompanyMaster.js" />
+    <Content Include="Scripts\AdminCompanyMasterNew.js" />
+    <Content Include="Scripts\AdminModuleMaster.js" />
+    <Content Include="Scripts\AdminRoleMaster.js" />
+    <Content Include="Scripts\AdminUserMaster.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bt.min.js" />
+    <Content Include="Scripts\CrmBkrmEnquiryRegister.js" />
+    <Content Include="Scripts\CrmBkrmLeadCollect.js" />
+    <Content Include="Scripts\CrmBkrmMeetingRegister.js" />
+    <Content Include="Scripts\CrmCustomerMaster.js" />
+    <Content Include="Scripts\CrmLeadMaster.js" />
+    <Content Include="Scripts\CrmSunAssignActivity.js" />
+    <Content Include="Scripts\CrmSunAssignedActivityDetails.js" />
+    <Content Include="Scripts\CrmSunLeadsEntry.js" />
+    <Content Include="Scripts\CrmSunPipeline.js" />
+    <Content Include="Scripts\CrmtableHTMLExport.js" />
+    <Content Include="Scripts\FaAccountsGroupMaster.js" />
+    <Content Include="Scripts\FaAccountsHeadMaster.js" />
+    <Content Include="Scripts\FaLedgerMaster.js" />
+    <Content Include="Scripts\FaTrialBalance.js" />
+    <Content Include="Scripts\FaVoucherEntry.js" />
+    <Content Include="Scripts\FaWarehouseMaster.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\HrBranchMasterNew.js" />
+    <Content Include="Images\images.jpg" />
+    <Content Include="Scripts\HrDepartmentMasterNew.js" />
+    <Content Include="Scripts\HrDesignationMasterNew.js" />
+    <Content Include="Scripts\HrEmpAttendanceReport.js" />
+    <Content Include="Scripts\HrEmpCtcMaster_display.js" />
+    <Content Include="Scripts\HrEmpEsiStaturyReport.js" />
+    <Content Include="Scripts\HrEmpForm16.js" />
+    <Content Include="Scripts\HrEmpJobAssign.js" />
+    <Content Include="Scripts\HrEmpJobCategoryMaster.js" />
+    <Content Include="Scripts\HrEmpJobMaster.js" />
+    <Content Include="Scripts\HrEmpKpi.js" />
+    <Content Include="Scripts\HrEmpKpiGroup.js" />
+    <Content Include="Scripts\HrEmpKpiMaster.js" />
+    <Content Include="Scripts\HrEmpKpiReport.js" />
+    <Content Include="Scripts\HrEmpKpiSelfAsseesmentEntry.js" />
+    <Content Include="Scripts\HrEmpKpiSubGroup.js" />
+    <Content Include="Scripts\HrEmpLeaveApplication.js" />
+    <Content Include="Scripts\HrEmpLoan.js" />
+    <Content Include="Scripts\HrEmpLoanApplicationDetail.js" />
+    <Content Include="Scripts\HrEmpLoanApplicationMaster.js" />
+    <Content Include="Scripts\HrEmpOtEntry.js" />
+    <Content Include="Scripts\HrEmpOtherAllowance.js" />
+    <Content Include="Scripts\HrEmpPfStaturyReport.js" />
+    <Content Include="Scripts\HrEmpSalaryIncrement.js" />
+    <Content Include="Scripts\HrEmpSalaryIncrement_display.js" />
+    <Content Include="Scripts\HrEmpSalaryPaySlip.js" />
+    <Content Include="Scripts\HrEmpSalaryReport.js" />
+    <Content Include="Scripts\HrEmpSalaryReportIndivisual.js" />
+    <Content Include="Scripts\HrEmpSalaryReport_1.js" />
+    <Content Include="Scripts\HrEmpSummerAEntry.js" />
+    <Content Include="Scripts\HrHrmsMain.js" />
+    <Content Include="Scripts\InventLocationMaster.js" />
+    <Content Include="Scripts\InventPutwayPule.js" />
+    <Content Include="Scripts\InventStockBranchReport.js" />
+    <Content Include="Scripts\InventStockMasterReport.js" />
+    <Content Include="Scripts\InventStockReportPutwayRule.js" />
+    <Content Include="Scripts\InventStockSummaryReport.js" />
+    <Content Include="Scripts\InventStockTransfer.js" />
+    <Content Include="Scripts\InventStockTransfer_display.js" />
+    <Content Include="Scripts\InventTransportDetail.js" />
+    <Content Include="Scripts\InventTransportDetailDisplay.js" />
+    <Content Include="Scripts\InventTransportMaster.js" />
+    <Content Include="Scripts\InventWarehouseMaster.js" />
+    <Content Include="Scripts\jqq.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\Maino.js" />
+    <Content Include="Scripts\ManufactureOrder.js" />
+    <Content Include="Scripts\MaterialPurchaseGateInword.js" />
+    <Content Include="Scripts\MaterialPurchaseGrnEntry.js" />
+    <Content Include="Scripts\MaterialPurchaseGrnInvoiceEntry.js" />
+    <Content Include="Scripts\MaterialStockMaster.js" />
+    <Content Include="Scripts\MmBomEntry.js" />
+    <Content Include="Scripts\MmCategoryMaster.js" />
+    <Content Include="Scripts\MmCategoryMasterNew.js" />
+    <Content Include="Scripts\MmItemGroupMaster.js" />
+    <Content Include="Scripts\MmItemMaster.js" />
+    <Content Include="Scripts\MmItemMasterNew.js" />
+    <Content Include="Scripts\MmItemMasterNew1.js" />
+    <Content Include="Scripts\MmItemPackagingMaster.js" />
+    <Content Include="Scripts\MmMaterialIndentMaster.js" />
+    <Content Include="Scripts\MmMaterialIndentMaster_display.js" />
+    <Content Include="Scripts\MmMaterialMaster.js" />
+    <Content Include="Scripts\bootstrap-timepicker.js" />
+    <Content Include="Scripts\buttons.dataTables.min.css" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\CategoryMaster.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\EmployeeAttendance.js" />
+    <Content Include="Scripts\EmployeeCTCMaster.js" />
+    <Content Include="Scripts\EmployeeSalaryGrade.js" />
+    <Content Include="Scripts\EmployeeSaleryApprove.js" />
+    <Content Include="Scripts\EmployeeSaleryGenerate.js" />
+    <Content Include="Scripts\html2canvas.min.js" />
+    <Content Include="Scripts\jszip.min.js" />
+    <Content Include="Scripts\alertify.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\EmployeeTransaction.js" />
+    <Content Include="Scripts\EmpMaster.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\MmMaterialPurchaseGateInword_display.js" />
+    <Content Include="Scripts\MmMaterialPurchaseGrnReturn.js" />
+    <Content Include="Scripts\MmMaterialPurchaseGrnReturn_display.js" />
+    <Content Include="Scripts\MmMaterialPurchaseOrder.js" />
+    <Content Include="Scripts\MmMaterialPurchaseOrderDirectEntry.js" />
+    <Content Include="Scripts\MmMaterialPurchaseOrderDirectEntry_display.js" />
+    <Content Include="Scripts\MmMaterialPurchaseOrderDirectGrnEntry.js" />
+    <Content Include="Scripts\MmMaterialPurchaseOrderDirectGrnEntry_display.js" />
+    <Content Include="Scripts\MmMaterialPurchaseOrderEntry_display.js" />
+    <Content Include="Scripts\MmPurchaseQuotationEntry.js" />
+    <Content Include="Scripts\MmPurchaseQuotationEntry_display.js" />
+    <Content Include="Scripts\MmRequisitionNote.js" />
+    <Content Include="Scripts\MmUnitMesureMaster.js" />
+    <Content Include="Scripts\MmVendorMaster.js" />
+    <Content Include="Scripts\MnfJlrJobCardMaster.js" />
+    <Content Include="Scripts\MnfJlrJobCardMaster_display.js" />
+    <Content Include="Scripts\MnfManufactureOperationsMaster.js" />
+    <Content Include="Scripts\MnfManufactureWorkCentersMaster.js" />
+    <Content Include="Scripts\MnfManufactureWorkCentersOperationsMaster.js" />
+    <Content Include="Scripts\MnfMaterialManufactureOperationsDetail.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\pdfmake.min.js" />
+    <Content Include="Scripts\PmCustomerMaster.js" />
+    <Content Include="Scripts\PmDispatchStatus.js" />
+    <Content Include="Scripts\PmGenerateChallan.js" />
+    <Content Include="Scripts\PmMilestone.js" />
+    <Content Include="Scripts\PmProductDispatch.js" />
+    <Content Include="Scripts\PmProjectPlanningDetails.js" />
+    <Content Include="Scripts\PmSalesOrder.js" />
+    <Content Include="Scripts\PmScheduleActivity.js" />
+    <Content Include="Scripts\PmSiteVisit.js" />
+    <Content Include="Scripts\PmSurvey.js" />
+    <Content Include="Scripts\PmSurveyTaskAssigned.js" />
+    <Content Include="Scripts\PmWarehouseMaster.js" />
+    <Content Include="Scripts\poppar.js" />
+    <Content Include="Scripts\PosCustomerMaster.js" />
+    <Content Include="Scripts\PosPayment.js" />
+    <Content Include="Scripts\PosProductCalculation.js" />
+    <Content Include="Scripts\SalesOrder.js" />
+    <Content Include="Scripts\SalesOrderDelivery.js" />
+    <Content Include="Scripts\SdBomMaster.js" />
+    <Content Include="Scripts\SdBomMaster_display.js" />
+    <Content Include="Scripts\SdProductMaster.js" />
+    <Content Include="Scripts\SdProductMaster_Display.js" />
+    <Content Include="Scripts\SdProjectMaster.js" />
+    <Content Include="Scripts\SdSalesMisReport.js" />
+    <Content Include="Scripts\SdSalesOrderInvoice.js" />
+    <Content Include="Scripts\SdSalesOrderPaymentMaster.js" />
+    <Content Include="Scripts\SdSalesQuotationMaster.js" />
+    <Content Include="Scripts\SdSalesQuotationOrder.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="css\SidebarMenu.css" />
+    <Content Include="Scripts\table2excel.js" />
+    <Content Include="Scripts\tableHTMLExport.js" />
+    <Content Include="Scripts\wfHrEmpLeaveApplicationIndivisual.js" />
+    <Content Include="Web.config" />
+    <Content Include="wfAdminCompanyMaster.aspx" />
+    <Content Include="wfAdminCompanyMasterNew.aspx" />
+    <Content Include="wfAdminMain.aspx" />
+    <Content Include="wfAdminModuleMaster.aspx" />
+    <Content Include="wfAdminRoleMaster.aspx" />
+    <Content Include="wfAdminRoleModuleMaster.aspx" />
+    <Content Include="wfAdminUserMaster.aspx" />
+    <Content Include="wfCrmBkrmEnquiryRegister.aspx" />
+    <Content Include="wfCrmBkrmLeadCollect.aspx" />
+    <Content Include="wfCrmBkrmMeetingRegister.aspx" />
+    <Content Include="wfCrmCustomerMaster.aspx" />
+    <Content Include="wfCrmMain.aspx" />
+    <Content Include="wfCrmSunAssignedActivityDetails.aspx" />
+    <Content Include="wfCrmSunLeadsEntry.aspx" />
+    <Content Include="wfCrmSunPipeline.aspx" />
+    <Content Include="wfCrmSunScheduleActivity.aspx" />
+    <Content Include="wfHrDeptMasterNew.aspx" />
+    <Content Include="wfHrDesignationMasterNew.aspx" />
+    <Content Include="wfHrEmpEsiStaturyReport.aspx" />
+    <Content Include="wfHrEmpExternal.aspx" />
+    <Content Include="wfHrEmpForm16.aspx" />
+    <Content Include="wfHrEmpJobAssign.aspx" />
+    <Content Include="wfHrEmpJobCategoryMaster.aspx" />
+    <Content Include="wfHrEmpJobMaster.aspx" />
+    <Content Include="wfHrEmpKpi.aspx" />
+    <Content Include="wfHrEmpKpiGroup.aspx" />
+    <Content Include="wfHrEmpKpiMaster.aspx" />
+    <Content Include="wfHrEmpKpiReport.aspx" />
+    <Content Include="wfHrEmpKpiSelfAsseesmentEntry.aspx" />
+    <Content Include="wfHrEmpKpiSubGroup.aspx" />
+    <Content Include="wfHrEmpOtEntry.aspx" />
+    <Content Include="wfHrEmpPfStaturyReport.aspx" />
+    <Content Include="wfHrEmpSalaryReport.aspx" />
+    <Content Include="wfHrEmpSalaryReportIndivisual.aspx" />
+    <Content Include="wfHrEmpSalaryReport_1.aspx" />
+    <Content Include="wfHrEmpSummerAEntry.aspx" />
+    <Content Include="wfInventLocationMaster.aspx" />
+    <Content Include="wfInventoryMain.aspx" />
+    <Content Include="wfInventPutwayRule.aspx" />
+    <Content Include="wfInventStockBranchReport.aspx" />
+    <Content Include="wfInventStockMasterReport.aspx" />
+    <Content Include="wfInventStockReportPutwayRule.aspx" />
+    <Content Include="wfInventStockSummaryReport.aspx" />
+    <Content Include="wfInventWarehouseMaster.aspx" />
+    <Content Include="wfManufactureMain.aspx" />
+    <Content Include="wfMmBomEntry.aspx" />
+    <Content Include="wfMmCategoryMasterNew.aspx" />
+    <Content Include="wfMmItemGroupMaster.aspx" />
+    <Content Include="wfMmItemMaster.aspx" />
+    <Content Include="wfMmItemMasterNew.aspx" />
+    <Content Include="wfMmItemPackagingMaster.aspx" />
+    <Content Include="wfMmMaterialPurchaseGrnInvoiceEntry.aspx" />
+    <Content Include="wfMmMaterialPurchaseOrderDirectEntry.aspx" />
+    <Content Include="wfMmMaterialPurchaseOrderDirectEntry_display.aspx" />
+    <Content Include="wfMmMaterialPurchaseOrderDirectGrnEntry.aspx" />
+    <Content Include="wfMmMaterialPurchaseOrderDirectGrnEntry_display.aspx" />
+    <Content Include="wfMmMaterialPurchaseOrderEntry_display.aspx" />
+    <Content Include="wfMmMaterialStockMaster.aspx" />
+    <Content Include="wfMmPurchaseQuotationEntry_display.aspx" />
+    <Content Include="wfMmUnitMesureMaster.aspx" />
+    <Content Include="wfMmVendorMaster.aspx" />
+    <Content Include="wfMnfJlrJobCardMaster.aspx" />
+    <Content Include="wfMnfJlrJobCardMaster_display.aspx" />
+    <Content Include="wfMnfManufactureOperationsMaster.aspx" />
+    <Content Include="wfMnfManufactureWorkCentersMaster.aspx" />
+    <Content Include="wfMnfManufactureWorkCentersOperationsTransection.aspx" />
+    <Content Include="wfMnfMaterialManufactureOperationsDetail.aspx" />
+    <Content Include="wfPmAssignActivity.aspx" />
+    <Content Include="wfPmBlockCalendar.aspx" />
+    <Content Include="wfPmCustomerMaster.aspx" />
+    <Content Include="wfPmDispatchStatus.aspx" />
+    <Content Include="wfPmGenerateChallan.aspx" />
+    <Content Include="wfPmMain.aspx" />
+    <Content Include="wfPmMilestone.aspx" />
+    <Content Include="wfPmProductDispatch.aspx" />
+    <Content Include="wfPmProjectPlanning.aspx" />
+    <Content Include="wfPmSalesOrder.aspx" />
+    <Content Include="wfPmSiteVisit.aspx" />
+    <Content Include="wfPmSurveyForm.aspx" />
+    <Content Include="wfPmSurveyTaskAssigned.aspx" />
+    <Content Include="wfPmWarehouseMaster.aspx" />
+    <Content Include="wfPosCustomer.aspx" />
+    <Content Include="wfPosMain.aspx" />
+    <Content Include="wfPosPayment.aspx" />
+    <Content Include="wfPosProductCalculation.aspx" />
+    <Content Include="wfSdBomMaster.aspx" />
+    <Content Include="wfSdBomMaster_display.aspx" />
+    <Content Include="wfSdMain.aspx" />
+    <Content Include="wfErpMain.aspx" />
+    <Content Include="wfFaWarehouseMaster.aspx" />
+    <Content Include="wfHrBranchMaster.aspx" />
+    <Content Include="wfHrBranchMasterNew.aspx" />
+    <Content Include="wfFaMainMenu.aspx" />
+    <Content Include="wfHrDesignationMaster.aspx" />
+    <Content Include="wfHrDeptMaster.aspx" />
+    <Content Include="wfHrEmpMasterTransection.aspx" />
+    <Content Include="wfHrEsiMaster.aspx" />
+    <Content Include="wfHrPfMaster.aspx" />
+    <Content Include="wfHrEmpMaster.aspx" />
+    <Content Include="wfHrHrmsMain.aspx" />
+    <Content Include="wfAdminLogin.aspx" />
+    <Content Include="wfMmCategoryMaster.aspx" />
+    <Content Include="wfMmMainMenu.aspx" />
+    <Content Include="wfMmMaterialMaster.aspx" />
+    <Content Include="wfMmMaterialPurchaseOrderEntry.aspx" />
+    <Content Include="wfMmPurchaseQuotationEntry.aspx" />
+    <Content Include="wfSdManufactureOrder.aspx" />
+    <Content Include="wfSdProductMaster.aspx" />
+    <Content Include="wfSdProductMaster_Display.aspx" />
+    <Content Include="wfSdProjectMaster.aspx" />
+    <Content Include="wfSdProjectMaster_Display.aspx" />
+    <Content Include="wfSdProjectMaster_Document.aspx" />
+    <Content Include="wfSdSalesMisReport.aspx" />
+    <Content Include="wfSdSalesOrder.aspx" />
+    <Content Include="wfSdSalesOrderDelivery.aspx" />
+    <Content Include="wfSdSalesOrderInvoice.aspx" />
+    <Content Include="wfSdSalesOrderInvoice_display.aspx" />
+    <Content Include="wfSdSalesOrderPaymentMaster.aspx" />
+    <Content Include="wfSdSalesOrderPayment_display.aspx" />
+    <Content Include="wfSdSalesOrder_display.aspx" />
+    <Content Include="wfSdSalesQuotationOrder.aspx" />
+    <Content Include="wfSdSalesQuotationOrder_display.aspx" />
+    <Content Include="wSdSalesQuotationMaster.aspx" />
+    <Content Include="wSdSalesQuotationMaster_display.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminMain.Master.cs">
+      <DependentUpon>AdminMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminMain.Master.designer.cs">
+      <DependentUpon>AdminMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="clsMain.cs" />
+    <Compile Include="CrmMainMenu.Master.cs">
+      <DependentUpon>CrmMainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrmMainMenu.Master.designer.cs">
+      <DependentUpon>CrmMainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalPage.Master.cs">
+      <DependentUpon>ExternalPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalPage.Master.designer.cs">
+      <DependentUpon>ExternalPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FaMainMenu.Master.cs">
+      <DependentUpon>FaMainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FaMainMenu.Master.designer.cs">
+      <DependentUpon>FaMainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="FileSurveyUploadHandler.ashx.cs">
+      <DependentUpon>FileSurveyUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="FileUploadHandler.ashx.cs">
+      <DependentUpon>FileUploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="InventMainMenu.Master.cs">
+      <DependentUpon>InventMainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventMainMenu.Master.designer.cs">
+      <DependentUpon>InventMainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ManufactMainMenu.Master.cs">
+      <DependentUpon>ManufactMainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManufactMainMenu.Master.designer.cs">
+      <DependentUpon>ManufactMainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MmMainMenu.Master.cs">
+      <DependentUpon>MmMainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MmMainMenu.Master.designer.cs">
+      <DependentUpon>MmMainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CommonModel.cs" />
+    <Compile Include="Model\CompanyDetails.cs" />
+    <Compile Include="Model\CrmLeadModel.cs" />
+    <Compile Include="Model\InventStockTransfer.cs" />
+    <Compile Include="Model\NumberToWords.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\PurchaseOrderDirectEntry.cs" />
+    <Compile Include="Model\PurchaseOrderDirectGrnEntry.cs" />
+    <Compile Include="Model\Quotation.cs" />
+    <Compile Include="Model\SalesOrderDirectEntry.cs" />
+    <Compile Include="Model\SalesQuotationDetail.cs" />
+    <Compile Include="Model\SdProjectMaster.cs" />
+    <Compile Include="PM.Master.cs">
+      <DependentUpon>PM.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PM.Master.designer.cs">
+      <DependentUpon>PM.Master</DependentUpon>
+    </Compile>
+    <Compile Include="POS.Master.cs">
+      <DependentUpon>POS.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="POS.Master.designer.cs">
+      <DependentUpon>POS.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SdMainMenu.Master.cs">
+      <DependentUpon>SdMainMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SdMainMenu.Master.designer.cs">
+      <DependentUpon>SdMainMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminCompanyMaster.aspx.cs">
+      <DependentUpon>wfAdminCompanyMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminCompanyMaster.aspx.designer.cs">
+      <DependentUpon>wfAdminCompanyMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminCompanyMasterNew.aspx.cs">
+      <DependentUpon>wfAdminCompanyMasterNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminCompanyMasterNew.aspx.designer.cs">
+      <DependentUpon>wfAdminCompanyMasterNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminMain.aspx.cs">
+      <DependentUpon>wfAdminMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminMain.aspx.designer.cs">
+      <DependentUpon>wfAdminMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminModuleMaster.aspx.cs">
+      <DependentUpon>wfAdminModuleMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminModuleMaster.aspx.designer.cs">
+      <DependentUpon>wfAdminModuleMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminRoleMaster.aspx.cs">
+      <DependentUpon>wfAdminRoleMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminRoleMaster.aspx.designer.cs">
+      <DependentUpon>wfAdminRoleMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminRoleModuleMaster.aspx.cs">
+      <DependentUpon>wfAdminRoleModuleMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminRoleModuleMaster.aspx.designer.cs">
+      <DependentUpon>wfAdminRoleModuleMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminUserMaster.aspx.cs">
+      <DependentUpon>wfAdminUserMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminUserMaster.aspx.designer.cs">
+      <DependentUpon>wfAdminUserMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmBkrmEnquiryRegister.aspx.cs">
+      <DependentUpon>wfCrmBkrmEnquiryRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmBkrmEnquiryRegister.aspx.designer.cs">
+      <DependentUpon>wfCrmBkrmEnquiryRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmBkrmLeadCollect.aspx.cs">
+      <DependentUpon>wfCrmBkrmLeadCollect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmBkrmLeadCollect.aspx.designer.cs">
+      <DependentUpon>wfCrmBkrmLeadCollect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmBkrmMeetingRegister.aspx.cs">
+      <DependentUpon>wfCrmBkrmMeetingRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmBkrmMeetingRegister.aspx.designer.cs">
+      <DependentUpon>wfCrmBkrmMeetingRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmCustomerMaster.aspx.cs">
+      <DependentUpon>wfCrmCustomerMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmCustomerMaster.aspx.designer.cs">
+      <DependentUpon>wfCrmCustomerMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmMain.aspx.cs">
+      <DependentUpon>wfCrmMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmMain.aspx.designer.cs">
+      <DependentUpon>wfCrmMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmSunAssignedActivityDetails.aspx.cs">
+      <DependentUpon>wfCrmSunAssignedActivityDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmSunAssignedActivityDetails.aspx.designer.cs">
+      <DependentUpon>wfCrmSunAssignedActivityDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmSunLeadsEntry.aspx.cs">
+      <DependentUpon>wfCrmSunLeadsEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmSunLeadsEntry.aspx.designer.cs">
+      <DependentUpon>wfCrmSunLeadsEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmSunPipeline.aspx.cs">
+      <DependentUpon>wfCrmSunPipeline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmSunPipeline.aspx.designer.cs">
+      <DependentUpon>wfCrmSunPipeline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfCrmSunScheduleActivity.aspx.cs">
+      <DependentUpon>wfCrmSunScheduleActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfCrmSunScheduleActivity.aspx.designer.cs">
+      <DependentUpon>wfCrmSunScheduleActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrDeptMasterNew.aspx.cs">
+      <DependentUpon>wfHrDeptMasterNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrDeptMasterNew.aspx.designer.cs">
+      <DependentUpon>wfHrDeptMasterNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrDesignationMasterNew.aspx.cs">
+      <DependentUpon>wfHrDesignationMasterNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrDesignationMasterNew.aspx.designer.cs">
+      <DependentUpon>wfHrDesignationMasterNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpEsiStaturyReport.aspx.cs">
+      <DependentUpon>wfHrEmpEsiStaturyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpEsiStaturyReport.aspx.designer.cs">
+      <DependentUpon>wfHrEmpEsiStaturyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpExternal.aspx.cs">
+      <DependentUpon>wfHrEmpExternal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpExternal.aspx.designer.cs">
+      <DependentUpon>wfHrEmpExternal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpForm16.aspx.cs">
+      <DependentUpon>wfHrEmpForm16.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpForm16.aspx.designer.cs">
+      <DependentUpon>wfHrEmpForm16.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpJobAssign.aspx.cs">
+      <DependentUpon>wfHrEmpJobAssign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpJobAssign.aspx.designer.cs">
+      <DependentUpon>wfHrEmpJobAssign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpJobCategoryMaster.aspx.cs">
+      <DependentUpon>wfHrEmpJobCategoryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpJobCategoryMaster.aspx.designer.cs">
+      <DependentUpon>wfHrEmpJobCategoryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpJobMaster.aspx.cs">
+      <DependentUpon>wfHrEmpJobMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpJobMaster.aspx.designer.cs">
+      <DependentUpon>wfHrEmpJobMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpKpi.aspx.cs">
+      <DependentUpon>wfHrEmpKpi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpKpi.aspx.designer.cs">
+      <DependentUpon>wfHrEmpKpi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpKpiGroup.aspx.cs">
+      <DependentUpon>wfHrEmpKpiGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpKpiGroup.aspx.designer.cs">
+      <DependentUpon>wfHrEmpKpiGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpKpiMaster.aspx.cs">
+      <DependentUpon>wfHrEmpKpiMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpKpiMaster.aspx.designer.cs">
+      <DependentUpon>wfHrEmpKpiMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpKpiReport.aspx.cs">
+      <DependentUpon>wfHrEmpKpiReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpKpiReport.aspx.designer.cs">
+      <DependentUpon>wfHrEmpKpiReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpKpiSelfAsseesmentEntry.aspx.cs">
+      <DependentUpon>wfHrEmpKpiSelfAsseesmentEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpKpiSelfAsseesmentEntry.aspx.designer.cs">
+      <DependentUpon>wfHrEmpKpiSelfAsseesmentEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpKpiSubGroup.aspx.cs">
+      <DependentUpon>wfHrEmpKpiSubGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpKpiSubGroup.aspx.designer.cs">
+      <DependentUpon>wfHrEmpKpiSubGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpOtEntry.aspx.cs">
+      <DependentUpon>wfHrEmpOtEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpOtEntry.aspx.designer.cs">
+      <DependentUpon>wfHrEmpOtEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpPfStaturyReport.aspx.cs">
+      <DependentUpon>wfHrEmpPfStaturyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpPfStaturyReport.aspx.designer.cs">
+      <DependentUpon>wfHrEmpPfStaturyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpSalaryReport.aspx.cs">
+      <DependentUpon>wfHrEmpSalaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpSalaryReport.aspx.designer.cs">
+      <DependentUpon>wfHrEmpSalaryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpSalaryReportIndivisual.aspx.cs">
+      <DependentUpon>wfHrEmpSalaryReportIndivisual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpSalaryReportIndivisual.aspx.designer.cs">
+      <DependentUpon>wfHrEmpSalaryReportIndivisual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpSalaryReport_1.aspx.cs">
+      <DependentUpon>wfHrEmpSalaryReport_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpSalaryReport_1.aspx.designer.cs">
+      <DependentUpon>wfHrEmpSalaryReport_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpSummerAEntry.aspx.cs">
+      <DependentUpon>wfHrEmpSummerAEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpSummerAEntry.aspx.designer.cs">
+      <DependentUpon>wfHrEmpSummerAEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventLocationMaster.aspx.cs">
+      <DependentUpon>wfInventLocationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventLocationMaster.aspx.designer.cs">
+      <DependentUpon>wfInventLocationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventoryMain.aspx.cs">
+      <DependentUpon>wfInventoryMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventoryMain.aspx.designer.cs">
+      <DependentUpon>wfInventoryMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventPutwayRule.aspx.cs">
+      <DependentUpon>wfInventPutwayRule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventPutwayRule.aspx.designer.cs">
+      <DependentUpon>wfInventPutwayRule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventStockBranchReport.aspx.cs">
+      <DependentUpon>wfInventStockBranchReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventStockBranchReport.aspx.designer.cs">
+      <DependentUpon>wfInventStockBranchReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventStockMasterReport.aspx.cs">
+      <DependentUpon>wfInventStockMasterReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventStockMasterReport.aspx.designer.cs">
+      <DependentUpon>wfInventStockMasterReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventStockReportPutwayRule.aspx.cs">
+      <DependentUpon>wfInventStockReportPutwayRule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventStockReportPutwayRule.aspx.designer.cs">
+      <DependentUpon>wfInventStockReportPutwayRule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventStockSummaryReport.aspx.cs">
+      <DependentUpon>wfInventStockSummaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventStockSummaryReport.aspx.designer.cs">
+      <DependentUpon>wfInventStockSummaryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfInventWarehouseMaster.aspx.cs">
+      <DependentUpon>wfInventWarehouseMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfInventWarehouseMaster.aspx.designer.cs">
+      <DependentUpon>wfInventWarehouseMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfManufactureMain.aspx.cs">
+      <DependentUpon>wfManufactureMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfManufactureMain.aspx.designer.cs">
+      <DependentUpon>wfManufactureMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmBomEntry.aspx.cs">
+      <DependentUpon>wfMmBomEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmBomEntry.aspx.designer.cs">
+      <DependentUpon>wfMmBomEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmCategoryMasterNew.aspx.cs">
+      <DependentUpon>wfMmCategoryMasterNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmCategoryMasterNew.aspx.designer.cs">
+      <DependentUpon>wfMmCategoryMasterNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmItemGroupMaster.aspx.cs">
+      <DependentUpon>wfMmItemGroupMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmItemGroupMaster.aspx.designer.cs">
+      <DependentUpon>wfMmItemGroupMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmItemMaster.aspx.cs">
+      <DependentUpon>wfMmItemMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmItemMaster.aspx.designer.cs">
+      <DependentUpon>wfMmItemMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmItemMasterNew.aspx.cs">
+      <DependentUpon>wfMmItemMasterNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmItemMasterNew.aspx.designer.cs">
+      <DependentUpon>wfMmItemMasterNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmItemPackagingMaster.aspx.cs">
+      <DependentUpon>wfMmItemPackagingMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmItemPackagingMaster.aspx.designer.cs">
+      <DependentUpon>wfMmItemPackagingMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseGrnInvoiceEntry.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseGrnInvoiceEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseGrnInvoiceEntry.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseGrnInvoiceEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectEntry.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectEntry.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectEntry_display.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectEntry_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectEntry_display.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectEntry_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectGrnEntry.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectGrnEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectGrnEntry.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectGrnEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectGrnEntry_display.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectGrnEntry_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderDirectGrnEntry_display.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderDirectGrnEntry_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderEntry_display.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderEntry_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderEntry_display.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderEntry_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialStockMaster.aspx.cs">
+      <DependentUpon>wfMmMaterialStockMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialStockMaster.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialStockMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmPurchaseQuotationEntry_display.aspx.cs">
+      <DependentUpon>wfMmPurchaseQuotationEntry_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmPurchaseQuotationEntry_display.aspx.designer.cs">
+      <DependentUpon>wfMmPurchaseQuotationEntry_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmUnitMesureMaster.aspx.cs">
+      <DependentUpon>wfMmUnitMesureMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmUnitMesureMaster.aspx.designer.cs">
+      <DependentUpon>wfMmUnitMesureMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmVendorMaster.aspx.cs">
+      <DependentUpon>wfMmVendorMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmVendorMaster.aspx.designer.cs">
+      <DependentUpon>wfMmVendorMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfJlrJobCardMaster.aspx.cs">
+      <DependentUpon>wfMnfJlrJobCardMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfJlrJobCardMaster.aspx.designer.cs">
+      <DependentUpon>wfMnfJlrJobCardMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfJlrJobCardMaster_display.aspx.cs">
+      <DependentUpon>wfMnfJlrJobCardMaster_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfJlrJobCardMaster_display.aspx.designer.cs">
+      <DependentUpon>wfMnfJlrJobCardMaster_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureOperationsMaster.aspx.cs">
+      <DependentUpon>wfMnfManufactureOperationsMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureOperationsMaster.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureOperationsMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureWorkCentersMaster.aspx.cs">
+      <DependentUpon>wfMnfManufactureWorkCentersMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureWorkCentersMaster.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureWorkCentersMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureWorkCentersOperationsTransection.aspx.cs">
+      <DependentUpon>wfMnfManufactureWorkCentersOperationsTransection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureWorkCentersOperationsTransection.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureWorkCentersOperationsTransection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfMaterialManufactureOperationsDetail.aspx.cs">
+      <DependentUpon>wfMnfMaterialManufactureOperationsDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfMaterialManufactureOperationsDetail.aspx.designer.cs">
+      <DependentUpon>wfMnfMaterialManufactureOperationsDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmAssignActivity.aspx.designer.cs">
+      <DependentUpon>wfPmAssignActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmAssignActivity.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmBlockCalendar.aspx.designer.cs">
+      <DependentUpon>wfPmBlockCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmBlockCalendar.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmCustomerMaster.aspx.cs">
+      <DependentUpon>wfPmCustomerMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmCustomerMaster.aspx.designer.cs">
+      <DependentUpon>wfPmCustomerMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmDispatchStatus.aspx.cs">
+      <DependentUpon>wfPmDispatchStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmDispatchStatus.aspx.designer.cs">
+      <DependentUpon>wfPmDispatchStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmGenerateChallan.aspx.cs">
+      <DependentUpon>wfPmGenerateChallan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmGenerateChallan.aspx.designer.cs">
+      <DependentUpon>wfPmGenerateChallan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmMain.aspx.cs">
+      <DependentUpon>wfPmMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmMain.aspx.designer.cs">
+      <DependentUpon>wfPmMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmMilestone.aspx.cs">
+      <DependentUpon>wfPmMilestone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmMilestone.aspx.designer.cs">
+      <DependentUpon>wfPmMilestone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmProductDispatch.aspx.cs">
+      <DependentUpon>wfPmProductDispatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmProductDispatch.aspx.designer.cs">
+      <DependentUpon>wfPmProductDispatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmProjectPlanning.aspx.cs">
+      <DependentUpon>wfPmProjectPlanning.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmProjectPlanning.aspx.designer.cs">
+      <DependentUpon>wfPmProjectPlanning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmSalesOrder.aspx.cs">
+      <DependentUpon>wfPmSalesOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmSalesOrder.aspx.designer.cs">
+      <DependentUpon>wfPmSalesOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmSiteVisit.aspx.cs">
+      <DependentUpon>wfPmSiteVisit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmSiteVisit.aspx.designer.cs">
+      <DependentUpon>wfPmSiteVisit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmSurveyForm.aspx.cs">
+      <DependentUpon>wfPmSurveyForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmSurveyForm.aspx.designer.cs">
+      <DependentUpon>wfPmSurveyForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmSurveyTaskAssigned.aspx.cs">
+      <DependentUpon>wfPmSurveyTaskAssigned.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmSurveyTaskAssigned.aspx.designer.cs">
+      <DependentUpon>wfPmSurveyTaskAssigned.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPmWarehouseMaster.aspx.cs">
+      <DependentUpon>wfPmWarehouseMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPmWarehouseMaster.aspx.designer.cs">
+      <DependentUpon>wfPmWarehouseMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPosCustomer.aspx.cs">
+      <DependentUpon>wfPosCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPosCustomer.aspx.designer.cs">
+      <DependentUpon>wfPosCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPosMain.aspx.cs">
+      <DependentUpon>wfPosMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPosMain.aspx.designer.cs">
+      <DependentUpon>wfPosMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPosPayment.aspx.cs">
+      <DependentUpon>wfPosPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPosPayment.aspx.designer.cs">
+      <DependentUpon>wfPosPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfPosProductCalculation.aspx.cs">
+      <DependentUpon>wfPosProductCalculation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfPosProductCalculation.aspx.designer.cs">
+      <DependentUpon>wfPosProductCalculation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdBomMaster.aspx.cs">
+      <DependentUpon>wfSdBomMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdBomMaster.aspx.designer.cs">
+      <DependentUpon>wfSdBomMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdBomMaster_display.aspx.cs">
+      <DependentUpon>wfSdBomMaster_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdBomMaster_display.aspx.designer.cs">
+      <DependentUpon>wfSdBomMaster_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdMain.aspx.cs">
+      <DependentUpon>wfSdMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdMain.aspx.designer.cs">
+      <DependentUpon>wfSdMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfErpMain.aspx.cs">
+      <DependentUpon>wfErpMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfErpMain.aspx.designer.cs">
+      <DependentUpon>wfErpMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfFaWarehouseMaster.aspx.cs">
+      <DependentUpon>wfFaWarehouseMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfFaWarehouseMaster.aspx.designer.cs">
+      <DependentUpon>wfFaWarehouseMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrBranchMaster.aspx.cs">
+      <DependentUpon>wfHrBranchMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrBranchMaster.aspx.designer.cs">
+      <DependentUpon>wfHrBranchMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrBranchMasterNew.aspx.cs">
+      <DependentUpon>wfHrBranchMasterNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrBranchMasterNew.aspx.designer.cs">
+      <DependentUpon>wfHrBranchMasterNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfFaMainMenu.aspx.cs">
+      <DependentUpon>wfFaMainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfFaMainMenu.aspx.designer.cs">
+      <DependentUpon>wfFaMainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrDesignationMaster.aspx.cs">
+      <DependentUpon>wfHrDesignationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrDesignationMaster.aspx.designer.cs">
+      <DependentUpon>wfHrDesignationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrDeptMaster.aspx.cs">
+      <DependentUpon>wfHrDeptMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrDeptMaster.aspx.designer.cs">
+      <DependentUpon>wfHrDeptMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpMasterTransection.aspx.cs">
+      <DependentUpon>wfHrEmpMasterTransection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpMasterTransection.aspx.designer.cs">
+      <DependentUpon>wfHrEmpMasterTransection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEsiMaster.aspx.cs">
+      <DependentUpon>wfHrEsiMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEsiMaster.aspx.designer.cs">
+      <DependentUpon>wfHrEsiMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrPfMaster.aspx.cs">
+      <DependentUpon>wfHrPfMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrPfMaster.aspx.designer.cs">
+      <DependentUpon>wfHrPfMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrEmpMaster.aspx.cs">
+      <DependentUpon>wfHrEmpMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrEmpMaster.aspx.designer.cs">
+      <DependentUpon>wfHrEmpMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfHrHrmsMain.aspx.cs">
+      <DependentUpon>wfHrHrmsMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfHrHrmsMain.aspx.designer.cs">
+      <DependentUpon>wfHrHrmsMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminLogin.aspx.cs">
+      <DependentUpon>wfAdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminLogin.aspx.designer.cs">
+      <DependentUpon>wfAdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmCategoryMaster.aspx.cs">
+      <DependentUpon>wfMmCategoryMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmCategoryMaster.aspx.designer.cs">
+      <DependentUpon>wfMmCategoryMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMainMenu.aspx.cs">
+      <DependentUpon>wfMmMainMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMainMenu.aspx.designer.cs">
+      <DependentUpon>wfMmMainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialMaster.aspx.cs">
+      <DependentUpon>wfMmMaterialMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialMaster.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderEntry.aspx.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmMaterialPurchaseOrderEntry.aspx.designer.cs">
+      <DependentUpon>wfMmMaterialPurchaseOrderEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMmPurchaseQuotationEntry.aspx.cs">
+      <DependentUpon>wfMmPurchaseQuotationEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMmPurchaseQuotationEntry.aspx.designer.cs">
+      <DependentUpon>wfMmPurchaseQuotationEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdManufactureOrder.aspx.cs">
+      <DependentUpon>wfSdManufactureOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdManufactureOrder.aspx.designer.cs">
+      <DependentUpon>wfSdManufactureOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdProductMaster.aspx.cs">
+      <DependentUpon>wfSdProductMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdProductMaster.aspx.designer.cs">
+      <DependentUpon>wfSdProductMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdProductMaster_Display.aspx.cs">
+      <DependentUpon>wfSdProductMaster_Display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdProductMaster_Display.aspx.designer.cs">
+      <DependentUpon>wfSdProductMaster_Display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdProjectMaster.aspx.cs">
+      <DependentUpon>wfSdProjectMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdProjectMaster.aspx.designer.cs">
+      <DependentUpon>wfSdProjectMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdProjectMaster_Display.aspx.cs">
+      <DependentUpon>wfSdProjectMaster_Display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdProjectMaster_Display.aspx.designer.cs">
+      <DependentUpon>wfSdProjectMaster_Display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdProjectMaster_Document.aspx.cs">
+      <DependentUpon>wfSdProjectMaster_Document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdProjectMaster_Document.aspx.designer.cs">
+      <DependentUpon>wfSdProjectMaster_Document.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesMisReport.aspx.cs">
+      <DependentUpon>wfSdSalesMisReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesMisReport.aspx.designer.cs">
+      <DependentUpon>wfSdSalesMisReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrder.aspx.cs">
+      <DependentUpon>wfSdSalesOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrder.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrderDelivery.aspx.cs">
+      <DependentUpon>wfSdSalesOrderDelivery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrderDelivery.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrderDelivery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrderInvoice.aspx.cs">
+      <DependentUpon>wfSdSalesOrderInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrderInvoice.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrderInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrderInvoice_display.aspx.cs">
+      <DependentUpon>wfSdSalesOrderInvoice_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrderInvoice_display.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrderInvoice_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrderPaymentMaster.aspx.cs">
+      <DependentUpon>wfSdSalesOrderPaymentMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrderPaymentMaster.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrderPaymentMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrderPayment_display.aspx.cs">
+      <DependentUpon>wfSdSalesOrderPayment_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrderPayment_display.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrderPayment_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesOrder_display.aspx.cs">
+      <DependentUpon>wfSdSalesOrder_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesOrder_display.aspx.designer.cs">
+      <DependentUpon>wfSdSalesOrder_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesQuotationOrder.aspx.cs">
+      <DependentUpon>wfSdSalesQuotationOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesQuotationOrder.aspx.designer.cs">
+      <DependentUpon>wfSdSalesQuotationOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfSdSalesQuotationOrder_display.aspx.cs">
+      <DependentUpon>wfSdSalesQuotationOrder_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfSdSalesQuotationOrder_display.aspx.designer.cs">
+      <DependentUpon>wfSdSalesQuotationOrder_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wSdSalesQuotationMaster.aspx.cs">
+      <DependentUpon>wSdSalesQuotationMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wSdSalesQuotationMaster.aspx.designer.cs">
+      <DependentUpon>wSdSalesQuotationMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wSdSalesQuotationMaster_display.aspx.cs">
+      <DependentUpon>wSdSalesQuotationMaster_display.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wSdSalesQuotationMaster_display.aspx.designer.cs">
+      <DependentUpon>wSdSalesQuotationMaster_display.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.less" />
+    <Content Include="FileUploadHandler.ashx" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="FaMainMenu.Master" />
+    <Content Include="MmMainMenu.Master" />
+    <Content Include="CrmMainMenu.Master" />
+    <Content Include="InventMainMenu.Master" />
+    <Content Include="ManufactMainMenu.Master" />
+    <Content Include="AdminMain.Master" />
+    <Content Include="CrmLeadImportTemplte.xlsx" />
+    <Content Include="ExternalPage.Master" />
+    <Content Include="FileSurveyUploadHandler.ashx" />
+    <None Include="packages.config" />
+    <Content Include="SdMainMenu.Master" />
+    <Content Include="Site1.Master" />
+    <Content Include="POS.Master" />
+    <Content Include="PM.Master" />
+    <Content Include="Templates\Attendance.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62680</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62680/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

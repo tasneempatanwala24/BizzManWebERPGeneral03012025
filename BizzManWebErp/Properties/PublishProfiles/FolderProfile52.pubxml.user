@@ -1,0 +1,987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>G:\BIZZMAN_NEW\Project\Publish\Date_14042024_erp</_PublishTargetUrl>
+    <History>True|2024-04-14T12:12:45.8458250Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AdminMain.Master">
+      <publishTime>03/05/2024 18:07:07</publishTime>
+    </File>
+    <File Include="bin/BizzManWebErp.dll">
+      <publishTime>04/14/2024 17:42:41</publishTime>
+    </File>
+    <File Include="bin/BizzManWebErp.pdb">
+      <publishTime>04/14/2024 17:42:41</publishTime>
+    </File>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>01/13/2024 15:11:28</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>07/05/2022 18:28:24</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.pdb">
+      <publishTime>07/05/2022 18:28:24</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>07/05/2022 18:28:27</publishTime>
+    </File>
+    <File Include="bin/ExcelNumberFormat.dll">
+      <publishTime>07/05/2022 18:28:29</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>01/13/2024 15:11:28</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/05/2022 18:28:30</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/05/2022 18:28:41</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>07/05/2022 18:28:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>07/05/2022 18:28:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>07/05/2022 18:28:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>07/05/2022 18:28:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>07/05/2022 18:28:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>07/05/2022 18:28:33</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>07/05/2022 18:28:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>07/05/2022 18:28:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>07/05/2022 18:28:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>07/05/2022 18:28:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>07/05/2022 18:28:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>07/05/2022 18:28:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>07/05/2022 18:28:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>07/05/2022 18:28:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>07/05/2022 18:28:37</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>07/05/2022 18:28:38</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>07/05/2022 18:28:38</publishTime>
+    </File>
+    <File Include="bin/System.IO.FileSystem.Primitives.dll">
+      <publishTime>07/05/2022 18:28:42</publishTime>
+    </File>
+    <File Include="bin/System.IO.Packaging.dll">
+      <publishTime>07/05/2022 18:28:43</publishTime>
+    </File>
+    <File Include="CrmLeadImportTemplte.xlsx">
+      <publishTime>01/11/2023 16:43:31</publishTime>
+    </File>
+    <File Include="CrmMainMenu.Master">
+      <publishTime>02/07/2023 16:43:19</publishTime>
+    </File>
+    <File Include="css/alertify.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/all.min.css">
+      <publishTime>01/13/2024 15:11:27</publishTime>
+    </File>
+    <File Include="css/bootstrap-datepicker.min.css">
+      <publishTime>01/13/2024 15:11:27</publishTime>
+    </File>
+    <File Include="css/bootstrap-datepicker3.css">
+      <publishTime>02/13/2024 23:24:47</publishTime>
+    </File>
+    <File Include="css/bootstrap-timepicker.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/bootstrap.less">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/bt.min.css">
+      <publishTime>12/03/2022 17:02:37</publishTime>
+    </File>
+    <File Include="css/CrmLeadMaster.css">
+      <publishTime>01/02/2023 16:46:15</publishTime>
+    </File>
+    <File Include="css/CrmLeadStyle.css">
+      <publishTime>01/13/2023 00:25:17</publishTime>
+    </File>
+    <File Include="css/dataTables.bootstrap4.min.css">
+      <publishTime>01/13/2024 15:11:27</publishTime>
+    </File>
+    <File Include="css/font-awesome.min.css">
+      <publishTime>01/02/2023 16:46:58</publishTime>
+    </File>
+    <File Include="css/InventPutawayRule.css">
+      <publishTime>01/31/2023 16:46:08</publishTime>
+    </File>
+    <File Include="css/InventWarehouseMaster.css">
+      <publishTime>12/29/2022 15:10:33</publishTime>
+    </File>
+    <File Include="css/jquery-ui.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/jquery.dataTables.min.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/LedgerMaster.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/POS.css">
+      <publishTime>11/20/2022 00:30:32</publishTime>
+    </File>
+    <File Include="css/select2.min.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/SidebarMenu.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>12/14/2022 23:20:53</publishTime>
+    </File>
+    <File Include="css/styleo.css">
+      <publishTime>12/03/2022 17:02:37</publishTime>
+    </File>
+    <File Include="css/VoucherEntry.css">
+      <publishTime>11/17/2022 10:52:51</publishTime>
+    </File>
+    <File Include="ExternalPage.Master">
+      <publishTime>04/03/2024 11:04:21</publishTime>
+    </File>
+    <File Include="FaMainMenu.Master">
+      <publishTime>05/14/2023 16:09:09</publishTime>
+    </File>
+    <File Include="FileUploadHandler.ashx">
+      <publishTime>07/05/2022 18:27:44</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="Images/AddNew.gif">
+      <publishTime>01/16/2023 15:00:21</publishTime>
+    </File>
+    <File Include="Images/AddNew2.png">
+      <publishTime>01/16/2023 15:00:21</publishTime>
+    </File>
+    <File Include="Images/AddNew3.png">
+      <publishTime>01/16/2023 15:00:21</publishTime>
+    </File>
+    <File Include="Images/bg.jpg">
+      <publishTime>12/03/2022 17:02:02</publishTime>
+    </File>
+    <File Include="Images/CompanyLogo.png">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="Images/ErpLogo.png">
+      <publishTime>12/03/2022 17:02:02</publishTime>
+    </File>
+    <File Include="Images/FaVoucherEntryAddNew.png">
+      <publishTime>02/05/2023 18:44:41</publishTime>
+    </File>
+    <File Include="Images/FaVoucherEntryRemove.jpg">
+      <publishTime>02/05/2023 18:44:41</publishTime>
+    </File>
+    <File Include="Images/fileupload.png">
+      <publishTime>12/02/2022 23:35:44</publishTime>
+    </File>
+    <File Include="Images/images.jpg">
+      <publishTime>07/05/2022 18:27:56</publishTime>
+    </File>
+    <File Include="Images/kanban-view.png">
+      <publishTime>12/11/2022 23:31:17</publishTime>
+    </File>
+    <File Include="Images/list-view.png">
+      <publishTime>12/11/2022 23:31:17</publishTime>
+    </File>
+    <File Include="Images/logo.jpg">
+      <publishTime>01/10/2024 17:16:54</publishTime>
+    </File>
+    <File Include="Images/Remove1.jpg">
+      <publishTime>01/16/2023 15:00:21</publishTime>
+    </File>
+    <File Include="Images/Remove2.jpg">
+      <publishTime>01/16/2023 15:00:21</publishTime>
+    </File>
+    <File Include="Images/RemoveRow.png">
+      <publishTime>01/16/2023 15:00:21</publishTime>
+    </File>
+    <File Include="InventMainMenu.Master">
+      <publishTime>02/07/2023 16:43:19</publishTime>
+    </File>
+    <File Include="ManufactMainMenu.Master">
+      <publishTime>08/24/2023 12:06:54</publishTime>
+    </File>
+    <File Include="MmMainMenu.Master">
+      <publishTime>04/11/2024 00:21:54</publishTime>
+    </File>
+    <File Include="POS.Master">
+      <publishTime>02/07/2023 16:43:19</publishTime>
+    </File>
+    <File Include="Scripts/AdminCompanyMaster.js">
+      <publishTime>01/14/2024 17:34:50</publishTime>
+    </File>
+    <File Include="Scripts/AdminCompanyMasterNew.js">
+      <publishTime>03/05/2024 23:53:41</publishTime>
+    </File>
+    <File Include="Scripts/AdminModuleMaster.js">
+      <publishTime>09/08/2023 00:23:04</publishTime>
+    </File>
+    <File Include="Scripts/AdminRoleMaster.js">
+      <publishTime>02/21/2023 14:26:23</publishTime>
+    </File>
+    <File Include="Scripts/AdminUserMaster.js">
+      <publishTime>03/29/2024 23:51:23</publishTime>
+    </File>
+    <File Include="Scripts/alertify.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datepicker.min.js">
+      <publishTime>01/13/2024 15:11:29</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-timepicker.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/bt.min.js">
+      <publishTime>12/03/2022 17:01:26</publishTime>
+    </File>
+    <File Include="Scripts/buttons.dataTables.min.css">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/buttons.html5.min.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/CategoryMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/CrmCustomerMaster.js">
+      <publishTime>12/28/2022 12:14:33</publishTime>
+    </File>
+    <File Include="Scripts/CrmLeadMaster.js">
+      <publishTime>01/13/2023 00:24:43</publishTime>
+    </File>
+    <File Include="Scripts/CrmtableHTMLExport.js">
+      <publishTime>01/08/2023 23:35:41</publishTime>
+    </File>
+    <File Include="Scripts/dataTables.buttons.min.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeAttendance.js">
+      <publishTime>03/16/2024 15:21:48</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeCTCMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeSalaryGrade.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeSaleryApprove.js">
+      <publishTime>03/17/2024 15:31:15</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeSaleryGenerate.js">
+      <publishTime>03/17/2024 15:31:05</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeTransaction.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/EmpMaster.js">
+      <publishTime>03/10/2024 00:28:48</publishTime>
+    </File>
+    <File Include="Scripts/FaAccountsGroupMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/FaAccountsHeadMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/FaLedgerMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/FaTrialBalance.js">
+      <publishTime>05/18/2023 18:43:42</publishTime>
+    </File>
+    <File Include="Scripts/FaVoucherEntry.js">
+      <publishTime>08/16/2023 17:19:50</publishTime>
+    </File>
+    <File Include="Scripts/FaWarehouseMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/HrBranchMasterNew.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/HrDepartmentMasterNew.js">
+      <publishTime>02/06/2024 23:43:10</publishTime>
+    </File>
+    <File Include="Scripts/HrDesignationMasterNew.js">
+      <publishTime>03/06/2024 23:26:46</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpEsiStaturyReport.js">
+      <publishTime>04/03/2024 23:50:27</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpForm16.js">
+      <publishTime>03/30/2023 15:40:10</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpJobAssign.js">
+      <publishTime>02/08/2024 23:34:10</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpJobCategoryMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpJobMaster.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpKpi.js">
+      <publishTime>11/27/2023 17:57:35</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpKpiGroup.js">
+      <publishTime>04/22/2023 17:13:02</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpKpiMaster.js">
+      <publishTime>04/09/2023 17:27:01</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpKpiReport.js">
+      <publishTime>03/30/2023 15:38:13</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpKpiSelfAsseesmentEntry.js">
+      <publishTime>04/20/2023 17:50:59</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpKpiSubGroup.js">
+      <publishTime>04/23/2023 00:00:46</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpLeaveApplication.js">
+      <publishTime>04/01/2024 16:37:39</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpLoan.js">
+      <publishTime>03/08/2024 18:43:08</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpLoanApplicationMaster.js">
+      <publishTime>03/09/2024 15:57:19</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpOtEntry.js">
+      <publishTime>02/27/2024 00:25:14</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpPfStaturyReport.js">
+      <publishTime>04/03/2024 23:50:12</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpSalaryPaySlip.js">
+      <publishTime>04/05/2024 14:22:34</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpSalaryReport.js">
+      <publishTime>04/05/2024 14:22:34</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpSalaryReportIndivisual.js">
+      <publishTime>04/03/2024 23:48:33</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpSalaryReport_1.js">
+      <publishTime>03/20/2024 17:22:47</publishTime>
+    </File>
+    <File Include="Scripts/HrEmpSummerAEntry.js">
+      <publishTime>02/27/2024 18:23:15</publishTime>
+    </File>
+    <File Include="Scripts/html2canvas.min.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/InventLocationMaster.js">
+      <publishTime>12/28/2022 23:44:14</publishTime>
+    </File>
+    <File Include="Scripts/InventPutwayPule.js">
+      <publishTime>01/31/2023 16:45:36</publishTime>
+    </File>
+    <File Include="Scripts/InventStockReportPutwayRule.js">
+      <publishTime>01/31/2023 16:45:31</publishTime>
+    </File>
+    <File Include="Scripts/InventWarehouseMaster.js">
+      <publishTime>12/29/2022 15:10:02</publishTime>
+    </File>
+    <File Include="Scripts/jqq.min.js">
+      <publishTime>12/03/2022 17:01:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.min.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.5.1.slim.min.js">
+      <publishTime>01/13/2024 15:11:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery.dataTables.min.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.min.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/jszip.min.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/Maino.js">
+      <publishTime>12/03/2022 17:01:26</publishTime>
+    </File>
+    <File Include="Scripts/ManufactureOrder.js">
+      <publishTime>02/11/2024 17:57:09</publishTime>
+    </File>
+    <File Include="Scripts/MaterialPurchaseGateInword.js">
+      <publishTime>04/06/2024 00:35:27</publishTime>
+    </File>
+    <File Include="Scripts/MaterialPurchaseGrnEntry.js">
+      <publishTime>04/06/2024 00:56:43</publishTime>
+    </File>
+    <File Include="Scripts/MaterialPurchaseGrnInvoiceEntry.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/MaterialStockMaster.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/MmBomEntry.js">
+      <publishTime>08/24/2023 15:18:03</publishTime>
+    </File>
+    <File Include="Scripts/MmCategoryMaster.js">
+      <publishTime>03/01/2024 16:25:38</publishTime>
+    </File>
+    <File Include="Scripts/MmCategoryMasterNew.js">
+      <publishTime>03/02/2024 12:41:15</publishTime>
+    </File>
+    <File Include="Scripts/MmItemGroupMaster.js">
+      <publishTime>03/05/2024 23:53:04</publishTime>
+    </File>
+    <File Include="Scripts/MmItemMaster.js">
+      <publishTime>02/28/2024 23:35:49</publishTime>
+    </File>
+    <File Include="Scripts/MmItemMasterNew.js">
+      <publishTime>04/10/2024 16:12:46</publishTime>
+    </File>
+    <File Include="Scripts/MmItemPackagingMaster.js">
+      <publishTime>03/05/2024 23:52:17</publishTime>
+    </File>
+    <File Include="Scripts/MmMaterialIndentMaster.js">
+      <publishTime>03/20/2024 00:13:55</publishTime>
+    </File>
+    <File Include="Scripts/MmMaterialMaster.js">
+      <publishTime>02/11/2024 16:16:45</publishTime>
+    </File>
+    <File Include="Scripts/MmMaterialPurchaseOrder.js">
+      <publishTime>04/03/2024 15:20:48</publishTime>
+    </File>
+    <File Include="Scripts/MmMaterialPurchaseOrderDirectEntry.js">
+      <publishTime>04/03/2024 15:20:48</publishTime>
+    </File>
+    <File Include="Scripts/MmMaterialPurchaseOrderDirectGrnEntry.js">
+      <publishTime>04/13/2024 16:03:13</publishTime>
+    </File>
+    <File Include="Scripts/MmPurchaseQuotationEntry.js">
+      <publishTime>04/12/2024 00:37:01</publishTime>
+    </File>
+    <File Include="Scripts/MmRequisitionNote.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/MmUnitMesureMaster.js">
+      <publishTime>03/06/2024 17:53:26</publishTime>
+    </File>
+    <File Include="Scripts/MmVendorMaster.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/MnfManufactureOperationsMaster.js">
+      <publishTime>08/23/2023 23:17:22</publishTime>
+    </File>
+    <File Include="Scripts/MnfManufactureWorkCentersMaster.js">
+      <publishTime>08/22/2023 17:42:44</publishTime>
+    </File>
+    <File Include="Scripts/MnfManufactureWorkCentersOperationsMaster.js">
+      <publishTime>08/23/2023 17:31:23</publishTime>
+    </File>
+    <File Include="Scripts/MnfMaterialManufactureOperationsDetail.js">
+      <publishTime>09/02/2023 18:57:48</publishTime>
+    </File>
+    <File Include="Scripts/moment.min.js">
+      <publishTime>11/17/2022 10:53:28</publishTime>
+    </File>
+    <File Include="Scripts/pdfmake.min.js">
+      <publishTime>11/17/2022 10:53:29</publishTime>
+    </File>
+    <File Include="Scripts/poppar.js">
+      <publishTime>12/03/2022 17:01:26</publishTime>
+    </File>
+    <File Include="Scripts/PosCustomerMaster.js">
+      <publishTime>11/20/2022 00:30:02</publishTime>
+    </File>
+    <File Include="Scripts/PosPayment.js">
+      <publishTime>11/20/2022 00:30:02</publishTime>
+    </File>
+    <File Include="Scripts/PosProductCalculation.js">
+      <publishTime>11/20/2022 00:30:02</publishTime>
+    </File>
+    <File Include="Scripts/SalesOrder.js">
+      <publishTime>03/12/2024 23:33:02</publishTime>
+    </File>
+    <File Include="Scripts/SalesOrderDelivery.js">
+      <publishTime>12/15/2022 23:56:46</publishTime>
+    </File>
+    <File Include="Scripts/SdSalesMisReport.js">
+      <publishTime>05/20/2023 17:29:10</publishTime>
+    </File>
+    <File Include="Scripts/SdSalesOrderInvoice.js">
+      <publishTime>03/12/2024 23:33:02</publishTime>
+    </File>
+    <File Include="Scripts/SdSalesQuotationMaster.js">
+      <publishTime>03/12/2024 23:33:02</publishTime>
+    </File>
+    <File Include="Scripts/SdSalesQuotationOrder.js">
+      <publishTime>03/12/2024 23:33:02</publishTime>
+    </File>
+    <File Include="Scripts/select2.min.js">
+      <publishTime>11/17/2022 10:53:29</publishTime>
+    </File>
+    <File Include="Scripts/tableHTMLExport.js">
+      <publishTime>11/17/2022 10:53:27</publishTime>
+    </File>
+    <File Include="Scripts/wfHrEmpLeaveApplicationIndivisual.js">
+      <publishTime>04/01/2024 16:37:39</publishTime>
+    </File>
+    <File Include="SdMainMenu.Master">
+      <publishTime>03/14/2024 00:17:46</publishTime>
+    </File>
+    <File Include="Site1.Master">
+      <publishTime>04/03/2024 12:02:52</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/14/2024 17:42:42</publishTime>
+    </File>
+    <File Include="wfAdminCompanyMaster.aspx">
+      <publishTime>01/14/2024 17:25:38</publishTime>
+    </File>
+    <File Include="wfAdminCompanyMasterNew.aspx">
+      <publishTime>03/05/2024 23:53:41</publishTime>
+    </File>
+    <File Include="wfAdminLogin.aspx">
+      <publishTime>06/22/2023 17:41:09</publishTime>
+    </File>
+    <File Include="wfAdminMain.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfAdminModuleMaster.aspx">
+      <publishTime>09/08/2023 00:18:23</publishTime>
+    </File>
+    <File Include="wfAdminRoleMaster.aspx">
+      <publishTime>02/21/2023 14:25:56</publishTime>
+    </File>
+    <File Include="wfAdminRoleModuleMaster.aspx">
+      <publishTime>09/06/2023 17:37:05</publishTime>
+    </File>
+    <File Include="wfAdminUserMaster.aspx">
+      <publishTime>04/02/2024 12:02:21</publishTime>
+    </File>
+    <File Include="wfCrmCustomerMaster.aspx">
+      <publishTime>12/28/2022 10:37:02</publishTime>
+    </File>
+    <File Include="wfCrmLeadMaster.aspx">
+      <publishTime>01/13/2023 00:24:08</publishTime>
+    </File>
+    <File Include="wfCrmMain.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfErpMain.aspx">
+      <publishTime>12/12/2022 15:21:06</publishTime>
+    </File>
+    <File Include="wfFaAccountsGroupMaster.aspx">
+      <publishTime>07/06/2022 14:48:02</publishTime>
+    </File>
+    <File Include="wfFaAccountsHeadMaster.aspx">
+      <publishTime>08/09/2022 13:16:49</publishTime>
+    </File>
+    <File Include="wfFaBalanceSheet.aspx">
+      <publishTime>05/14/2023 16:07:24</publishTime>
+    </File>
+    <File Include="wfFaLedgerMaster.aspx">
+      <publishTime>10/02/2022 16:01:33</publishTime>
+    </File>
+    <File Include="wfFaMainMenu.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfFaTrialBalance.aspx">
+      <publishTime>05/18/2023 18:39:47</publishTime>
+    </File>
+    <File Include="wfFaVoucherEntry.aspx">
+      <publishTime>08/16/2023 16:36:39</publishTime>
+    </File>
+    <File Include="wfFaWarehouseMaster.aspx">
+      <publishTime>07/05/2022 18:27:45</publishTime>
+    </File>
+    <File Include="wfHrBranchMaster.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrBranchMasterNew.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrDeptMaster.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrDeptMasterNew.aspx">
+      <publishTime>02/06/2024 23:43:10</publishTime>
+    </File>
+    <File Include="wfHrDesignationMaster.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrDesignationMasterNew.aspx">
+      <publishTime>03/06/2024 23:26:45</publishTime>
+    </File>
+    <File Include="wfHrEmpAttendance.aspx">
+      <publishTime>03/15/2024 17:59:19</publishTime>
+    </File>
+    <File Include="wfHrEmpCtcMaster.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrEmpEsiStaturyReport.aspx">
+      <publishTime>04/03/2024 23:50:27</publishTime>
+    </File>
+    <File Include="wfHrEmpExternal.aspx">
+      <publishTime>03/28/2024 12:23:24</publishTime>
+    </File>
+    <File Include="wfHrEmpForm16.aspx">
+      <publishTime>03/30/2023 15:57:09</publishTime>
+    </File>
+    <File Include="wfHrEmpJobAssign.aspx">
+      <publishTime>04/04/2023 16:12:09</publishTime>
+    </File>
+    <File Include="wfHrEmpJobCategoryMaster.aspx">
+      <publishTime>07/23/2022 00:16:28</publishTime>
+    </File>
+    <File Include="wfHrEmpJobMaster.aspx">
+      <publishTime>07/23/2022 00:18:58</publishTime>
+    </File>
+    <File Include="wfHrEmpKpi.aspx">
+      <publishTime>11/27/2023 17:57:33</publishTime>
+    </File>
+    <File Include="wfHrEmpKpiGroup.aspx">
+      <publishTime>04/15/2023 18:23:11</publishTime>
+    </File>
+    <File Include="wfHrEmpKpiMaster.aspx">
+      <publishTime>04/09/2023 17:40:21</publishTime>
+    </File>
+    <File Include="wfHrEmpKpiReport.aspx">
+      <publishTime>03/30/2023 15:59:51</publishTime>
+    </File>
+    <File Include="wfHrEmpKpiSelfAsseesmentEntry.aspx">
+      <publishTime>04/19/2023 18:27:25</publishTime>
+    </File>
+    <File Include="wfHrEmpKpiSubGroup.aspx">
+      <publishTime>09/07/2023 23:35:59</publishTime>
+    </File>
+    <File Include="wfHrEmpLeaveApplication.aspx">
+      <publishTime>04/01/2024 16:37:39</publishTime>
+    </File>
+    <File Include="wfHrEmpLeaveApplicationIndivisual.aspx">
+      <publishTime>04/01/2024 16:37:39</publishTime>
+    </File>
+    <File Include="wfHrEmpLoan.aspx">
+      <publishTime>04/06/2023 00:39:05</publishTime>
+    </File>
+    <File Include="wfHrEmpLoanApplicationMaster.aspx">
+      <publishTime>03/09/2024 15:26:16</publishTime>
+    </File>
+    <File Include="wfHrEmpMaster.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrEmpMasterTransection.aspx">
+      <publishTime>07/05/2022 18:27:46</publishTime>
+    </File>
+    <File Include="wfHrEmpOtEntry.aspx">
+      <publishTime>02/27/2024 00:25:14</publishTime>
+    </File>
+    <File Include="wfHrEmpPfStaturyReport.aspx">
+      <publishTime>04/03/2024 23:50:12</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryApprove.aspx">
+      <publishTime>03/17/2024 15:31:15</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryGrade.aspx">
+      <publishTime>07/05/2022 18:27:47</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryGrnerate.aspx">
+      <publishTime>03/17/2024 15:31:05</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryPaySlip.aspx">
+      <publishTime>04/05/2024 14:22:33</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryReport.aspx">
+      <publishTime>04/05/2024 14:22:34</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryReportIndivisual.aspx">
+      <publishTime>04/03/2024 23:48:33</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryReport_1.aspx">
+      <publishTime>03/18/2024 00:02:10</publishTime>
+    </File>
+    <File Include="wfHrEmpSummerAEntry.aspx">
+      <publishTime>02/27/2024 18:23:15</publishTime>
+    </File>
+    <File Include="wfHrEsiMaster.aspx">
+      <publishTime>07/05/2022 18:27:47</publishTime>
+    </File>
+    <File Include="wfHrHrmsMain.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfHrPfMaster.aspx">
+      <publishTime>07/05/2022 18:27:47</publishTime>
+    </File>
+    <File Include="wfInventLocationMaster.aspx">
+      <publishTime>12/28/2022 23:43:51</publishTime>
+    </File>
+    <File Include="wfInventoryMain.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfInventPutwayRule.aspx">
+      <publishTime>01/31/2023 16:44:48</publishTime>
+    </File>
+    <File Include="wfInventStockReportPutwayRule.aspx">
+      <publishTime>01/31/2023 16:52:42</publishTime>
+    </File>
+    <File Include="wfInventWarehouseMaster.aspx">
+      <publishTime>03/05/2024 00:26:49</publishTime>
+    </File>
+    <File Include="wfManufactureMain.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfMmBomEntry.aspx">
+      <publishTime>08/24/2023 00:32:28</publishTime>
+    </File>
+    <File Include="wfMmCategoryMaster.aspx">
+      <publishTime>03/01/2024 16:25:38</publishTime>
+    </File>
+    <File Include="wfMmCategoryMasterNew.aspx">
+      <publishTime>03/02/2024 12:41:15</publishTime>
+    </File>
+    <File Include="wfMmItemGroupMaster.aspx">
+      <publishTime>03/05/2024 23:53:03</publishTime>
+    </File>
+    <File Include="wfMmItemMaster.aspx">
+      <publishTime>02/28/2024 23:35:48</publishTime>
+    </File>
+    <File Include="wfMmItemMasterNew.aspx">
+      <publishTime>04/08/2024 17:36:36</publishTime>
+    </File>
+    <File Include="wfMmItemPackagingMaster.aspx">
+      <publishTime>03/05/2024 23:52:17</publishTime>
+    </File>
+    <File Include="wfMmMainMenu.aspx">
+      <publishTime>02/07/2023 16:45:41</publishTime>
+    </File>
+    <File Include="wfMmMaterialIndentMaster.aspx">
+      <publishTime>03/20/2024 00:13:55</publishTime>
+    </File>
+    <File Include="wfMmMaterialMaster.aspx">
+      <publishTime>09/18/2022 00:09:03</publishTime>
+    </File>
+    <File Include="wfMmMaterialPurchaseGateInword.aspx">
+      <publishTime>07/19/2022 10:20:13</publishTime>
+    </File>
+    <File Include="wfMmMaterialPurchaseGrnEntry.aspx">
+      <publishTime>07/19/2022 10:20:13</publishTime>
+    </File>
+    <File Include="wfMmMaterialPurchaseGrnInvoiceEntry.aspx">
+      <publishTime>07/22/2022 00:38:59</publishTime>
+    </File>
+    <File Include="wfMmMaterialPurchaseOrderDirectEntry.aspx">
+      <publishTime>04/13/2024 16:03:12</publishTime>
+    </File>
+    <File Include="wfMmMaterialPurchaseOrderDirectGrnEntry.aspx">
+      <publishTime>04/13/2024 16:03:13</publishTime>
+    </File>
+    <File Include="wfMmMaterialPurchaseOrderEntry.aspx">
+      <publishTime>04/03/2024 15:20:47</publishTime>
+    </File>
+    <File Include="wfMmMaterialStockMaster.aspx">
+      <publishTime>11/12/2022 00:02:46</publishTime>
+    </File>
+    <File Include="wfMmPurchaseQuotationEntry.aspx">
+      <publishTime>07/05/2022 18:27:47</publishTime>
+    </File>
+    <File Include="wfMmRequisitionNote.aspx">
+      <publishTime>07/05/2022 18:27:47</publishTime>
+    </File>
+    <File Include="wfMmUnitMesureMaster.aspx">
+      <publishTime>03/06/2024 17:53:26</publishTime>
+    </File>
+    <File Include="wfMmVendorMaster.aspx">
+      <publishTime>07/07/2022 16:36:45</publishTime>
+    </File>
+    <File Include="wfMnfManufactureOperationsMaster.aspx">
+      <publishTime>08/23/2023 23:14:13</publishTime>
+    </File>
+    <File Include="wfMnfManufactureWorkCentersMaster.aspx">
+      <publishTime>08/22/2023 17:15:02</publishTime>
+    </File>
+    <File Include="wfMnfManufactureWorkCentersOperationsTransection.aspx">
+      <publishTime>08/21/2023 16:49:57</publishTime>
+    </File>
+    <File Include="wfMnfMaterialManufactureOperationsDetail.aspx">
+      <publishTime>08/27/2023 00:12:55</publishTime>
+    </File>
+    <File Include="wfPosCustomer.aspx">
+      <publishTime>11/20/2022 00:22:06</publishTime>
+    </File>
+    <File Include="wfPosMain.aspx">
+      <publishTime>02/07/2023 16:45:42</publishTime>
+    </File>
+    <File Include="wfPosPayment.aspx">
+      <publishTime>11/20/2022 00:22:38</publishTime>
+    </File>
+    <File Include="wfPosProductCalculation.aspx">
+      <publishTime>11/20/2022 00:22:39</publishTime>
+    </File>
+    <File Include="wfSdMain.aspx">
+      <publishTime>02/07/2023 16:45:42</publishTime>
+    </File>
+    <File Include="wfSdManufactureOrder.aspx">
+      <publishTime>11/10/2022 23:34:52</publishTime>
+    </File>
+    <File Include="wfSdSalesMisReport.aspx">
+      <publishTime>05/20/2023 17:27:28</publishTime>
+    </File>
+    <File Include="wfSdSalesOrder.aspx">
+      <publishTime>03/12/2024 23:33:01</publishTime>
+    </File>
+    <File Include="wfSdSalesOrderDelivery.aspx">
+      <publishTime>12/15/2022 23:56:13</publishTime>
+    </File>
+    <File Include="wfSdSalesOrderInvoice.aspx">
+      <publishTime>03/12/2024 23:33:01</publishTime>
+    </File>
+    <File Include="wfSdSalesQuotationOrder.aspx">
+      <publishTime>03/12/2024 23:33:01</publishTime>
+    </File>
+    <File Include="wSdSalesQuotationMaster.aspx">
+      <publishTime>03/12/2024 23:33:02</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

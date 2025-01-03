@@ -1,0 +1,12 @@
+﻿.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+    border: 2px solid #ddd;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+}

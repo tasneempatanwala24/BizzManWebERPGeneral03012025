@@ -1,0 +1,281 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MmMainMenu.master.cs" EnableViewState="false" Inherits="BizzManWebErp.MmMainMenu" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+     <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/alertify.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <%--<script src="Scripts/jquery-3.4.1.min.js"></script>--%>
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="Scripts/alertify.js"></script>
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link href="css/SidebarMenu.css" rel="stylesheet" />
+    <script src="Scripts/jquery.dataTables.min.js"></script>
+    <link href="Scripts/buttons.dataTables.min.css" rel="stylesheet" />
+    <script src="Scripts/dataTables.buttons.min.js"></script>
+    <script src="Scripts/jszip.min.js"></script>   
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />     
+    <script src="~/scripts/jquery.dataTables.min.js"></script>  
+    <script src="~/scripts/dataTables.bootstrap4.min.js"></script>  
+    <script src="Scripts/buttons.html5.min.js"></script>
+    <link href="css/select2.min.css" rel="stylesheet" />
+    <script src="Scripts/select2.min.js"></script>
+     <style>
+        /* Loader styles */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Ensure loader is on top of other content */
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide loader by default */
+        .loader-container.hidden {
+            display: none;
+        }
+    </style>
+     <script>
+         function showLoader() {
+             document.getElementById('loaderContainer').classList.remove('hidden');
+         }
+
+         function hideLoader() {
+             document.getElementById('loaderContainer').classList.add('hidden');
+         }
+
+        
+     </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+     <!-- Loader container with the fade background effect -->
+    <div class="loader-container hidden" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+    <form id="form1" runat="server">
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light pt-0"  >
+  <div class="container-fluid" style="background-color: #7952b3; color:aliceblue">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+       <div class="dropdown">
+  <button class="btn"  style="background-color: transparent; color: aliceblue" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-bars"></i>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li>
+          <a class="dropdown-item" href="wfErpMain.aspx">Home</a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="wfFaMainMenu.aspx">
+        Accounts
+      </a>
+    </li>
+          
+    <li>
+      <a class="dropdown-item" href="wfMmMainMenu.aspx">
+        Inventory Management
+      </a>
+    </li>
+
+
+   <li>
+      <a class="dropdown-item" href="wfHrHrmsMain.aspx">
+        HRMS
+      </a>
+    </li>
+
+   <li>
+      <a class="dropdown-item" href="wfCrmMain.aspx">
+        CRM
+      </a>
+   </li>
+
+    <li>
+      <a class="dropdown-item" href="wfAdminMain.aspx">
+        Admin
+      </a>
+   </li>
+
+      
+   <li>
+      <a class="dropdown-item" href="wfSdMain.aspx">
+        Sales
+      </a>
+    </li>
+
+   <li>
+      <a class="dropdown-item" href="wfInventoryMain.aspx">
+        Inventory Main
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="wfPosMain.aspx">
+       POS
+      </a>
+    </li>
+
+         <li>
+      <a class="dropdown-item" href="wfManufactureMain.aspx">
+        Manufacture
+      </a>
+    </li>
+
+
+
+  </ul>
+</div>
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+          
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:aliceblue" href="#" id="master_menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Master
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="wfMmCategoryMaster.aspx">Material Item Category</a></li>
+           <%--  <li><a class="dropdown-item" href="wfMmMaterialMaster.aspx">Meterial Master</a></li>--%>
+            <%--   <li><a class="dropdown-item" href="wfMmItemMaster.aspx">Meterial Item Master</a></li> --%>
+              <li><a class="dropdown-item" href="wfMmItemMasterNew.aspx">Item Master</a></li>
+
+            <li><a class="dropdown-item" href="wfMmBomEntry.aspx">Meterial BOM Master</a></li>
+
+            <li><a class="dropdown-item" href="wfMmUnitMesureMaster.aspx">Material Unit Master</a></li>
+            <li><a class="dropdown-item" href="wfMmVendorMaster.aspx">Vendor Master</a></li>
+            <li><a class="dropdown-item" href="wfInventWarehouseMaster.aspx">Warehouse Master</a></li>   
+            <li><a class="dropdown-item" href="wfMmItemGroupMaster.aspx">Item Group Master</a></li>  
+            <li><a class="dropdown-item" href="wfMmItemPackagingMaster.aspx">Item Package Master</a></li>  
+          </ul>
+        </li>
+
+         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:aliceblue" href="#" id="mm_admin_menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Purchase
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="wfMmRequisitionNote.aspx">Purchase Requisition Note</a></li>
+            <li><a class="dropdown-item" href="wfMmMaterialIndentMaster.aspx">Purchase Requisition Indent</a></li>
+            <li><a class="dropdown-item" href="wfMmPurchaseQuotationEntry.aspx">Purchase Quotation Entry</a></li>
+            <li><a class="dropdown-item" href="wfMmMaterialPurchaseOrderEntry.aspx">Purchase Order Entry</a></li>
+            <li><a class="dropdown-item" href="wfMmMaterialPurchaseOrderDirectEntry.aspx">Purchase Order Direct Entry</a></li>
+
+            <li><a class="dropdown-item" href="wfMmMaterialPurchaseGateInword.aspx">Purchase Gate Inward Entry</a></li>
+            <li><a class="dropdown-item" href="wfMmMaterialPurchaseGrnEntry.aspx">Purchase GRN Entry</a></li>
+             <li><a class="dropdown-item" href="wfMmMaterialPurchaseOrderDirectGrnEntry.aspx">Purchase Order Direct GRN Entry</a></li>
+
+            <li><a class="dropdown-item" href="wfMmMaterialPurchaseGrnReturn.aspx">Purchase GRN Return Entry</a></li>
+
+
+            <li><a class="dropdown-item" href="wfMmMaterialPurchaseGrnInvoiceEntry.aspx">Material Purchase GRN Invoice Entry</a></li>
+            <li><a class="dropdown-item" href="wfMmMaterialStockMaster.aspx">Stock Transection Details</a></li>
+          </ul>
+        </li>
+
+           <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:aliceblue" href="#" id="admin_menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sales
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="wfSdSalesOrder.aspx">Sales Order</a></li>
+            <li><a class="dropdown-item" href="wfSdSalesOrderDelivery.aspx">Sales Order Delivery</a></li>
+            <li><a class="dropdown-item" href="wfSdSalesOrderInvoice.aspx">Sales Order Invoice</a></li>
+          </ul>
+
+          
+
+        </li>
+
+        <%-- 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="color:aliceblue" href="#" id="admin_menu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Manufacture
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+             <li><a class="dropdown-item" href="wfSdManufactureOrder.aspx">Manufacture Order</a></li> 
+          </ul>
+        </li> --%>
+
+          <%-- 
+         <li class="nav-item dropdown">
+          <a class="nav-link" style="color:aliceblue" href="#"  role="button" aria-expanded="false">
+            Admin
+          </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="wfSdSalesOrder.aspx">Manufacture Order1</a></li>
+          </ul>
+         </li> --%>
+
+      </ul>
+    </div>
+      
+      <div id="UserProfile">
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <div class="p-2 bd-highlight">
+                <button class="btn"  type="button" id="HomeButton" onclick="location.href='wfErpMain.aspx'"><i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                   </button>
+                <div class="btn-group">
+                  <asp:Button ID="profile_detail" runat="server" class="btn mt-15 dropdown-toggle fw-bold " style="background-color: #3AADAA; color: aliceblue" Text=""  data-bs-toggle="dropdown" aria-expanded="false" />
+                  <button id="DropdownButton" type="button" class="btn  dropdown-toggle dropdown-toggle-split" style="background-color: #3AADAA; color: aliceblue" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                      <asp:LinkButton ID="Button_logout" runat="server" class="btn mt-15 " style="background-color: transparent; color: black" Text="Logout" OnClick="Button_logout_Click" />
+                  </ul>
+                </div>                
+            </div>
+         </div>
+        </div>
+        
+  </div>
+</nav>
+
+
+    
+        
+        <div style="overflow: hidden;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    
+    </form>
+
+
+</body>
+</html>
+

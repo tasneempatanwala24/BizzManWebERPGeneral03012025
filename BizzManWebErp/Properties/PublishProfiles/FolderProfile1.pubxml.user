@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\BIZZMAN\BizmanLocalFolder_07062022</_PublishTargetUrl>
+    <History>True|2022-06-07T18:57:39.7629901Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/BizzManWebErp.dll">
+      <publishTime>06/08/2022 00:27:34</publishTime>
+    </File>
+    <File Include="bin/BizzManWebErp.pdb">
+      <publishTime>06/08/2022 00:27:34</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>06/07/2022 11:46:38</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.pdb">
+      <publishTime>06/07/2022 11:46:38</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>06/07/2022 11:46:41</publishTime>
+    </File>
+    <File Include="bin/ExcelNumberFormat.dll">
+      <publishTime>06/07/2022 11:46:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/07/2022 11:46:44</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/07/2022 11:46:55</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/07/2022 11:46:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/07/2022 11:46:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/07/2022 11:46:49</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/07/2022 11:46:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/07/2022 11:46:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/07/2022 11:46:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/07/2022 11:46:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/07/2022 11:46:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>06/07/2022 11:46:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/07/2022 11:46:52</publishTime>
+    </File>
+    <File Include="bin/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/07/2022 11:46:57</publishTime>
+    </File>
+    <File Include="bin/System.IO.Packaging.dll">
+      <publishTime>06/07/2022 11:46:58</publishTime>
+    </File>
+    <File Include="css/alertify.css">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="css/bootstrap.less">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="css/jquery-ui.css">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="css/jquery.dataTables.min.css">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="css/select2.min.css">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="FaMainMenu.Master">
+      <publishTime>06/07/2022 11:46:58</publishTime>
+    </File>
+    <File Include="FileUploadHandler.ashx">
+      <publishTime>06/07/2022 11:46:58</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="Images/CompanyLogo.png">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="Images/images.jpg">
+      <publishTime>06/07/2022 11:47:07</publishTime>
+    </File>
+    <File Include="MmMainMenu.Master">
+      <publishTime>06/07/2022 11:46:58</publishTime>
+    </File>
+    <File Include="Scripts/alertify.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-timepicker.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.bundle.min.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/buttons.dataTables.min.css">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/buttons.html5.min.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/CategoryMaster.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/dataTables.buttons.min.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeAttendance.js">
+      <publishTime>06/07/2022 11:47:22</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeCTCMaster.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeSalaryGrade.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeSaleryApprove.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeSaleryGenerate.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/EmployeeTransaction.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/EmpMaster.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/html2canvas.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.4.1.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery.dataTables.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/jszip.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/MmCategoryMaster.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/moment.min.js">
+      <publishTime>06/07/2022 11:47:23</publishTime>
+    </File>
+    <File Include="Scripts/pdfmake.min.js">
+      <publishTime>06/07/2022 11:47:24</publishTime>
+    </File>
+    <File Include="Scripts/select2.min.js">
+      <publishTime>06/07/2022 11:47:24</publishTime>
+    </File>
+    <File Include="Site1.Master">
+      <publishTime>06/07/2022 11:46:58</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/08/2022 00:27:35</publishTime>
+    </File>
+    <File Include="wfAdminLogin.aspx">
+      <publishTime>06/07/2022 11:46:58</publishTime>
+    </File>
+    <File Include="wfErpMain.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfFaMainMenu.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrBranchMaster.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrDeptMaster.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrDesignationMaster.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpAttendance.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpCtcMaster.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpMaster.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpMasterTransection.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryApprove.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryGrade.aspx">
+      <publishTime>06/07/2022 11:46:59</publishTime>
+    </File>
+    <File Include="wfHrEmpSalaryGrnerate.aspx">
+      <publishTime>06/07/2022 11:47:00</publishTime>
+    </File>
+    <File Include="wfHrEsiMaster.aspx">
+      <publishTime>06/07/2022 11:47:00</publishTime>
+    </File>
+    <File Include="wfHrHrmsMain.aspx">
+      <publishTime>06/07/2022 11:47:00</publishTime>
+    </File>
+    <File Include="wfHrPfMaster.aspx">
+      <publishTime>06/07/2022 11:47:00</publishTime>
+    </File>
+    <File Include="wfMmCategoryMaster.aspx">
+      <publishTime>06/07/2022 11:47:00</publishTime>
+    </File>
+    <File Include="wfMmMainMenu.aspx">
+      <publishTime>06/07/2022 11:47:00</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
