@@ -4,11 +4,12 @@ $(document).ready(function () {
         event.preventDefault();
     });
     $('#ddlMaterial').select2();
-    BindMaterialMasterDropdown();
+    $('#ddlLocation').select2();
+    BindMaterialMasterDropdown();  
     BindUnitMeasureDropdown();
     BindShopFlowerDropdown();
-
-
+    //Added by Tasneem
+    BindLocationDropdown();
 
 
 
@@ -1388,4 +1389,67 @@ function FetchUnitMeasureModal() {
             }
         });
     }
+}
+
+//Added By Tasneem 7Jan2025
+function BindLocationDropdown() {
+    $.ajax({
+        type: "POST",
+        url: 'wfMnfManufactureWorkCentersDetail.aspx/LocationDetails',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            var data = JSON.parse(response.d);
+            var location = "<option value='0'>- Select Location -</option>";
+            $('#ddlLocation').find("option").remove();
+
+            for (var i = 0; i < JSON.parse(response.d).length; i++) {
+                location = location + "<option value='" + JSON.parse(response.d)[i].LocationName + "'>" + JSON.parse(response.d)[i].LocationName + "</option>";
+            }
+            $('#ddlLocation').append(location);
+        },
+        complete: function () {
+
+        },
+        failure: function (jqXHR, textStatus, errorThrown) {
+
+        }
+    });
+
+}
+
+function handleNumericInput(event) {
+    // Get the input element
+    var inputElement = event.target;
+
+    // Remove non-numeric characters (except decimal point)
+    var numericValue = inputElement.value.replace(/[^\d.]/g, '');
+
+    // Handle multiple decimal points
+    numericValue = numericValue.replace(/(\..*)\./g, '$1');
+
+    // Limit to two decimal places
+    numericValue = numericValue.replace(/(\.\d{2})\d+$/g, '$1');
+
+    // If the input starts with a decimal point, add a leading zero
+    if (numericValue.charAt(0) === '.') {
+        numericValue = '0' + numericValue;
+    }
+
+    // Set the default value to 0 if the input is empty
+    if (numericValue === '') {
+        numericValue = '0';
+    }
+
+    // Handle leading zeros
+    if (numericValue.length > 1 && numericValue.charAt(0) === '0' && numericValue.charAt(1) !== '.') {
+        numericValue = numericValue.slice(1); // Remove leading zero
+    }
+
+    // Update the input value
+    inputElement.value = numericValue;
 }
