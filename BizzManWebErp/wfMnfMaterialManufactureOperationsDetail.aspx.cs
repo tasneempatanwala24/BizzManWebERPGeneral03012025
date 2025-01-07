@@ -87,7 +87,7 @@ namespace BizzManWebErp
         [WebMethod]
         public static string MaterialMasterList()
         {
-          //  clsMain objMain = new clsMain();
+            clsMain objMain = new clsMain();
             DataTable dtMaterialMasterList = new DataTable();
 
             try

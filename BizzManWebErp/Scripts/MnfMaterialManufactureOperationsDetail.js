@@ -8,8 +8,7 @@ $(document).ready(function () {
     BindMaterialMasterDropdown();  
     BindUnitMeasureDropdown();
     BindShopFlowerDropdown();
-    //Added by Tasneem
-    BindLocationDropdown();
+  
 
 
 
@@ -692,6 +691,14 @@ function ClearAll() {
     $('#txtMaterialUnitMeasureModal').val('');
     $('#txtMaterialRateModal').val('');
     $('#txtMaterialTotalAmountModal').val('');
+    //Added By Tasneem -->START
+    $('#ddlProductName').html('<option value="">-Select Product Name-</option>');
+    $('#ddlMachineType').val('');
+    $('#ddlLocation').val('');
+    $('#txtSetupTime').val('');
+    $('#txtRemark').val('');
+    $('#txtCost').val('');
+    //Added By Tasneem -->END
 }
 
 
@@ -1391,7 +1398,7 @@ function FetchUnitMeasureModal() {
     }
 }
 
-//Added By Tasneem 7Jan2025
+//Added By Tasneem 7Jan2025 --START
 function BindLocationDropdown() {
     $.ajax({
         type: "POST",
@@ -1453,3 +1460,125 @@ function handleNumericInput(event) {
     // Update the input value
     inputElement.value = numericValue;
 }
+
+
+function imposeMinMax(el) {
+
+    if (el.value != "") {
+        if (parseInt(el.value) < parseInt(el.min)) {
+            el.value = el.min;
+        }
+        if (parseInt(el.value) > parseInt(el.max)) {
+            el.value = el.max;
+        }
+    }
+}
+
+function BindProductDropdown() {
+    $.ajax({
+        type: "POST",
+        url: 'wfMnfMaterialManufactureOperationsDetail.aspx/MaterialMasterList',
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            $('#ddlProductName').html('');
+            var data = JSON.parse(response.d);
+            var req = "<option value=''>-Select ProductName-</option>";
+            for (var i = 0; i < JSON.parse(response.d).length; i++) {
+                req = req + "<option value='" + JSON.parse(response.d)[i].Id + "'>" + JSON.parse(response.d)[i].MaterialName + "</option>";
+            }
+            $('#ddlProductName').append(req);
+            $('#ddlProductName').select2();
+        },
+        complete: function () {
+
+        },
+        failure: function (jqXHR, textStatus, errorThrown) {
+
+        }
+    });
+
+
+}
+
+function CreateWorkCenterDetails() {
+    $('#divWorkCenterDetails').show();
+    $('#btnSave').show();
+    $('#btnExport').hide();
+    $('#ddlMachineType').select2();
+    BindLocationDropdown();
+    BindProductDropdown();
+    $('#txtCreatedBy').val($('#ContentPlaceHolder1_loginuser').val());
+    ClearAll();
+}
+
+function AddWorkCenterDetails() {
+    alert("Lets Save");
+
+    if ($('#txtCapacity').val() == '') {
+        alertify.error('Enter Capacity');
+        return;
+    }
+    else if ($('#ddlMachineType').val() == '0') {
+        alertify.error('Please select Machine type');
+        return;
+    }
+    else if ($('#ddlProductName').val() == '0') {
+        alertify.error('Please select Product Name');
+        return;
+    }
+    else if ($('#txtCost').val() == '') {
+        alertify.error('please enter cost');
+        return;
+    }
+    else if ($('#txtSetupTime').val() == '') {
+        alertify.error('please enter Setup time');
+        return;
+    }
+    else if ($('#ddlLocation').val() == '0') {
+        alertify.error('Please select Location');
+        return;
+    }
+    else if ($('#txtRemark').val() == '') {
+        alertify.error('Enter Remarks');
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: 'wfMnfManufactureWorkCentersDetail.aspx/AddWorkCenterDetails',
+        data: JSON.stringify({
+            "MachineType": $('#ddlMachineType').val(),
+            "Capacity": $('#txtCapacity').val().trim(),
+            "Productname": $('#ddlProductName').val(),
+            "Cost": $('#txtCost').val().trim(),
+            "SetupTime": $('#txtSetupTime').val().trim(),
+            "Location": $('#ddlLocation').val().trim(),
+            "Remark": $('#txtRemark').val().trim(),
+            "loginUser": $('#ContentPlaceHolder1_loginuser').val()
+
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            var message = ($("#btnSave").html() == 'Save') ? 'Work Center Details added successfully' : 'Work Center Details updated successfully';
+            alertify.success(message);
+            ClearAll();
+            // Discard();
+        },
+        complete: function () {
+
+        },
+        failure: function (jqXHR, textStatus, errorThrown) {
+
+        }
+    });
+}
+
+//Added By Tasneem 7Jan2025 --END
