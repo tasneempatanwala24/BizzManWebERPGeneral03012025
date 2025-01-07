@@ -1,7 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\MonicaRepository\\4. 2025_MSingh\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|c:\\tasneem\\work\\kachra\\bizmannerp\\bizzmanweberp\\wfmmpurchasequotationentry.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|solutionrelative:bizzmanweberp\\wfmmpurchasequotationentry.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|C:\\Tasneem\\Work\\kachra\\BizmannERP\\bizzmanweberp\\wfmmmaterialpurchaseorderentry.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|solutionrelative:bizzmanweberp\\wfmmmaterialpurchaseorderentry.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|C:\\Tasneem\\Work\\kachra\\BizmannERP\\bizzmanweberp\\wfadmincompanymasternew.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|solutionrelative:bizzmanweberp\\wfadmincompanymasternew.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|C:\\Tasneem\\Work\\kachra\\BizmannERP\\bizzmanweberp\\clsmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82A094CE-2BF2-457C-83EB-739BFFB97C48}|BizzManWebErp\\BizzManWebErp.csproj|solutionrelative:bizzmanweberp\\clsmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,47 +26,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "wfMmPurchaseQuotationEntry.aspx",
+              "DocumentMoniker": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\wfMmPurchaseQuotationEntry.aspx",
+              "RelativeDocumentMoniker": "BizzManWebErp\\wfMmPurchaseQuotationEntry.aspx",
+              "ToolTip": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\wfMmPurchaseQuotationEntry.aspx",
+              "RelativeToolTip": "BizzManWebErp\\wfMmPurchaseQuotationEntry.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-01-06T05:36:41.51Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:139:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "wfMmMaterialPurchaseOrderEntry.aspx",
+              "DocumentMoniker": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\wfMmMaterialPurchaseOrderEntry.aspx",
+              "RelativeDocumentMoniker": "BizzManWebErp\\wfMmMaterialPurchaseOrderEntry.aspx",
+              "ToolTip": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\wfMmMaterialPurchaseOrderEntry.aspx",
+              "RelativeToolTip": "BizzManWebErp\\wfMmMaterialPurchaseOrderEntry.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-01-06T05:36:06.029Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "wfAdminCompanyMasterNew.aspx",
+              "DocumentMoniker": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\wfAdminCompanyMasterNew.aspx",
+              "RelativeDocumentMoniker": "BizzManWebErp\\wfAdminCompanyMasterNew.aspx",
+              "ToolTip": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\wfAdminCompanyMasterNew.aspx",
+              "RelativeToolTip": "BizzManWebErp\\wfAdminCompanyMasterNew.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-01-06T05:33:49.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "clsMain.cs",
+              "DocumentMoniker": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\clsMain.cs",
+              "RelativeDocumentMoniker": "BizzManWebErp\\clsMain.cs",
+              "ToolTip": "C:\\Tasneem\\Work\\kachra\\BizmannERP\\BizzManWebErp\\clsMain.cs",
+              "RelativeToolTip": "BizzManWebErp\\clsMain.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAQwDEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T05:26:27.531Z",
+              "EditorCaption": ""
             }
           ]
         }
