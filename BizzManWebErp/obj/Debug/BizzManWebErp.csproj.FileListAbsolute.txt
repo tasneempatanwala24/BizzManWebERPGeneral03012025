@@ -18753,7 +18753,6 @@ C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\DocumentFormat.OpenXml.dll
 C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\ExcelNumberFormat.dll
 C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\Newtonsoft.Json.dll
-C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\System.IO.FileSystem.Primitives.dll
 C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\System.IO.Packaging.dll
 C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\ClosedXML.pdb
 C:\Tasneem\Work\kachra\BizmannERP\BizzManWebErp\bin\ClosedXML.xml
