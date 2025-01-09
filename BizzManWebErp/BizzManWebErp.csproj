@@ -254,6 +254,7 @@
     <Content Include="Scripts\MnfJlrJobCardMaster.js" />
     <Content Include="Scripts\MnfJlrJobCardMaster_display.js" />
     <Content Include="Scripts\MnfManufactureOperationsMaster.js" />
+    <Content Include="Scripts\MnfManufactureWorkCentersDetail.js" />
     <Content Include="Scripts\MnfManufactureWorkCentersMaster.js" />
     <Content Include="Scripts\MnfManufactureWorkCentersOperationsMaster.js" />
     <Content Include="Scripts\MnfMaterialManufactureOperationsDetail.js" />
@@ -357,6 +358,7 @@
     <Content Include="wfMnfJlrJobCardMaster.aspx" />
     <Content Include="wfMnfJlrJobCardMaster_display.aspx" />
     <Content Include="wfMnfManufactureOperationsMaster.aspx" />
+    <Content Include="wfMnfManufactureWorkCentersDetail.aspx" />
     <Content Include="wfMnfManufactureWorkCentersMaster.aspx" />
     <Content Include="wfMnfManufactureWorkCentersOperationsTransection.aspx" />
     <Content Include="wfMnfMaterialManufactureOperationsDetail.aspx" />
@@ -963,6 +965,13 @@
     </Compile>
     <Compile Include="wfMnfManufactureOperationsMaster.aspx.designer.cs">
       <DependentUpon>wfMnfManufactureOperationsMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureWorkCentersDetail.aspx.cs">
+      <DependentUpon>wfMnfManufactureWorkCentersDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureWorkCentersDetail.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureWorkCentersDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfMnfManufactureWorkCentersMaster.aspx.cs">
       <DependentUpon>wfMnfManufactureWorkCentersMaster.aspx</DependentUpon>
