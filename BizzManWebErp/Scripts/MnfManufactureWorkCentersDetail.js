@@ -13,8 +13,9 @@
 });
 
 function ClearAll() {
-  
+    $(".card-header").text('\Add Work Center Details\n ');
     //Added By Tasneem -->START
+    $('#txtCapacity').val('');
     $('#ddlMachineType').val('');
     $('#txtSetupTime').val('');
     $('#txtRemark').val('');
@@ -48,16 +49,18 @@ function BindWorkCenterDetailsList() {
             var html = '';
             for (var i = 0; i < data.length; i++) {
                 html = html + '<tr><td><input type="checkbox" class="editor-active chk_BOM_list"></td><td style="display:none;">' + data[i].Id + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id + '\');">' + (data[i].MachineType != undefined ? data[i].MachineType : '') + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id + '\');">' + (data[i].Capacity != undefined ? data[i].Capacity : '') + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id + '\');">' + (data[i].ProductName != undefined ? data[i].ProductName : '') + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id + '\');">' + (data[i].Cost != undefined ? data[i].Cost : '') + '</td>';
-                + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id + '\');">' + (data[i].SetupTime != undefined ? data[i].SetupTime : '') + '</td>';
-                + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id + '\');">' + (data[i].Location != undefined ? data[i].Location : '') + '</td></tr>';
+                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].MachineType != undefined ? data[i].MachineType : '') + '</td>'
+                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Capacity != undefined ? data[i].Capacity : '') + '</td>'
+                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].ProductName != undefined ? data[i].ProductName : '') + '</td>'
+                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Cost != undefined ? data[i].Cost : 0) + '</td>'
+                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].SetupTime != undefined ? data[i].SetupTime : 0) + '</td>'
+                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].LocationID != undefined ? data[i].LocationID : '') + '</td></tr>';
             }
 
 
             $('#tbody_WorkCenterDetailsList').html(html);
+            //$('#tblWorkCenterDetailsList').DataTable();
+
             var d = new Date();
             var table = $('#tblWorkCenterDetailsList').DataTable({
                 'columnDefs': [
@@ -124,18 +127,23 @@ function FetchWorkCenterDetails(id) {
             var data = JSON.parse(response.d);
             ClearAll();
             $('#hdnIsEdit').val('1');
+            $('#txtId').val(data[0].Id);
             $("#btnSave").html('Update');
+            $(".card-header").text('\nUpdate Work Center Details\n ')
+            $("#btnSave").show();
             $('#divWorkCenterDetailsList').hide();
             $('#divWorkCenterDetails').show();
-            ('#btnExport').hide();
+            $('#btnExport').hide();
             $('#ddlMachineType').val(data[0].MachineType);
             $('#txtCapacity').val(data[0].Capacity);
             $('#ddlProductName').val(data[0].MaterialId);
-            $('#ddlLocation').val(data[0].Locationid);
+            $('#ddlLocation').val(data[0].LocationID);
             $('#txtCost').val(data[0].Cost);
             $('#txtSetupTime').val(data[0].SetupTime);
-          
-
+            $('#txtRemark').val(data[0].Remark);
+            $('#ddlMachineType').select2();
+            $('#ddlProductName').select2();
+            $('#ddlLocation').select2();
             
         },
         complete: function () {
@@ -158,7 +166,7 @@ function BindLocationDropdown() {
         },
         success: function (response) {
             var data = JSON.parse(response.d);
-            var location = "<option value=''>- Select Location -</option>";
+            var location = "<option value='0'>- Select Location -</option>";
             $('#ddlLocation').find("option").remove();
 
             for (var i = 0; i < JSON.parse(response.d).length; i++) {
@@ -234,7 +242,7 @@ function BindProductDropdown() {
         success: function (response) {
             $('#ddlProductName').html('');
             var data = JSON.parse(response.d);
-            var req = "<option value=''>-Select ProductName-</option>";
+            var req = "<option value='0'>-Select ProductName-</option>";
             for (var i = 0; i < JSON.parse(response.d).length; i++) {
                 req = req + "<option value='" + JSON.parse(response.d)[i].Id + "'>" + JSON.parse(response.d)[i].MaterialName + "</option>";
             }
@@ -269,6 +277,14 @@ function CreateWorkCenterDetails() {
 }
 
 function AddWorkCenterDetails() {
+    var isUpdate = 0;
+    var isValid = true;
+    if ($('#btnSave').html() == 'Update') {
+        isUpdate = 1;
+
+    }
+
+
     if ($('#txtId').val() == '') {
         alertify.error('Enter Id');
         return;
@@ -313,8 +329,8 @@ function AddWorkCenterDetails() {
             "SetupTime": $('#txtSetupTime').val().trim(),
             "Location": $('#ddlLocation').val().trim(),
             "Remark": $('#txtRemark').val().trim(),
-            "loginUser": $('#ContentPlaceHolder1_loginuser').val()
-
+            "loginUser": $('#ContentPlaceHolder1_loginuser').val(),
+            "IsUpdate": isUpdate
         }),
         contentType: "application/json; charset=utf-8",
         dataType: "json",

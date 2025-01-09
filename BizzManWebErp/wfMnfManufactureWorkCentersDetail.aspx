@@ -18,7 +18,7 @@
     <input type="hidden" id="loginuser" runat="server" />
      <input type="hidden" id="hdnIsEdit" />
     <button onclick="CreateWorkCenterDetails();" id="btnCreate">Create</button>
-    <button onclick="ViewMaterialBOMList();" id="btnView">View</button>
+    <button onclick="BindWorkCenterDetailsList();" id="btnView">View</button>
     <button onclick="DownloadFile();" id="btnExport">Export To Excel</button>
     <button onclick="AddWorkCenterDetails();" style="display: none;" id="btnSave">Save</button>
      
@@ -60,7 +60,7 @@
 <td>
     <select id="ddlMachineType" name="ddlMachineType" class="form-control" 
          style="width: 250px;">
-         <option value="">-Select Machine Type-</option>
+         <option value="0">-Select Machine Type-</option>
         <option value="Cooking">Cooking</option>
          <option value="Cutting">Cutting</option>
         <option value="Packing">Packing</option>

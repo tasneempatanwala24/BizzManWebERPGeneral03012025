@@ -69,11 +69,11 @@ namespace BizzManWebErp
         public static string AddWorkCenterDetails(string Id="",string MachineType = "", 
         string Capacity = "", string MaterialId = "", int Cost = 0,
         int SetupTime = 0, string Location = "", string Remark = "",
-        string loginUser = "")
+        string loginUser = "", bool IsUpdate=false)
         {
             try
             {
-                SqlParameter[] objParam = new SqlParameter[9];
+                SqlParameter[] objParam = new SqlParameter[10];
 
                 objParam[0] = new SqlParameter("@MachineType", SqlDbType.NVarChar);
                 objParam[0].Direction = ParameterDirection.Input;
@@ -110,6 +110,10 @@ namespace BizzManWebErp
                 objParam[8] = new SqlParameter("@Id", SqlDbType.NVarChar);
                 objParam[8].Direction = ParameterDirection.Input;
                 objParam[8].Value = Id;
+
+                objParam[9] = new SqlParameter("@IsUpdate", SqlDbType.Bit);
+                objParam[9].Direction = ParameterDirection.Input;
+                objParam[9].Value = IsUpdate;
 
                 var result = objMain.ExecuteProcedure("procMnfManufactureWorkCentersDetail", objParam);
 
@@ -173,7 +177,7 @@ inner join tblInventLocationMaster L on L.Id=a.LocationId
             try
             { 
                 dtBOMMasterDetails = objMain.dtFetchData(@"select * 
-                                                              from tblMnfWorkCentersDetail where Id=" + Id);
+                                                              from tblMnfWorkCentersDetail where Id='" + Id + "'");
 
             }
             catch (Exception ex)
