@@ -534,4 +534,14 @@ function DownloadFile() {
         alertify.error('Please select any record');
     }
 }
+
+function Base64ToBytes(base64) {
+    var s = window.atob(base64);
+    var bytes = new Uint8Array(s.length);
+    for (var i = 0; i < s.length; i++) {
+        bytes[i] = s.charCodeAt(i);
+    }
+    return bytes;
+}
+
 //Added By Tasneem 7Jan2025 --END

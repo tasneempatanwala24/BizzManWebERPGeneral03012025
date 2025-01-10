@@ -220,7 +220,7 @@ WHERE ID LIKE 'WC%'");
 
                 dtMaterialBOMList = objMain.dtFetchData(@"select a.ID,a.MachineType,a.Capacity,m.MaterialName as 'Product Name',a.Cost as 'Cost Rate/hour',a.SetupTime as 'Setup Time(in min)
 ',L.LocationName as Location ,Remark from tblMnfWorkCentersDetail a inner join tblMmMaterialMaster m on a.materialId=m.Id
-inner join tblInventLocationMaster L on L.Id=a.LocationId  where 1=1" + (id != "" ? " and ID in(SELECT Item FROM [dbo].[SplitString] ('" + id + "',','))" : "") + " order by ID desc");
+inner join tblInventLocationMaster L on L.Id=a.LocationId  where 1=1" + (id != "" ? " and a.ID in(SELECT Item FROM [dbo].[SplitString] ('" + id + "',','))" : "") + " order by ID desc");
             }
             catch (Exception ex)
             {
