@@ -18,7 +18,7 @@
     <input type="hidden" id="loginuser" runat="server" />
      <input type="hidden" id="hdnIsEdit" />
     <button onclick="CreateWorkCenterDetails();" id="btnCreate">Create</button>
-    <button onclick="BindWorkCenterDetailsList();" id="btnView">View</button>
+    <button onclick="ShowWorkCenterDetails();" id="btnView">View</button>
     <button onclick="DownloadFile();" id="btnExport">Export To Excel</button>
     <button onclick="AddWorkCenterDetails();" style="display: none;" id="btnSave">Save</button>
      

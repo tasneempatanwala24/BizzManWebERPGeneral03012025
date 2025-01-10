@@ -10,13 +10,89 @@
     $('#divWorkCenterDetails').hide();
     $('#divWorkCenterDetailsList').show();
     BindWorkCenterDetailsList();
+    attachKeydownListeners();
+    // Detect Ctrl+S key press
+    $(document).on("keydown", function (event) {
+        // Check if Ctrl key is pressed along with 'S' key
+        if (event.ctrlKey && event.key === "s") {
+            event.preventDefault(); // Prevent the default save dialog
+            AddWorkCenterDetails(); // Call the save function
+        }
+    });
 });
 
+
+
+function attachKeydownListeners() {
+    $("#ddlMachineType").on("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            setTimeout(function () {
+                $("#txtCapacity").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        }
+    });
+
+    $("#ddlMachineType").on("change", function (event) {
+            setTimeout(function () {
+                $("#txtCapacity").focus(); // Trigger click to open the calendar popup
+            }, 300);
+    });
+
+    $("#txtCapacity").on("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            $("#ddlProductName").focus();
+        }
+    });
+    
+    $("#ddlProductName").on("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            $("#txtCost").focus();
+        }
+    });
+    $("#ddlProductName").on("change", function (event) {
+        setTimeout(function () {
+            $("#txtCost").focus(); // Trigger click to open the calendar popup
+        }, 300);
+    });
+    $("#txtCost").on("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            $("#txtSetupTime").focus();
+        }
+    });
+    $("#txtSetupTime").on("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            $("#ddlLocation").focus();
+        }
+    });
+
+
+    $("#ddlLocation").on("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            $("#txtRemark").focus();
+        }
+    });
+    $("#ddlLocation").on("change", function (event) {
+        setTimeout(function () {
+            $("#txtRemark").focus(); // Trigger click to open the calendar popup
+        }, 300);
+    });
+
+    
+}
+  
 function ClearAll() {
     $(".card-header").text('\Add Work Center Details\n ');
     //Added By Tasneem -->START
     $('#txtCapacity').val('');
+    $('#ddlMachineType').select2('destroy');
     $('#ddlMachineType').val('');
+    $('#ddlMachineType').select2();
     $('#txtSetupTime').val('');
     $('#txtRemark').val('');
     $('#txtCost').val('');
@@ -273,7 +349,17 @@ function CreateWorkCenterDetails() {
     $('#txtCreatedBy').val($('#ContentPlaceHolder1_loginuser').val());
     ClearAll();
     GenerateOrderID();
-   
+    $('#ddlMachineType').select2('focus');
+}
+function ShowWorkCenterDetails() {
+
+    $('#hdnIsEdit').val('0');
+    $('#divWorkCenterDetails').hide();
+    $('#divWorkCenterDetailsList').show();
+    $('#btnSave').hide();
+    $('#btnExport').show();
+    BindWorkCenterDetailsList();
+
 }
 
 function AddWorkCenterDetails() {
@@ -341,6 +427,7 @@ function AddWorkCenterDetails() {
             var message = ($("#btnSave").html() == 'Save') ? 'Work Center Details added successfully' : 'Work Center Details updated successfully';
             alertify.success(message);
             ClearAll();
+            ShowWorkCenterDetails();
             // Discard();
         },
         complete: function () {
@@ -378,5 +465,73 @@ function GenerateOrderID() {
             }
         });
     
+}
+
+function DownloadFile() {
+    var chk = 0;
+    var BOMid = '';
+    $('#tbody_WorkCenterDetailsList tr').each(function (index1, tr) {
+        chk = 0;
+        $(tr).find('td').each(function (index, td) {
+            if (index == 0) {
+                if ($(td.children[0]).is(':checked')) {
+                    chk = 1;
+                }
+                else {
+                    chk = 0;
+                }
+            }
+
+            if (index == 1) {
+                if (chk == 1) {
+                    if (BOMid == '') {
+                        BOMid = td.outerText;
+                    }
+                    else {
+                        BOMid = BOMid + ',' + td.outerText;
+                    }
+                }
+            }
+        });
+    });
+
+    if (BOMid != '') {
+        $.ajax({
+            type: "POST",
+            url: "wfMnfManufactureWorkCentersDetail.aspx/FetchWorkCenterDetailListDownload",
+            data: JSON.stringify({
+                "id": BOMid
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (r) {
+                var d = new Date();
+                var fileName = 'WorkCenterDetail_' + d.toDateString() + '.xlsx';
+                //Convert Base64 string to Byte Array.
+                var bytes = Base64ToBytes(r.d);
+
+                //Convert Byte Array to BLOB.
+                var blob = new Blob([bytes], { type: "application/octetstream" });
+
+                //Check the Browser type and download the File.
+                var isIE = false || !!document.documentMode;
+                if (isIE) {
+                    window.navigator.msSaveBlob(blob, fileName);
+                } else {
+                    var url = window.URL || window.webkitURL;
+                    link = url.createObjectURL(blob);
+                    var a = $("<a />");
+                    a.attr("download", fileName);
+                    a.attr("href", link);
+                    $("body").append(a);
+                    a[0].click();
+                    $("body").remove(a);
+                }
+            }
+        });
+    }
+    else {
+        alertify.error('Please select any record');
+    }
 }
 //Added By Tasneem 7Jan2025 --END

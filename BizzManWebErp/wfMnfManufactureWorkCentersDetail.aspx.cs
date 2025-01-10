@@ -11,6 +11,7 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using System.Security;
 
 namespace BizzManWebErp
 {
@@ -69,7 +70,7 @@ namespace BizzManWebErp
         public static string AddWorkCenterDetails(string Id="",string MachineType = "", 
         string Capacity = "", string MaterialId = "", int Cost = 0,
         int SetupTime = 0, string Location = "", string Remark = "",
-        string loginUser = "", bool IsUpdate=false)
+        string loginUser = "", int IsUpdate=0)
         {
             try
             {
@@ -113,7 +114,7 @@ namespace BizzManWebErp
 
                 objParam[9] = new SqlParameter("@IsUpdate", SqlDbType.Bit);
                 objParam[9].Direction = ParameterDirection.Input;
-                objParam[9].Value = IsUpdate;
+                objParam[9].Value = (IsUpdate==1)?true:false;
 
                 var result = objMain.ExecuteProcedure("procMnfManufactureWorkCentersDetail", objParam);
 
@@ -205,6 +206,42 @@ WHERE ID LIKE 'WC%'");
             }
 
             return JsonConvert.SerializeObject(dtD);
+        }
+
+        [WebMethod]
+        [SecurityCritical]
+        public static string FetchWorkCenterDetailListDownload(string id = "")
+        {
+            //  clsMain objMain = new clsMain();
+            DataTable dtMaterialBOMList = new DataTable();
+
+            try
+            {
+
+                dtMaterialBOMList = objMain.dtFetchData(@"select a.ID,a.MachineType,a.Capacity,m.MaterialName as 'Product Name',a.Cost as 'Cost Rate/hour',a.SetupTime as 'Setup Time(in min)
+',L.LocationName as Location ,Remark from tblMnfWorkCentersDetail a inner join tblMmMaterialMaster m on a.materialId=m.Id
+inner join tblInventLocationMaster L on L.Id=a.LocationId  where 1=1" + (id != "" ? " and ID in(SELECT Item FROM [dbo].[SplitString] ('" + id + "',','))" : "") + " order by ID desc");
+            }
+            catch (Exception ex)
+            {
+                // return "";
+            }
+            dtMaterialBOMList.TableName = "WorkCenterDetails";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                //Add DataTable in worksheet  
+                wb.Worksheets.Add(dtMaterialBOMList);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    //Return xlsx Excel File  
+                    byte[] bytes = stream.ToArray();
+
+                    //Convert File to Base64 string and send to Client.
+                    return Convert.ToBase64String(bytes, 0, bytes.Length);
+                }
+            }
+
         }
     }
 }
