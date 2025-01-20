@@ -197,7 +197,7 @@ inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id where a.id='"+ID+"'");
 
 
         [WebMethod]
-        public static string AddBOMDetails(List<BOMDetail> data,string Id = "", string ProductName = "",
+        public static string AddBOMDetails(List<MnfManufactureBomDetail> data,string Id = "", string ProductName = "",
        float Quantity = 0, string UOM = "", string BOMType = "",
        string WorkCenter = "", string Operation = "", int Duration = 0,
        string loginUser = "", int IsUpdate = 0)

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BizzManWebErp.Model
 {
-    public class BOMDetail
+    public class MnfManufactureBomDetail
     {
         public string ProductName { get; set; }
         public decimal Quantity { get; set; }
