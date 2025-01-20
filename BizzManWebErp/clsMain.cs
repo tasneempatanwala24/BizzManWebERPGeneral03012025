@@ -46,7 +46,8 @@ namespace BizzManWebErp
                 //BizzzManERP_New
                 //  MY LAPTOP  current database  Geenral ERP
                 //conHo = new System.Data.SqlClient.SqlConnection("Data Source=IN01TPATANWALA7\\SQLEXPRESS;Initial Catalog=BizzManERP_Final1;User ID=sa;Password=123;Persist Security Info=True");
-                conHo = new System.Data.SqlClient.SqlConnection("Data Source=IN01MSINGH5;Initial Catalog=MSinghTemp;Integrated Security=True;Persist Security Info=True");
+                conHo = new System.Data.SqlClient.SqlConnection("Data Source=IN01TPATANWALA7\\SQLEXPRESS;Initial Catalog=BizzManERP_Final1;Integrated Security=True;Persist Security Info=True");
+                //conHo = new System.Data.SqlClient.SqlConnection("Data Source=IN01MSINGH5;Initial Catalog=MSinghTemp;Integrated Security=True;Persist Security Info=True");
 
 
 

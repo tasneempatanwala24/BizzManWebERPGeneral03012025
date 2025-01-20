@@ -11,6 +11,7 @@
     $('#divWorkCenterDetailsList').show();
     BindWorkCenterDetailsList();
     attachKeydownListeners();
+    
     // Detect Ctrl+S key press
     $(document).on("keydown", function (event) {
         // Check if Ctrl key is pressed along with 'S' key

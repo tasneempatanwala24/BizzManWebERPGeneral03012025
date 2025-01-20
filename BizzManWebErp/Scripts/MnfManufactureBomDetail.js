@@ -9,11 +9,133 @@ $(document).ready(function () {
     $('#ddlBOMType').select2();
     $('#ddlWorkCenter').select2();
     BindWorkCenterDropdown();
-    $('#ddlOperation').select2(); 
+    $('#ddlOperation').select2();
     $('#ddlProductNameDetails').select2();
-    $('#ddlUOMDetails').select2();
-});
+    //$('#ddlUOMDetails').select2();
+    ShowBOMDetails();
+    attachKeydownListeners();
 
+    $(document).on("keydown", function (event) {
+        // Check if Ctrl key is pressed along with 'S' key
+        if (event.ctrlKey && event.key === "s") {
+            event.preventDefault(); // Prevent the default save dialog
+            AddBOMDetails(); // Call the save function
+        }
+    });
+});
+    function attachKeydownListeners() {
+        $("#ddlProductName").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                setTimeout(function () {
+                    $("#txtQuantity").focus(); // Trigger click to open the calendar popup
+                }, 300);
+            }
+        });
+
+        $("#ddlProductName").on("change", function (event) {
+            setTimeout(function () {
+                $("#txtQuantity").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        });
+
+        $("#txtQuantity").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#ddlUnitMesure").focus();
+            }
+        });
+
+        $("#ddlUnitMesure").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#ddlBOMType").focus();
+            }
+        });
+        $("#ddlUnitMesure").on("change", function (event) {
+            setTimeout(function () {
+                $("#ddlBOMType").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        });
+
+        $("#ddlBOMType").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#ddlWorkCenter").focus();
+            }
+        });
+        $("#ddlBOMType").on("change", function (event) {
+            setTimeout(function () {
+                $("#ddlWorkCenter").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        });
+
+        $("#ddlWorkCenter").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#ddlOperation").focus();
+            }
+        });
+        $("#ddlWorkCenter").on("change", function (event) {
+            setTimeout(function () {
+                $("#ddlOperation").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        });
+
+        $("#ddlOperation").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#txtDuration").focus();
+            }
+        });
+        $("#ddlOperation").on("change", function (event) {
+            setTimeout(function () {
+                $("#txtDuration").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        });
+
+
+        $("#txtDuration").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#ddlProductNameDetails").focus();
+            }
+        });
+
+        $("#ddlProductNameDetails").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#txtMaterialQty").focus();
+            }
+        });
+        $("#ddlProductNameDetails").on("change", function (event) {
+            setTimeout(function () {
+                $("#txtMaterialQty").focus(); // Trigger click to open the calendar popup
+            }, 300);
+        });
+        $("#txtMaterialQty").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $("#ddlUOMDetails").focus();
+            }
+        });
+
+
+        $("#ddlUOMDetails").on("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                SaveBOMListDetails();
+                $('#ddlProductNameDetails').focus();
+            }
+        });
+        //$("#ddlUOMDetails").on("change", function (event) {
+        //    setTimeout(function () {
+        //        SaveBOMListDetails(); // Trigger click to open the calendar popup
+        //    }, 300);
+        //});
+
+
+    }
 function BindProductDropdown() {
     $.ajax({
         type: "POST",
@@ -190,6 +312,16 @@ function BindWorkCenterDropdown() {
 }
 function ClearAll() {
 /*    $(".card-header").text('\Add Work Center Details\n ');*/
+    $('#tbody_BOMListDetails').children('tr:not(:first)').remove();
+    
+    $('#ddlProductNameDetails').select2('destroy');
+    $('#ddlProductNameDetails').val('');
+    $('#ddlProductNameDetails').select2();
+    $('#txtMaterialQty').val('');
+    //$('#ddlUOMDetails').select2('destroy');
+    $('#ddlUOMDetails').val('');
+   // $('#ddlUOMDetails').select2();
+
     $('#txtDuration').val('');
     $('#txtQuantity').val('0');
     $('#ddlProductName').select2('destroy');
@@ -257,10 +389,10 @@ function AddBOMDetails() {
 
     $("#tbody_BOMListDetails tr").each(function (i) {
         if (i > 0) {
-            var ProductName = $(this)[0].cells[2].innerText;
+            var ProductId = $(this)[0].cells[2].innerText;
             var Qty = $(this)[0].cells[3].innerText;
             var UOM = $(this)[0].cells[5].innerText;
-            data.push({ ProductName: ProductName, Quantity: Qty, UOM: UOM });
+            data.push({ ProductName: ProductId, Quantity: Qty, UOM: UOM });
         }
     });
     $.ajax({
@@ -304,17 +436,18 @@ function ShowBOMDetails() {
 
     $('#hdnIsEdit').val('0');
     $('#divEntry').hide();
+    $('#divDetails').hide();
     $('#divList').show();
     $('#btnSave').hide();
     $('#btnExport').show();
     BindBOMDetailsList();
 }
 
-function BindWorkCenterDetailsList() {
+function BindBOMDetailsList() {
 
     $.ajax({
         type: "POST",
-        url: 'wfMnfManufactureBomDetail.aspx/FetchBOMDetailList',
+        url: 'wfMnfManufactureBomDetail.aspx/FetchBOMMasterList',
         data: {},
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -323,27 +456,28 @@ function BindWorkCenterDetailsList() {
         },
         success: function (response) {
             var data = JSON.parse(response.d);
-            $('#tblWorkCenterDetailsList').DataTable().clear();
-            $('#tblWorkCenterDetailsList').DataTable().destroy();
-            $('#tbody_WorkCenterDetailsList').html('');
+            $('#tblManufactureBomList').DataTable().clear();
+            $('#tblManufactureBomList').DataTable().destroy();
+            $('#tbody_BOM_List').html('');
 
             var html = '';
             for (var i = 0; i < data.length; i++) {
-                html = html + '<tr><td><input type="checkbox" class="editor-active chk_BOM_list"></td><td style="display:none;">' + data[i].Id + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].MachineType != undefined ? data[i].MachineType : '') + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Capacity != undefined ? data[i].Capacity : '') + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].ProductName != undefined ? data[i].ProductName : '') + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Cost != undefined ? data[i].Cost : 0) + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].SetupTime != undefined ? data[i].SetupTime : 0) + '</td>'
-                    + '<td onclick="FetchWorkCenterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].LocationID != undefined ? data[i].LocationID : '') + '</td></tr>';
+                html = html + '<tr><td><input type="checkbox" class="editor-active chk_BOM_list"></td><td>' + data[i].Id + '</td>'
+                    + '<td onclick="FetchBOMMasterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].ProductName != undefined ? data[i].ProductName : '') + '</td>'
+                    + '<td onclick="FetchBOMMasterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Quantity != undefined ? data[i].Quantity : '') + ' ' + (data[i].UnitMeasure != undefined ? data[i].UnitMeasure : '') + '</td>'
+                    + '<td onclick="FetchBOMMasterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].BOMType != undefined ? data[i].BOMType : '') + '</td>'
+                    + '<td onclick="FetchBOMMasterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].WorkCenterID != undefined ? data[i].WorkCenterID : 0) + '</td>'
+                    + '<td onclick="FetchBOMMasterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Operation != undefined ? data[i].Operation : 0) + '</td>'
+                   
+                    + '<td onclick="FetchBOMMasterDetails(\'' + data[i].Id.trim() + '\');">' + (data[i].Duration != undefined ? data[i].Duration : '') + '</td></tr>';
             }
 
 
-            $('#tbody_WorkCenterDetailsList').html(html);
+            $('#tbody_BOM_List').html(html);
             //$('#tblWorkCenterDetailsList').DataTable();
 
             var d = new Date();
-            var table = $('#tblWorkCenterDetailsList').DataTable({
+            var table = $('#tblManufactureBomList').DataTable({
                 'columnDefs': [
                     {
                         'targets': 0,
@@ -368,7 +502,7 @@ function BindWorkCenterDetailsList() {
 
             });
 
-            $('#tbody_WorkCenterDetailsList tbody').on('change', 'input[type="checkbox"]', function () {
+            $('#tblManufactureBomList tbody').on('change', 'input[type="checkbox"]', function () {
                 // If checkbox is not checked
 
                 if (!this.checked) {
@@ -392,7 +526,129 @@ function BindWorkCenterDetailsList() {
     });
 }
 
+function FetchBOMMasterDetails(id) {
+   
+        showLoader();
 
+        $.ajax({
+            type: "POST",
+            url: 'wfMnfManufactureBomDetail.aspx/FetchBOMMasterListById',
+            data: JSON.stringify({
+                "ID": id
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                setTimeout(function () {
+                    var data = JSON.parse(response.d);
+                    ClearAll();
+                    $('#divList').hide();
+                    $('#divEntry').show();
+                    $('#divDetails').show();
+                    $('#btnSave').show();
+                    $('#btnExport').hide();
+                    $('#btnView').show();
+                    $('#txtId').val(id);
+                    $('#hdnIsEdit').val('1');
+                    $("#btnSave").html('Update');
+                    $('#ddlProductName').select2('destroy');
+                    $('#ddlProductName').val((data[0].MaterialId != undefined ? data[0].MaterialId
+                        : ''));
+                    $('#ddlProductName').select2();
+
+                    $('#txtQuantity').val((data[0].Quantity != undefined ? data[0].Quantity : ''));
+
+                    $('#ddlUnitMesure').select2('destroy');
+                    $('#ddlUnitMesure').val((data[0].UOMID != undefined ? data[0].UOMID : ''));
+                    $('#ddlUnitMesure').select2();
+
+                    $('#ddlBOMType').select2('destroy');
+                    $('#ddlBOMType').val((data[0].BOMType != undefined ? data[0].BOMType : ''));
+                    $('#ddlBOMType').select2();
+
+                    $('#ddlWorkCenter').select2('destroy');
+                    $('#ddlWorkCenter').val((data[0].WorkCenterID != undefined ? data[0].WorkCenterID : ''));
+                    $('#ddlWorkCenter').select2();
+
+                    $('#ddlOperation').select2('destroy');
+                    $('#ddlOperation').val((data[0].Operation != undefined ? data[0].Operation : ''));
+                    $('#ddlOperation').select2();
+
+                    $('#txtDuration').val((data[0].Duration != undefined ? data[0].Duration : ''));
+                   
+
+
+                    FetchBOMDetailsList(id);
+                    
+                    //setTimeout(function () {
+                    //    $('#ddlCustomer').val(data[0].CustomerId).trigger('change');
+
+                    //}, 30);
+                    //setTimeout(function () {
+
+                    //    $('#ddlCustomer').focus();
+                    //}, 30);
+                    hideLoader();
+                }, 200);
+            },
+            complete: function () {
+
+            },
+            failure: function (jqXHR, textStatus, errorThrown) {
+
+            }
+        });
+}
+
+function FetchBOMDetailsList(id) {
+    $('#tbody_BOMListDetails').children('tr:not(:first)').remove();
+
+    $.ajax({
+        type: "POST",
+        url: 'wfMnfManufactureBomDetail.aspx/FetchBOMDetails',
+        data: JSON.stringify({
+            "Id": id
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            var data = JSON.parse(response.d);
+
+           
+            for (var i = 0; i < data.length; i++) {
+               
+                $('#tbody_BOMListDetails').append('<tr><td style="display: none;">' + data[i].ID + '</td>'
+                    + '<td>' + (data[i].ProductName != undefined ? data[i].ProductName : "") + '</td>'
+                    + '<td style="display: none;">' + (data[i].MaterialId != undefined ? data[i].MaterialId : "") + '</td>'
+
+                    + '<td>' + (data[i].Quantity != undefined ? data[i].Quantity : "") + '</td>'
+                    + '<td>' + (data[i].UnitMeasure != undefined ? data[i].UnitMeasure : "") + '</td>'
+                    + '<td style="display: none;">' + (data[i].UOMID != undefined ? data[i].UOMID : "") + '</td>'
+
+                    + '<td><a onclick="DeleteBOMDetailEntry(this);"  style="cursor:pointer;"><i class="fa fa-trash" aria-hidden="true"></i></a></td>'
+
+                    + '</tr>');
+            }
+           
+
+        },
+        complete: function () {
+
+        },
+        failure: function (jqXHR, textStatus, errorThrown) {
+
+        }
+    });
+}
+function DeleteBOMDetailEntry(ele) {
+$(ele.parentElement.parentElement).remove();
+}
 function SaveBOMListDetails() {
     if (!validateRows()) {
         return;
@@ -411,7 +667,7 @@ function SaveBOMListDetails() {
             $('#ddlProductNameDetails').val('').trigger('change');
             $('#ddlProductNameDetails').focus();
             $('#ddlUOMDetails').val('').trigger('change');
-            $('#ddlUOMDetails').focus();
+           // $('#ddlUOMDetails').focus();
         }
         else {
             alertify.error('Please enter quantity');
@@ -427,7 +683,32 @@ function SaveBOMListDetails() {
 function DeleteBOMDetailEntry(ele, materialId) {
      $(ele.parentElement.parentElement).remove();
 }
+function FetchMaterialDetails() {
 
+    if ($('#ddlProductNameDetails').val() != '') {
+        var found = false;
+        $('#tbody_BOMListDetails tr').each(function (i) {
+            if (i > 0) {
+                var materialid = $(this)[0].cells[2].innerText;
+                if (materialid == $('#ddlProductNameDetails').val()) {
+                    found = true;
+
+                }
+            }
+
+        });
+        if (found) {
+            alertify.error('Product already added');
+            $('#ddlProductNameDetails').select2('destroy');
+            $('#ddlProductNameDetails').val('');
+            $('#ddlProductNameDetails').select2();
+            $('#ddlProductNameDetails').focus();
+            return;
+        }
+       
+       
+    }
+}
 function validateRows() {
     var isValid = true;
     var errorMessage = "";
@@ -466,4 +747,81 @@ function validateRows() {
     }
 
     return isValid;
+}
+
+function DownloadFile() {
+    var chk = 0;
+    var BOMid = '';
+    $('#tbody_BOM_List tr').each(function (index1, tr) {
+        chk = 0;
+        $(tr).find('td').each(function (index, td) {
+            if (index == 0) {
+                if ($(td.children[0]).is(':checked')) {
+                    chk = 1;
+                }
+                else {
+                    chk = 0;
+                }
+            }
+
+            if (index == 1) {
+                if (chk == 1) {
+                    if (BOMid == '') {
+                        BOMid = td.outerText;
+                    }
+                    else {
+                        BOMid = BOMid + ',' + td.outerText;
+                    }
+                }
+            }
+        });
+    });
+
+    if (BOMid != '') {
+        $.ajax({
+            type: "POST",
+            url: "wfMnfManufactureBomDetail.aspx/FetchManufactureBomDetailListDownload",
+            data: JSON.stringify({
+                "id": BOMid
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (r) {
+                var d = new Date();
+                var fileName = 'ManufactureBomDetail' + d.toDateString() + '.xlsx';
+                //Convert Base64 string to Byte Array.
+                var bytes = Base64ToBytes(r.d);
+
+                //Convert Byte Array to BLOB.
+                var blob = new Blob([bytes], { type: "application/octetstream" });
+
+                //Check the Browser type and download the File.
+                var isIE = false || !!document.documentMode;
+                if (isIE) {
+                    window.navigator.msSaveBlob(blob, fileName);
+                } else {
+                    var url = window.URL || window.webkitURL;
+                    link = url.createObjectURL(blob);
+                    var a = $("<a />");
+                    a.attr("download", fileName);
+                    a.attr("href", link);
+                    $("body").append(a);
+                    a[0].click();
+                    $("body").remove(a);
+                }
+            }
+        });
+    }
+    else {
+        alertify.error('Please select any record');
+    }
+}
+
+function Base64ToBytes(base64) {
+    var s = window.atob(base64);
+    var bytes = new Uint8Array(s.length);
+    for (var i = 0; i < s.length; i++) {
+        bytes[i] = s.charCodeAt(i);
+    }
+    return bytes;
 }

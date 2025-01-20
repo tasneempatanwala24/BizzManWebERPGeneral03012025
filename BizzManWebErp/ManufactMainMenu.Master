@@ -19,7 +19,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
     <link href="css/SidebarMenu.css" rel="stylesheet" />
     <script src="Scripts/select2.min.js"></script>
+    <script>
+    function showLoader() {
+        document.getElementById('loaderContainer').classList.remove('hidden');
+    }
 
+    function hideLoader() {
+        document.getElementById('loaderContainer').classList.add('hidden');
+    }
+
+   
+    </script>
     
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -27,7 +37,10 @@
 
 
 <body>
-    
+      <!-- Loader container with the fade background effect -->
+<div class="loader-container hidden" id="loaderContainer">
+    <div class="loader"></div>
+</div> 
     <form id="form1" runat="server">
 
 

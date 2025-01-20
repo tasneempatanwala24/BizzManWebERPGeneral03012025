@@ -253,6 +253,7 @@
     <Content Include="Scripts\MmVendorMaster.js" />
     <Content Include="Scripts\MnfJlrJobCardMaster.js" />
     <Content Include="Scripts\MnfJlrJobCardMaster_display.js" />
+    <Content Include="Scripts\MnfManufactureBomDetail.js" />
     <Content Include="Scripts\MnfManufactureOperationsMaster.js" />
     <Content Include="Scripts\MnfManufactureWorkCentersDetail.js" />
     <Content Include="Scripts\MnfManufactureWorkCentersMaster.js" />
@@ -357,6 +358,7 @@
     <Content Include="wfMmVendorMaster.aspx" />
     <Content Include="wfMnfJlrJobCardMaster.aspx" />
     <Content Include="wfMnfJlrJobCardMaster_display.aspx" />
+    <Content Include="wfMnfManufactureBomDetail.aspx" />
     <Content Include="wfMnfManufactureOperationsMaster.aspx" />
     <Content Include="wfMnfManufactureWorkCentersDetail.aspx" />
     <Content Include="wfMnfManufactureWorkCentersMaster.aspx" />
@@ -477,6 +479,7 @@
     <Compile Include="MmMainMenu.Master.designer.cs">
       <DependentUpon>MmMainMenu.Master</DependentUpon>
     </Compile>
+    <Compile Include="Model\BOMDetail.cs" />
     <Compile Include="Model\CommonModel.cs" />
     <Compile Include="Model\CompanyDetails.cs" />
     <Compile Include="Model\CrmLeadModel.cs" />
@@ -958,6 +961,13 @@
     </Compile>
     <Compile Include="wfMnfJlrJobCardMaster_display.aspx.designer.cs">
       <DependentUpon>wfMnfJlrJobCardMaster_display.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureBomDetail.aspx.cs">
+      <DependentUpon>wfMnfManufactureBomDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureBomDetail.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureBomDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfMnfManufactureOperationsMaster.aspx.cs">
       <DependentUpon>wfMnfManufactureOperationsMaster.aspx</DependentUpon>

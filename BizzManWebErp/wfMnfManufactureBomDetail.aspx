@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SdMainMenu.Master" 
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ManufactMainMenu.Master" 
     AutoEventWireup="true" CodeBehind="wfMnfManufactureBomDetail.aspx.cs" Inherits="BizzManWebErp.wfMnfManufactureBomDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -21,8 +21,8 @@
     <input type="hidden" id="loginuser" runat="server" />
      <input type="hidden" id="hdnIsEdit" />
     <button onclick="CreateBOMDetails();" id="btnCreate">Create</button>
-    <button onclick="" id="btnView">View</button>
-    <button onclick="" id="btnExport">Export To Excel</button>
+    <button onclick="ShowBOMDetails()" id="btnView">View</button>
+    <button onclick="DownloadFile();" id="btnExport">Export To Excel</button>
     <button onclick="AddBOMDetails()" style="display: none;" id="btnSave" title=" Press Ctrl + S to save record">Save</button>
     <button onclick="" style="display: none;" id="btnConfirm">Confirm</button>
     <button onclick="" style="display: none;" id="btnCancel">Cancel</button>
@@ -37,22 +37,14 @@
                 <tr>
                     <th class="noSort">
                         <input name="select_all" value="1" id="example-select-all" type="checkbox" /></th>
-                    <th style="white-space: nowrap;">Sales Order Id</th>
-                    <th style="white-space: nowrap;">Manual Order Id</th>
-                    <th style="white-space: nowrap;">Order Source</th>
-                    <th style="white-space: nowrap;">Customer</th>
-                    <th style="white-space: nowrap;">Branch</th>
-                    <th style="white-space: nowrap;">Department</th>
-                    <th style="white-space: nowrap;">GST Treatment</th>
-                    <th style="white-space: nowrap;">Expiration Date</th>
-                    <th style="white-space: nowrap;">Quotation Date</th>
-                    <th style="white-space: nowrap;">Currency</th>
-                    <th style="white-space: nowrap;">Payment Terms</th>
-                    <th style="white-space: nowrap;">Order Status</th>
-                    <th style="white-space: nowrap;">Delivery Charges</th>
-                    <th style="white-space: nowrap;">Outstanding Amount</th>
-                    <th style="white-space: nowrap;">Advance</th>
-                    <th style="white-space: nowrap;">Total Amount</th>
+                    <th style="white-space: nowrap;">Id</th>
+                    <th style="white-space: nowrap;">Product</th>
+                    <th style="white-space: nowrap;">Quantity</th>
+                    <th style="white-space: nowrap;">BOM Type </th>
+                    <th style="white-space: nowrap;">Work Center</th>
+                    <th style="white-space: nowrap;">Operation</th>
+                    <th style="white-space: nowrap;">Duration(in min)</th>
+                    
                 </tr>
             </thead>
             <tbody id="tbody_BOM_List">
@@ -148,10 +140,10 @@
                             <thead>
                                 <tr>
                                     <th style="display: none;">Id</th>
-                                    <th style="width: 100px;">Product</th>
+                                    <th>Product</th>
                                      <th style="display: none;">ProductId</th>
-                                    <th style="width: 100px;">Qty</th>
-                                     <th style="width: 100px;">UOM</th>
+                                    <th>Qty</th>
+                                     <th>UOM</th>
                                      <th style="display: none;">UOMId</th>
                                     <th></th>
                                 </tr>
@@ -162,11 +154,11 @@
                                     <td style="display: none;">
                                         </td>
                                     <td style="width: 250px;">
-                                        <select id="ddlProductNameDetails" name="ddlProductNameDetails" class="form-control" style="width:100% !important">
+                                        <select id="ddlProductNameDetails" name="ddlProductNameDetails" class="form-control" style="width:100% !important" onchange="FetchMaterialDetails();">
                                             <option value="">-Select Product Name-</option>
                                         </select>
                                     </td>
-                                        <td style="display: none;"></td>
+                                       <%-- <td style="display: none;"></td>--%>
                                     <td style="width: 100px;">
                                         <input type="text" class="form-control" id="txtMaterialQty" name="txtMaterialQty" placeholder="Qty" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" value="0" />
                                     </td>

@@ -13,12 +13,25 @@ CREATE  OR ALTER  PROC [dbo].[procMnfManufactureBomDetail]
  @IsUpdate bit=0,
  @XMLData AS XML 
 AS  
-   
+
 BEGIN  
 Declare @TotalRecords int=0,@LoopCount int=1 
 IF(@IsUpdate=1)  
 BEGIN  
 Select 'Update'
+Update [tblMnfManufactureBomMaster]
+set MaterialId=@MaterialId,
+	Quantity=@Quantity,
+	UOMID=@UOM,
+	BOMType=@BOMType,
+	WorkCenterID=@WorkCenter,
+	Operation=@Operation,
+	Duration=@Duration,
+	UpdateDate=GetDate(),
+	UpdateUser=@UpdateUser
+	where id=@Id
+
+	Delete from tblMnfManufactureBomDetail where BOMID=@Id
  --Update [tblMnfWorkCentersDetail]  
  --SET   
  --MachineType=@MachineType,  

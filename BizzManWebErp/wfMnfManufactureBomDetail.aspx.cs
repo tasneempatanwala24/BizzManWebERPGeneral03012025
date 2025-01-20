@@ -132,17 +132,16 @@ namespace BizzManWebErp
 
 
         [WebMethod]
-        public static string FetchBOMDetailList()
+        public static string FetchBOMMasterList()
         {
-            DataTable dtWorkCenterDetailList = new DataTable();
+            DataTable dtBOMList = new DataTable();
 
             try
             {
 
-                dtWorkCenterDetailList = objMain.dtFetchData(@"select a.*,m.MaterialName as ProductName,L.LocationName as Location
-                                                              from tblMnfWorkCentersDetail a inner join tblMmMaterialMaster m on a.materialId=m.Id
-                                                                inner join tblInventLocationMaster L on L.Id=a.LocationId 
-                                                              order by id ");
+                dtBOMList = objMain.dtFetchData(@"select a.*,m.MaterialName as ProductName,u.UnitMesureName as UnitMeasure
+from tblMnfManufactureBomMaster a inner join tblMmMaterialMaster m on a.materialId=m.Id
+inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id order by a.id ");
 
             }
             catch (Exception ex)
@@ -150,7 +149,50 @@ namespace BizzManWebErp
                 return "";
             }
 
-            return JsonConvert.SerializeObject(dtWorkCenterDetailList);
+            return JsonConvert.SerializeObject(dtBOMList);
+        }
+
+        [WebMethod]
+        public static string FetchBOMMasterListById(string ID)
+        {
+            DataTable dtBOMList = new DataTable();
+
+            try
+            {
+
+                dtBOMList = objMain.dtFetchData(@"select a.*,m.MaterialName as ProductName,u.UnitMesureName as UnitMeasure
+from tblMnfManufactureBomMaster a inner join tblMmMaterialMaster m on a.materialId=m.Id
+inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id where a.id='"+ID+"'");
+
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+
+            return JsonConvert.SerializeObject(dtBOMList);
+        }
+
+        [WebMethod]
+        public static string FetchBOMDetails(string Id)
+        {
+            //  clsMain objMain = new clsMain();
+            DataTable dtSalesOrderasterDetails = new DataTable();
+
+            try
+            {
+
+                    dtSalesOrderasterDetails = objMain.dtFetchData(@"select a.*,m.MaterialName as ProductName,u.UnitMesureName as UnitMeasure
+                    from tblMnfManufactureBomDetail
+                    a inner join tblMmMaterialMaster m on a.materialId=m.Id
+                    inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id  where BOMID='" + Id + "' order by a.id");
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+
+            return JsonConvert.SerializeObject(dtSalesOrderasterDetails);
         }
 
 
@@ -234,6 +276,42 @@ namespace BizzManWebErp
             catch (Exception ex)
             {
                 return ex.Message;
+            }
+
+        }
+
+        [WebMethod]
+        [SecurityCritical]
+        public static string FetchManufactureBomDetailListDownload(string id = "")
+        {
+            //  clsMain objMain = new clsMain();
+            DataTable dtMaterialBOMList = new DataTable();
+
+            try
+             {
+
+                dtMaterialBOMList = objMain.dtFetchData(@"select a.Id,m.MaterialName as ProductName,Cast(a.Quantity as varchar(10))+' '+u.UnitMesureName as Quantity,a.BOMType,a.WorkCenterID,a.Operation,a.Duration as 'Duration(in min)'
+from tblMnfManufactureBomMaster a inner join tblMmMaterialMaster m on a.materialId=m.Id
+inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id  where 1=1" + (id != "" ? " and a.Id in(SELECT Item FROM [dbo].[SplitString] ('" + id + "',','))" : "") + " order by Id desc");
+            }
+            catch (Exception ex)
+            {
+                // return "";
+            }
+            dtMaterialBOMList.TableName = "ManufactureBomDetail";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                //Add DataTable in worksheet  
+                wb.Worksheets.Add(dtMaterialBOMList);
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    //Return xlsx Excel File  
+                    byte[] bytes = stream.ToArray();
+
+                    //Convert File to Base64 string and send to Client.
+                    return Convert.ToBase64String(bytes, 0, bytes.Length);
+                }
             }
 
         }
