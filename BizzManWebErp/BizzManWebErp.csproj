@@ -479,11 +479,11 @@
     <Compile Include="MmMainMenu.Master.designer.cs">
       <DependentUpon>MmMainMenu.Master</DependentUpon>
     </Compile>
-    <Compile Include="Model\BOMDetail.cs" />
     <Compile Include="Model\CommonModel.cs" />
     <Compile Include="Model\CompanyDetails.cs" />
     <Compile Include="Model\CrmLeadModel.cs" />
     <Compile Include="Model\InventStockTransfer.cs" />
+    <Compile Include="Model\MnfManufactureBomDetail.cs" />
     <Compile Include="Model\NumberToWords.cs" />
     <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\PurchaseOrderDirectEntry.cs" />

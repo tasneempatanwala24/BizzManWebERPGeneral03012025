@@ -444,7 +444,7 @@ function ShowBOMDetails() {
 }
 
 function BindBOMDetailsList() {
-
+    showLoader();
     $.ajax({
         type: "POST",
         url: 'wfMnfManufactureBomDetail.aspx/FetchBOMMasterList',
@@ -455,6 +455,7 @@ function BindBOMDetailsList() {
 
         },
         success: function (response) {
+            setTimeout(function () {
             var data = JSON.parse(response.d);
             $('#tblManufactureBomList').DataTable().clear();
             $('#tblManufactureBomList').DataTable().destroy();
@@ -515,7 +516,8 @@ function BindBOMDetailsList() {
                     }
                 }
             });
-
+                hideLoader();
+            }, 200);
         },
         complete: function () {
 
