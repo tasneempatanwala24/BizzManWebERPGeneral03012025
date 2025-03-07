@@ -11,7 +11,7 @@ namespace BizzManWebErp
 {
 
 
-    public partial class wfMnfManufactureOrder
+    public partial class wfMnfManufactureBulkAutoProduction
     {
 
         /// <summary>

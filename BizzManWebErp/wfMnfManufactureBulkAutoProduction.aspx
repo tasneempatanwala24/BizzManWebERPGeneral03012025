@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ManufactMainMenu.Master" 
-    AutoEventWireup="true" CodeBehind="wfMnfManufactureOrder.aspx.cs" Inherits="BizzManWebErp.wfMnfManufactureOrder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfMnfManufactureBulkAutoProduction.aspx.cs" Inherits="BizzManWebErp.wfMnfManufactureBulkAutoProduction" MasterPageFile="~/ManufactMainMenu.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/style.css" rel="stylesheet" />
@@ -15,14 +14,15 @@
     <script type="text/javascript" src="Scripts/bootstrap-timepicker.js"></script>
     <script src="Scripts/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"> </script>
-    <script src="Scripts/wfMnfManufactureOrder.js"></script>
+    <script src="Scripts/MnfManufactureBulkAutoProduction.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <input type="hidden" id="loginuser" runat="server" />
      <input type="hidden" id="hdnIsEdit" />
-    <button onclick="CreateOrderDetails();" id="btnCreate">Create</button>
-    <button onclick="ShowOrderDetails();" id="btnView">View</button>
-    <button onclick="DownloadFile();" id="btnExport">Export To Excel</button>
+    <button onclick="CreateOrderDetails();" style="display: none" id="btnCreate">Create</button>
+    <button onclick="ShowOrderDetails();" style="display: none" id="btnView">View</button>
+    <button onclick="DownloadFile();" id="btnExport" style="display: none">Export To Excel</button>
+        <button onclick="ConfirmAutoProduce();" id="btnAutoProduce" >Auto Produce</button>
     <button onclick="AddOrderDetails();" style="display: none;" id="btnSave" title=" Press Ctrl + S to save record">Save</button>
     <button onclick="" style="display: none;" id="btnConfirm">Confirm</button>
     <button onclick="" style="display: none;" id="btnCancel">Cancel</button>
@@ -144,7 +144,7 @@
 
     <div class="container" id="divDetails" style="margin-top: 10px; overflow: auto; display: none;">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" id="ComponentsHeader">
                 COMPONENTS
             </div>
             <div class="card-body">
@@ -196,5 +196,6 @@
     </div>
 
 </asp:Content>
+
 
 

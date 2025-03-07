@@ -1,13 +1,14 @@
 --DROP TABLE [tblMnfManufactureOrderMaster]
 
+
 CREATE TABLE [dbo].[tblMnfManufactureOrderMaster](
 	[Id] [varchar](20) NOT NULL,
 	[BOMID] varchar(20) NOT NULL,
-	[ProductId] [int] NULL,
+	[materialID] [int] NULL,
 	[MODate] [datetime] NULL,
 	[Quantity] [float] NULL,
 	[UOMID] [int] NULL,
-	[AssignPerson] [varchar](60) NULL,
+	[AssignPersonID] int NULL,
 	[DeadLineDate] [datetime] NULL,
 	[ManufacturingType] [varchar](60) NULL,
 	[CreateUser] [nvarchar](20) NULL,

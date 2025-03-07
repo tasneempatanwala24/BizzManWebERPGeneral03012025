@@ -254,6 +254,8 @@
     <Content Include="Scripts\MnfJlrJobCardMaster.js" />
     <Content Include="Scripts\MnfJlrJobCardMaster_display.js" />
     <Content Include="Scripts\MnfManufactureBomDetail.js" />
+    <Content Include="Scripts\MnfManufactureBulkAutoProduction.js" />
+    <Content Include="Scripts\MnfManufactureDemandslip.js" />
     <Content Include="Scripts\MnfManufactureOperationsMaster.js" />
     <Content Include="Scripts\MnfManufactureWorkCentersDetail.js" />
     <Content Include="Scripts\MnfManufactureWorkCentersMaster.js" />
@@ -294,6 +296,7 @@
     <Content Include="Scripts\table2excel.js" />
     <Content Include="Scripts\tableHTMLExport.js" />
     <Content Include="Scripts\wfHrEmpLeaveApplicationIndivisual.js" />
+    <Content Include="Scripts\wfMnfManufactureOrder.js" />
     <Content Include="Web.config" />
     <Content Include="wfAdminCompanyMaster.aspx" />
     <Content Include="wfAdminCompanyMasterNew.aspx" />
@@ -359,7 +362,10 @@
     <Content Include="wfMnfJlrJobCardMaster.aspx" />
     <Content Include="wfMnfJlrJobCardMaster_display.aspx" />
     <Content Include="wfMnfManufactureBomDetail.aspx" />
+    <Content Include="wfMnfManufactureBulkAutoProduction.aspx" />
+    <Content Include="wfMnfManufactureDemandslip.aspx" />
     <Content Include="wfMnfManufactureOperationsMaster.aspx" />
+    <Content Include="wfMnfManufactureOrder.aspx" />
     <Content Include="wfMnfManufactureWorkCentersDetail.aspx" />
     <Content Include="wfMnfManufactureWorkCentersMaster.aspx" />
     <Content Include="wfMnfManufactureWorkCentersOperationsTransection.aspx" />
@@ -484,6 +490,8 @@
     <Compile Include="Model\CrmLeadModel.cs" />
     <Compile Include="Model\InventStockTransfer.cs" />
     <Compile Include="Model\MnfManufactureBomDetail.cs" />
+    <Compile Include="Model\MnfManufactureDemandslip.cs" />
+    <Compile Include="Model\MnfManufactureOrder.cs" />
     <Compile Include="Model\NumberToWords.cs" />
     <Compile Include="Model\Payment.cs" />
     <Compile Include="Model\PurchaseOrderDirectEntry.cs" />
@@ -969,12 +977,33 @@
     <Compile Include="wfMnfManufactureBomDetail.aspx.designer.cs">
       <DependentUpon>wfMnfManufactureBomDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="wfMnfManufactureBulkAutoProduction.aspx.cs">
+      <DependentUpon>wfMnfManufactureBulkAutoProduction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureBulkAutoProduction.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureBulkAutoProduction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureDemandslip.aspx.cs">
+      <DependentUpon>wfMnfManufactureDemandslip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureDemandslip.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureDemandslip.aspx</DependentUpon>
+    </Compile>
     <Compile Include="wfMnfManufactureOperationsMaster.aspx.cs">
       <DependentUpon>wfMnfManufactureOperationsMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="wfMnfManufactureOperationsMaster.aspx.designer.cs">
       <DependentUpon>wfMnfManufactureOperationsMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfMnfManufactureOrder.aspx.cs">
+      <DependentUpon>wfMnfManufactureOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfMnfManufactureOrder.aspx.designer.cs">
+      <DependentUpon>wfMnfManufactureOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfMnfManufactureWorkCentersDetail.aspx.cs">
       <DependentUpon>wfMnfManufactureWorkCentersDetail.aspx</DependentUpon>

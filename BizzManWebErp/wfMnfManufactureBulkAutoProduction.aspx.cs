@@ -1,25 +1,23 @@
-﻿using System;
+﻿using BizzManWebErp.Model;
+using ClosedXML.Excel;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Globalization;
+using System.Data;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BizzManWebErp.Model;
-using ClosedXML.Excel;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using Newtonsoft.Json;
-using System.Security;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace BizzManWebErp
 {
-    public partial class wfMnfManufactureOrder : System.Web.UI.Page
+    public partial class wfMnfManufactureBulkAutoProduction : System.Web.UI.Page
     {
         //added on 12 Dec 2023
         static clsMain objMain;
@@ -143,7 +141,7 @@ tblCrmCustomers on tblCrmCustomers.ContactId=tblCrmCustomerContacts.ContactId");
 
                 dtBOMList = objMain.dtFetchData(@"select a.*,m.MaterialName as ProductName,u.UnitMesureName as UnitMeasure,C.CustomerName,CONVERT(nvarchar,a.MODate,104) as FormattedMODate,CONVERT(nvarchar,a.DeadlineDate,104) as FormattedDeadlineDate
 from tblMnfManufactureOrderMaster a inner join tblMmMaterialMaster m on a.materialId=m.Id
-inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id inner join tblCrmCustomers C on C.CustomerId=a.AssignPersonID order by a.id");
+inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id inner join tblCrmCustomers C on C.CustomerId=a.AssignPersonID where isAutoProduce=0 order by a.id");
 
             }
             catch (Exception ex)
@@ -166,7 +164,7 @@ inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id inner join tblCrmCustomers C
                             from tblMnfManufactureOrderMaster a 
                             inner join tblMmMaterialMaster m on a.materialId=m.Id
                              inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id
-							 inner join tblCrmCustomers C on C.CustomerId=a.AssignPersonID where a.id='" + ID+"'");
+							 inner join tblCrmCustomers C on C.CustomerId=a.AssignPersonID where a.id='" + ID + "'");
 
             }
             catch (Exception ex)
@@ -186,7 +184,7 @@ inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id inner join tblCrmCustomers C
             try
             {
 
-                    dtSalesOrderasterDetails = objMain.dtFetchData(@"select bm.*,m.MaterialName as ProductName
+                dtSalesOrderasterDetails = objMain.dtFetchData(@"select bm.*,m.MaterialName as ProductName
                             from  tblMnfManufactureOrderDetail bm 
                             inner join tblMmMaterialMaster m on bm.materialId=m.Id  where bm.OrderId='" + Id + "' order by bm.ID");
             }
@@ -221,8 +219,8 @@ inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id order by a.id ");
 
         [WebMethod]
         public static string AddOrderDetails(List<MnfManufactureOrder> dtList, string Id = "", string BOMID = "",
-        int ProductId=0,string MOdate="",
-        float Quantity = 0, string UOM = "",string Assignperson="", string DeadlineDate = "",
+        int ProductId = 0, string MOdate = "",
+        float Quantity = 0, string UOM = "", string Assignperson = "", string DeadlineDate = "",
         string ManufacturingType = "",
         string loginUser = "", int IsUpdate = 0)
         {
@@ -321,7 +319,7 @@ inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id order by a.id ");
             DataTable dtMaterialBOMList = new DataTable();
 
             try
-             {
+            {
 
                 dtMaterialBOMList = objMain.dtFetchData(@"select a.Id,a.BOMID,a.MODate,m.MaterialName as Product,Cast(a.Quantity as varchar(10))+' '+u.UnitMesureName as Quantity,C.CustomerName as Assignee
 ,a.DeadLineDate,a.ManufacturingType,a.CreateUser as [User]
@@ -351,6 +349,36 @@ inner join tblCrmCustomers C on C.CustomerId=a.AssignPersonID  where 1=1" + (id 
 
         }
 
+        
+            [WebMethod]
+        public static string AutoProduceMO(string id = "",string loginUser="")
+        {
+            //  clsMain objMain = new clsMain();
+            DataTable dtMaterialBOMList = new DataTable();
+
+            try
+            {
+                SqlParameter[] objParam = new SqlParameter[2];
+
+                objParam[0] = new SqlParameter("@Id", SqlDbType.NVarChar);
+                objParam[0].Direction = ParameterDirection.Input;
+                objParam[0].Value = id;
+
+                objParam[1] = new SqlParameter("@CreateUser", SqlDbType.NVarChar);
+                objParam[1].Direction = ParameterDirection.Input;
+                objParam[1].Value = loginUser;
+
+                var result = objMain.ExecuteProcedure("procMnfManufactureBulkAutoProduction", objParam);
+
+            }
+            catch (Exception ex)
+            {
+                // return "";
+            }
+
+            return "";
+        }
+
         [WebMethod]
         public static string FetchBOMMasterListById(string ID)
         {
@@ -377,7 +405,4 @@ inner join tblCrmCustomers C on C.CustomerId=a.AssignPersonID  where 1=1" + (id 
             return JsonConvert.SerializeObject(dtBOMList);
         }
     }
-
-
-
 }

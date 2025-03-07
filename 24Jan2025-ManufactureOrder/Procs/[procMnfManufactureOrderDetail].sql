@@ -20,17 +20,17 @@ Declare @TotalRecords int=0,@LoopCount int=1
 IF(@IsUpdate=1)    
 BEGIN    
 Select 'Update'  
-	--Update [tblMnfManufactureBomMaster]  
-	--set MaterialId=@MaterialId,  
-	--Quantity=@Quantity,  
-	--UOMID=@UOM,  
-	--BOMType=@BOMType,  
-	--WorkCenterID=@WorkCenter,  
-	--Operation=@Operation,  
-	--Duration=@Duration,  
-	--UpdateDate=GetDate(),  
-	--UpdateUser=@UpdateUser  
-	--where id=@Id  
+	Update [tblMnfManufactureOrderMaster]  
+	set BOMID=@BOMID,  
+	MaterialId=@ProductId,  
+	MODate=@MODate,  
+	Quantity=@Quantity,  
+	UOMID=@UOM,  
+	AssignPersonId=@AssignPerson,  
+	DeadLineDate=@DeadLineDate,  
+	ManufacturingType=@ManufacturingType,  
+	UpdateUser=@CreateUser  
+	where id=@Id  
   
 	--Delete from tblMnfManufactureBomDetail where BOMID=@Id  
   
@@ -40,11 +40,11 @@ BEGIN
 	INSERT INTO dbo.[tblMnfManufactureOrderMaster]     
 	(Id,
 	BOMID,
-	ProductId,
+	MaterialId,
 	MODate,
 	Quantity,
 	UOMID,
-	AssignPerson,
+	AssignPersonId,
 	DeadLineDate,
 	ManufacturingType,
 	CreateUser)    
@@ -60,7 +60,7 @@ BEGIN
 	@ManufacturingType,
 	@CreateUser  
 END    
-  
+  Delete from tblMnfManufactureOrderDetail where OrderID=@Id 
 --DETAILS  
 SELECT @TotalRecords = @xmlData.value('count(/OrderList/OrderListDetail)', 'int')       
 WHILE @LoopCount <= @TotalRecords                                                                                                 
@@ -79,7 +79,7 @@ BEGIN
 	,p.n.value('Quantity[1]', 'decimal')
 	,p.n.value('WCID[1]', 'nvarchar(50)')
 	,p.n.value('Operation[1]', 'nvarchar(50)')
-	,p.n.value('QuantityConsumed[1]', 'decimal')
+	,p.n.value('QtyConsumed[1]', 'decimal')
 	,@CreateUser    
 	from  @XmlData.nodes('/OrderList/OrderListDetail[sql:variable("@LoopCount")]') AS p(n)                          
 SET @LoopCount = @LoopCount + 1                       
