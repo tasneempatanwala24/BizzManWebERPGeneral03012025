@@ -134,7 +134,7 @@ function FetchBOMDetails() {
                 var data = JSON.parse(response.d);
                 var req = '';
                 for (var i = 0; i < JSON.parse(response.d).length; i++) {
-                    req = req + "<option value='" + JSON.parse(response.d)[i].Id + "'>" + JSON.parse(response.d)[i].Id + "</option>";
+                    req = req + "<option value='" + JSON.parse(response.d)[i].Id + "'>" + JSON.parse(response.d)[i].Id + "---" + JSON.parse(response.d)[i].ProductName + "</option>";
                 }
                 $('#ddlBOMID').append(req);
                 hideLoader();

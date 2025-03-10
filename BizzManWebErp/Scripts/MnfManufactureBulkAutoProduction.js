@@ -176,6 +176,7 @@ function FetchSelectedBOMDetails() {
                             + '<td>' + (data[i].BomDetailMaterialName != undefined ? data[i].BomDetailMaterialName : "") + '</td>'
                             + '<td style="display: none;">' + (data[i].BomDetailMaterial != undefined ? data[i].BomDetailMaterial : "") + '</td>'
                             + '<td>' + (data[i].BomDetailQuantity != undefined ? data[i].BomDetailQuantity : "") + '</td>'
+                            + '<td>' + (data[i].Stock != undefined ? data[i].Stock : "") + '</td>'
                             + '<td>' + (data[i].WorkCenterID != undefined ? data[i].WorkCenterID : "") + '</td>'
                             + '<td>' + (data[i].Operation != undefined ? data[i].Operation : "") + '</td>'
                             + '<td>' + (data[i].BomDetailQuantity * ($('#txtQuantity').val().trim() != undefined ? $('#txtQuantity').val().trim() : 0)) + '</td>'
@@ -687,6 +688,8 @@ function FetchManufactureOrderDetails(id) {
                     + '<td style="display: none;">' + (data[i].MaterialId != undefined ? data[i].MaterialId : "") + '</td>'
 
                     + '<td>' + (data[i].Quantity != undefined ? data[i].Quantity : "") + '</td>'
+                    + '<td>' + (data[i].Stock != undefined ? data[i].Stock : "") + '</td>'
+
                     + '<td>' + (data[i].WCID != undefined ? data[i].WCID : "") + '</td>'
                     + '<td>' + (data[i].Operation != undefined ? data[i].Operation : "") + '</td>'
                     + '<td>' + (data[i].QuantityConsumed != undefined ? data[i].QuantityConsumed : "") + '</td>'
@@ -748,60 +751,197 @@ function ConfirmAutoProduce() {
         , function () { });
 }
 
+//function AutoProduce() {
+//    var chk = 0;
+//    var BOMid = '';
+//    var resultOfZeroOrNegativeStock = false;
+//    $('#tbody_ManufactureOrder_List tr').each(function (index1, tr) {
+//        chk = 0;
+//        $(tr).find('td').each(function (index, td) {
+//            if (index == 0) {
+//                if ($(td.children[0]).is(':checked')) {
+//                    chk = 1;
+//                }
+//                else {
+//                    chk = 0;
+//                }
+//            }
+
+//            if (index == 1) {
+//                if (chk == 1) {
+//                    //check if this MO has any subitems of 0 stock
+//                    resultOfZeroOrNegativeStock = checkStockOfMOItems(td.outerText);
+//                    if (BOMid == '') {
+//                        BOMid = td.outerText;
+//                    }
+//                    else {
+//                        BOMid = BOMid + ',' + td.outerText;
+//                    }
+//                }
+//            }
+//        });
+//    });
+
+//    if (BOMid != '') {
+//        if (resultOfZeroOrNegativeStock == false) {
+//            $.ajax({
+//                type: "POST",
+//                url: "wfMnfManufactureBulkAutoProduction.aspx/AutoProduceMO",
+//                data: JSON.stringify({
+//                    "id": BOMid,
+//                    "loginUser": $('#ContentPlaceHolder1_loginuser').val()
+//                }),
+//                contentType: "application/json; charset=utf-8",
+//                dataType: "json",
+//                success: function (r) {
+//                    $('#divDetails').hide();
+//                    BindManufactureOrderMasterList();
+//                }
+//            });
+//        } else {
+//            alertify.error('Please select any record');
+//        }
+
+//    }
+//    else {
+//        alertify.error('Raw material stock Qty is low. MO cannot be AutoProduced.');
+//    }
+//}
+
+//function checkStockOfMOItems(moid) {
+//    var isStockZeroOrNegative = false;
+//    $.ajax({
+//        type: "POST",
+//        url: 'wfMnfManufactureBulkAutoProduction.aspx/FetchManufactureOrderDetails',
+//        data: JSON.stringify({
+//            "Id": moid
+//        }),
+//        contentType: "application/json; charset=utf-8",
+//        dataType: "json",
+//        beforeSend: function () {
+
+//        },
+//        success: function (response) {
+//            var data = JSON.parse(response.d);
+//            $('#ComponentsHeader').html('Components of ' + id);
+//            ComponentsHeader
+//            for (var i = 0; i < data.length; i++) {
+//                if (data[i].Stock > 0) {
+//                    isStockZeroOrNegative = true;
+//                    break;
+//                }
+
+//            }
+//            return isStockZeroOrNegative;
+
+//        },
+//        complete: function () {
+
+//        },
+//        failure: function (jqXHR, textStatus, errorThrown) {
+
+//        }
+//    });
+
+
+//    return isStockZeroOrNegative;
+//}
+
+
 function AutoProduce() {
     var chk = 0;
     var BOMid = '';
+    var resultOfZeroOrNegativeStock = false;
+    var promises = [];
+
     $('#tbody_ManufactureOrder_List tr').each(function (index1, tr) {
         chk = 0;
         $(tr).find('td').each(function (index, td) {
             if (index == 0) {
                 if ($(td.children[0]).is(':checked')) {
                     chk = 1;
-                }
-                else {
+                } else {
                     chk = 0;
                 }
             }
 
-            if (index == 1) {
-                if (chk == 1) {
-                    if (BOMid == '') {
-                        BOMid = td.outerText;
-                    }
-                    else {
-                        BOMid = BOMid + ',' + td.outerText;
-                    }
-                }
+            if (index == 1 && chk == 1) {
+                let moid = td.outerText;
+                BOMid = BOMid ? BOMid + ',' + moid : moid;
+
+                // Push a new Promise for each MO stock check
+                let promise = new Promise((resolve) => {
+                    checkStockOfMOItems(moid, resolve);
+                });
+
+                promises.push(promise);
             }
         });
     });
 
-    if (BOMid != '') {
-        $.ajax({
-            type: "POST",
-            url: "wfMnfManufactureBulkAutoProduction.aspx/AutoProduceMO",
-            data: JSON.stringify({
-                "id": BOMid,
-                "loginUser": $('#ContentPlaceHolder1_loginuser').val()
-            }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (r) {
-                $('#divDetails').hide();
-                BindManufactureOrderMasterList();
+    // Wait for all AJAX calls to complete
+    Promise.all(promises).then((results) => {
+        resultOfZeroOrNegativeStock = results.includes(true);
+
+        if (BOMid !== '') {
+            if (!resultOfZeroOrNegativeStock) {
+                $.ajax({
+                    type: "POST",
+                    url: "wfMnfManufactureBulkAutoProduction.aspx/AutoProduceMO",
+                    data: JSON.stringify({
+                        "id": BOMid,
+                        "loginUser": $('#ContentPlaceHolder1_loginuser').val()
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (r) {
+                        $('#divDetails').hide();
+                        BindManufactureOrderMasterList();
+                    }
+                });
+            } else {
+                alertify.error('Raw material stock Qty is low. MO cannot be AutoProduced.');
             }
-        });
-    }
-    else {
-        alertify.error('Please select any record');
-    }
+        } else {
+            alertify.error('Please select any record');
+        }
+    });
+}
+
+function checkStockOfMOItems(moid, callback) {
+    $.ajax({
+        type: "POST",
+        url: 'wfMnfManufactureBulkAutoProduction.aspx/FetchManufactureOrderDetails',
+        data: JSON.stringify({ "Id": moid }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            var data = JSON.parse(response.d);
+            var isStockZeroOrNegative = false;
+
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].Stock <= 0) {
+                    isStockZeroOrNegative = true;
+                    break;
+                }
+            }
+
+            // Call the callback function with the result
+            callback(isStockZeroOrNegative);
+        },
+        error: function () {
+            callback(false); // Assume no stock issues if request fails
+        }
+    });
 }
 
 function DownloadFile() {
     var chk = 0;
     var BOMid = '';
+   
     $('#tbody_ManufactureOrder_List tr').each(function (index1, tr) {
         chk = 0;
+
         $(tr).find('td').each(function (index, td) {
             if (index == 0) {
                 if ($(td.children[0]).is(':checked')) {
@@ -814,6 +954,7 @@ function DownloadFile() {
 
             if (index == 1) {
                 if (chk == 1) {
+                   
                     if (BOMid == '') {
                         BOMid = td.outerText;
                     }
@@ -864,6 +1005,8 @@ function DownloadFile() {
         alertify.error('Please select any record');
     }
 }
+
+
 
 function Base64ToBytes(base64) {
     var s = window.atob(base64);

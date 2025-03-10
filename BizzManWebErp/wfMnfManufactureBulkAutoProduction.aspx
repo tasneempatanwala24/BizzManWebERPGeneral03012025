@@ -157,6 +157,7 @@
                                     <th>Raw Material</th>
                                      <th style="display: none;">MaterialId</th>
                                     <th>Qty</th>
+                                    <th>Stock</th>
                                     <th>WorkCenterID</th>
                                     <th>Operation</th>
                                     <th>QtyConsumed</th>

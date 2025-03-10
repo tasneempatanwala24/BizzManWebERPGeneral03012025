@@ -185,6 +185,10 @@ inner join tblFaUnitMesureMaster u  on a.UOMID=u.Id inner join tblCrmCustomers C
             {
 
                 dtSalesOrderasterDetails = objMain.dtFetchData(@"select bm.*,m.MaterialName as ProductName
+,(select isnull(Sum(QtyBalance),0) from tblMmMaterialStockMaster 
+inner join tblFaWarehouseMaster on tblFaWarehouseMaster.Id = tblMmMaterialStockMaster.WarehouseId 
+inner join tblHrBranchMaster on tblHrBranchMaster.BranchCode=tblFaWarehouseMaster.BranchCode
+where  MaterialMasterId=bm.materialId)as Stock
                             from  tblMnfManufactureOrderDetail bm 
                             inner join tblMmMaterialMaster m on bm.materialId=m.Id  where bm.OrderId='" + Id + "' order by bm.ID");
             }
