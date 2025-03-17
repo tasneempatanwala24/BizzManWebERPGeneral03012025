@@ -6,6 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Sockets;
+using BizzManWebErp.Model;
+using System.Text;
+using System.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
 
 namespace BizzManWebErp
 {
@@ -33,7 +39,13 @@ namespace BizzManWebErp
                 //========================
                 messagelbl.Text = "Login Successfully !";
                 messagelbl.ForeColor = System.Drawing.Color.Green;
-              //  Response.Redirect("wfErpMain.aspx");
+                //added by tasneem to log entry of logged in user
+                // Insert login details into tblAdminLoginDetail
+                InsertAdminLoginDetail(txtuser.Text, GetLocalIPAddress());
+
+                //===================
+
+                //  Response.Redirect("wfErpMain.aspx");
 
                 //======================================
                 // check login id is internal link or external external
@@ -59,5 +71,49 @@ namespace BizzManWebErp
             }
 
         }
+        private void InsertAdminLoginDetail(string userId, string ipDetail)
+        {
+            SqlParameter[] objParam = new SqlParameter[2];
+
+           
+            objParam[0] = new SqlParameter("@UserId", SqlDbType.NVarChar);
+                objParam[0].Direction = ParameterDirection.Input;
+                objParam[0].Value = userId;
+
+                objParam[1] = new SqlParameter("@IpDetail", SqlDbType.NVarChar);
+                objParam[1].Direction = ParameterDirection.Input;
+                objParam[1].Value = ipDetail;
+
+          
+
+            var result = objMain.ExecuteProcedure("procAdminLoginDetail", objParam);
+
+            
+        }
+        public static string GetLocalIPAddress()
+        {
+            try
+            {
+                string localIP = "";
+                var host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        localIP = ip.ToString();
+                        break; // Get the first IPv4 address
+                    }
+                }
+                return localIP;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting local IP address: {ex.Message}");
+                return ""; // Or throw the exception, or return a default value.
+            }
+        }
+
+      
+
     }
 }
