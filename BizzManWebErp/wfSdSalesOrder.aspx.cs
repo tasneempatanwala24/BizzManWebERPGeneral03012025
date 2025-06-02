@@ -183,7 +183,7 @@ so.DeliveyCharges,so.OutstandingAmount,so.Advance,so.ManualOrderId
 (select isnull(Sum(QtyBalance),0) from tblMmMaterialStockMaster
 inner join tblFaWarehouseMaster on tblFaWarehouseMaster.Id = tblMmMaterialStockMaster.WarehouseId
 inner join tblHrBranchMaster on tblHrBranchMaster.BranchCode=tblFaWarehouseMaster.BranchCode
-where tblFaWarehouseMaster.BranchCode=SO.BranchCode and MaterialMasterId=o.MaterialId) as Stock
+where tblFaWarehouseMaster.BranchCode=SO.BranchCode and MaterialMasterId=o.MaterialId) as Stock,m.GstIncludeRate
                                                           from tblSdSalesOrderProductDetails o
 														  inner join tblSdSalesOrder SO on SO.SalesOrderId=o.SalesOrderId
                                                           left join tblMmMaterialMaster m on m.Id=o.MaterialId
@@ -295,7 +295,8 @@ where tblFaWarehouseMaster.BranchCode=SO.BranchCode and MaterialMasterId=o.Mater
         public static string AddSalesOrder(List<SalesQuotationDetail> data, string SalesOrderId = "", string CustomerId = "", string ExpirationDate = "", string GSTTreatment = "", string DeliveryDateTime = "", string Currency = "",
                                          string PaymentTerms = "", string TermsConditions = "", string TotalAmount = "", string OrderSource = "", string LoginUser = "",
                                          string BranchCode = "", string DepartmentID = "", string OrderDate = "", string ManualOrderId = "", string DeliveryCharges = "", string OutstandingAmount = "", string Advance = ""
-                                        , string Active = "", string SquareUp = "",string PaymentMode = "", string AcNo = "")
+                                        , string Active = "", string SquareUp = "",string PaymentMode = "", string AcNo = "", string ShippingCharges = ""
+                                         )
         {
             StringBuilder strBuild = new StringBuilder();
             strBuild.Append("<XMLData>");
@@ -321,7 +322,8 @@ where tblFaWarehouseMaster.BranchCode=SO.BranchCode and MaterialMasterId=o.Mater
             strBuild.Append("<SquareUp>" + SquareUp + "</SquareUp>");
             strBuild.Append("<PaymentMode>" + PaymentMode + "</PaymentMode>");
             strBuild.Append("<AcNo>" + AcNo + "</AcNo>");
-
+            strBuild.Append("<ShippingCharges>" + ShippingCharges + "</ShippingCharges>");
+            //strBuild.Append("<NetAmount>" + NetAmount + "</NetAmount>");
 
             strBuild.Append("<SalesQuotationDetails>");
             if (data.Count > 0)
@@ -437,7 +439,7 @@ where tblFaWarehouseMaster.BranchCode=SO.BranchCode and MaterialMasterId=o.Mater
             {
 
                 dtMaterialDetails = objMain.dtFetchData(@"select Id,MaterialName,UnitMesure,MRP,isnull(IntegratedTaxPercent,0) as IntegratedTaxPercent,isnull(CentralTaxPercent,0) as CentralTaxPercent
-,isnull(StateTaxPercent,0) as StateTaxPercent,isnull(CessPercent,0) as CessPercent,
+,isnull(StateTaxPercent,0) as StateTaxPercent,isnull(CessPercent,0) as CessPercent,mm.GstIncludeRate,
 (select isnull(Sum(QtyBalance),0) from tblMmMaterialStockMaster inner join tblFaWarehouseMaster on tblFaWarehouseMaster.Id = tblMmMaterialStockMaster.WarehouseId inner join tblHrBranchMaster on tblHrBranchMaster.BranchCode=tblFaWarehouseMaster.BranchCode where tblFaWarehouseMaster.BranchCode='" + BranchCode + "' and MaterialMasterId=MM.Id) as Stock from tblMmMaterialMaster MM where Id=" + MaterialId + "");
             }
             catch (Exception ex)
@@ -551,11 +553,6 @@ tblCrmCustomers on tblCrmCustomers.ContactId=tblCrmCustomerContacts.ContactId");
         //===============================
         //==============================
 
-
-
-
-
-
         [WebMethod]
         public static string AddCustomer(string CustomerName = "", string CustomerType = "", string CompanyName = "", string City = "",
                                            string State = "", string Email = "", string Mobile = "", string LoginUser = "")
@@ -655,8 +652,6 @@ tblCrmCustomers on tblCrmCustomers.ContactId=tblCrmCustomerContacts.ContactId");
 
             return JsonConvert.SerializeObject(dtCityList);
         }
-
-
 
         [WebMethod]
         public static string AddCustomerType(string CustomerType = "")

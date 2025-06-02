@@ -71,7 +71,6 @@
                     <div class="panel-body">
                         <table class="tbl">
                             <tr>
-
                                 <td>Customer *</td>
                                 <td>
                                     <select id="ddlCustomer" name="ddlCustomer" class="rounded border-dark" style="width: 300px;">
@@ -84,11 +83,8 @@
                                 <td>
                                     <input type="text" placeholder="mm/dd/yyyy" class="form-control datepicker" id="txtorderDate" name="txtorderDate" onchange="GenerateOrderID()" />
                                 </td>
-
-
                             </tr>
                             <tr>
-
                                 <td>GST Treatment </td>
                                 <td>
                                     <select id="ddlGSTTreatment" name="ddlGSTTreatment" class="form-control">
@@ -125,10 +121,8 @@
                                     <input type="text" class="form-control" id="txtQuotationId" placeholder="Quotation Id" name="txtQuotationId" disabled />
                                 </td>
 
-
                             </tr>
                             <tr>
-
                                 <td>Department</td>
                                 <td>
                                     <select id="ddlDept" name="ddlDept" class="form-control">
@@ -139,16 +133,12 @@
                                 <td>
                                     <input type="text" class="form-control datepicker" id="txtExpirationDate" name="txtExpirationDate" />
                                 </td>
-
-
-
-                            </tr>
+                           </tr>
                             <tr>
                                 <td>Terms & Conditions</td>
                                 <td>
                                     <input type="text" class="form-control" id="txtTermsConditions" placeholder="Terms & Conditions" name="txtTermsConditions" />
                                 </td>
-
                                 <td>Payment Terms</td>
                                 <td>
                                     <select id="ddlPaymentTerms" name="ddlPaymentTerms" class="form-control" style="width: 300px;">
@@ -162,7 +152,6 @@
                                         <option value="End of Following Month">End of Following Month</option>
                                     </select>
                                 </td>
-
                             </tr>
                             <tr>
                                 <td>Sale Order Id</td>
@@ -176,23 +165,34 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Manual Order Id</td>
-                                <td>
-                                    <input type="text" class="form-control" id="txtManualOrderId" placeholder="Manual Order Id" name="txtManualOrderId" onchange="CheckManualOrderId()" />
-                                </td>
-                                <td>Delivery Charges</td>
-                                <td>
-                                    <input type="text" class="form-control" id="txtDeliveryCharges" name="txtDeliveryCharges" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" onchange="calculateGrandTotal()" />
-                                </td>
-                            </tr>
-                            <tr>
-
+                            <tr>                                
                                 <td>Total Amount</td>
                                 <td>
                                     <input type="text" class="form-control" id="txtTotalAmount" name="txtTotalAmount" placeholder="Total Amount" readonly="readonly" />
                                 </td>
+                                <td>Delivery Charges</td>
+                                <td>
+                                    <input type="text" class="form-control" id="txtDeliveryCharges" name="txtDeliveryCharges" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" onchange="calculateGrandTotal()" value="0" />
+                                </td>
+                            </tr>
+                             <tr>
+                             <td>Shipping Charges</td>
+                             <td>
+                                 <input type="text" class="form-control" id="txtShippingCharges" name="txtShippingCharges" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" onchange="calculateGrandTotal()" />
+                             </td>
+                             <td>Net Amount</td>
+                              <td>
+                                  <input type="text" class="form-control" id="txtNetAmount" name="txtNetAmount" placeholder="Net Amount" readonly="readonly" />
+                              </td>
+                            </tr>
+                            <tr>
+                                 <td>Payment Mode *</td>
+                                     <td>
+                                         <select type="text" class="form-control" id="ddlPaymentMode" name="ddlPaymentMode">
+                                             <option>Select Payment Mode</option>
 
+                                         </select>
+                                     </td>
                                 <td>Advance</td>
                                 <td>
                                     <input type="text" class="form-control" id="txtAdvance" name="txtAdvance" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" onchange="calculateGrandTotal()" />
@@ -200,14 +200,12 @@
                             </tr>
 
                             <tr>
-
-                                <td>Payment Mode *</td>
-                                <td>
-                                    <select type="text" class="form-control" id="ddlPaymentMode" name="ddlPaymentMode">
-                                        <option>Select Payment Mode</option>
-
-                                    </select>
-                                </td>
+                                 <td>Outstanding Amount
+                                 </td>
+                                 <td>
+                                     <input type="text" class="form-control" id="txtOutstandingAmount" name="txtOutstandingAmount" value="0" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" onchange="calculateGrandTotal()" disabled />
+                                 </td>
+                               
 
                                 <td>Bank A/c No.</td>
                                 <td>
@@ -216,10 +214,9 @@
                             </tr>
 
                             <tr>
-                                <td>Outstanding Amount
-                                </td>
+                               <td>Central Tax Value</td>
                                 <td>
-                                    <input type="text" class="form-control" id="txtOutstandingAmount" name="txtOutstandingAmount" value="0" oninput="handleNumericInput(event)" onblur="checkInputGiven(event)" onchange="calculateGrandTotal()" disabled />
+                                    <input type="text" class="form-control" id="txtCentralTax" name="txtCentralTax" readonly="readonly" />
                                 </td>
                                 <td>Net GST</td>
                                 <td>
@@ -227,9 +224,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Central Tax Value</td>
+                                    
+                                <td>Manual Order Id</td>
                                 <td>
-                                    <input type="text" class="form-control" id="txtCentralTax" name="txtCentralTax" readonly="readonly" />
+                                    <input type="text" class="form-control" id="txtManualOrderId" placeholder="Manual Order Id" name="txtManualOrderId" onchange="CheckManualOrderId()" />
                                 </td>
                                 <td>State Tax Value</td>
                                 <td>

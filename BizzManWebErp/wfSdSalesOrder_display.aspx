@@ -1,7 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfSdSalesOrder_display.aspx.cs" Inherits="BizzManWebErp.wfSdSalesOrder_display" %>
-
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="wfSdSalesOrder_display.aspx.cs" Inherits="BizzManWebErp.wfSdSalesOrder_display" %>
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <script src="Scripts/jquery.min.js"></script>
@@ -107,7 +105,7 @@
                           content += '<p style="margin: 5px 0;">Contact: ' + companyDetails[0].PhoneNo + '</p>';
                           content += '</div>';
                           content += '<div style="text-align: right;">';
-                          content += '<img src="Images/logo.png" alt="Company Logo" style="height: 100px;">';
+                          content += '<img src="' + companyDetails[0].Logo + '" alt="Company Logo" style="height: 100px;">';
                           content += '</div>';
                           content += '</div>';
                       }
@@ -139,8 +137,9 @@
                       content += '<tr>';
                       content += '<th style="border: 1px solid #000; padding: 8px;">Item</th>';
                       content += '<th style="border: 1px solid #000; padding: 8px;">Qty</th>';
-                      content += '<th style="border: 1px solid #000; padding: 8px;">Rate (incl Tax)</th>';
+                      content += '<th style="border: 1px solid #000; padding: 8px;">Rate</th>';
                       content += '<th style="border: 1px solid #000; padding: 8px;">Discount</th>';
+                      content += '<th style="border: 1px solid #000; padding: 8px;">GST</th>';
                       content += '<th style="border: 1px solid #000; padding: 8px;">GST %</th>';
                       content += '<th style="border: 1px solid #000; padding: 8px;">Amount</th>';
                       content += '</tr>';
@@ -165,22 +164,27 @@
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + salesQuotationDetail[i].Qty + '</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(salesQuotationDetail[i].Rate).toFixed(2) + '</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(salesQuotationDetail[i].Discount).toFixed(2) + '</td>';
+                          content += '<td style="border: 1px solid #000; padding: 8px;">' + salesQuotationDetail[i].GstIncludeRate + '</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + salesQuotationDetail[i].GST + '</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(salesQuotationDetail[i].Amount).toFixed(2) + '</td>';
                           content += '</tr>';
-                          //centralTaxPercent = parseFloat(salesQuotationDetail[i].CentralTaxPercent).toFixed(2);
-                          //stateTaxPercent = parseFloat(salesQuotationDetail[i].StateTaxPercent).toFixed(2);
-                          //cessTaxPercent = parseFloat(salesQuotationDetail[i].CessPercent).toFixed(2);
+                          centralTaxPercent = parseFloat(salesQuotationDetail[i].CentralTaxPercent).toFixed(2);
+                          stateTaxPercent = parseFloat(salesQuotationDetail[i].StateTaxPercent).toFixed(2);
+                          cessTaxPercent = parseFloat(salesQuotationDetail[i].CessPercent).toFixed(2);
                           qty = parseFloat(salesQuotationDetail[i].Qty).toFixed(2);
                           Rate = parseFloat(salesQuotationDetail[i].Rate).toFixed(2);
                           Amount = parseFloat(salesQuotationDetail[i].Amount).toFixed(2);
-                          //centralTaxValue += (qty * Rate) * (centralTaxPercent / 100);
-                          //stateTaxValue += (qty * Rate) * (stateTaxPercent / 100);
-                          //cessTaxValue += (qty * Rate) * (cessTaxPercent / 100);
-                          
-                          centralTaxValue += (salesQuotationDetail[i].CentralTaxValue);
-                          stateTaxValue += (salesQuotationDetail[i].StateTaxValue);
-                          cessTaxValue += (salesQuotationDetail[i].CessValue);
+                          //if (salesQuotationDetail[i].IsIncRate == 'n') {
+                          //    centralTaxValue += (qty * Rate) * (centralTaxPercent / 100);
+                          //    stateTaxValue += (qty * Rate) * (stateTaxPercent / 100);
+                          //    cessTaxValue += (qty * Rate) * (cessTaxPercent / 100);
+                          //}
+                          centralTaxValue += (qty * Rate) * (centralTaxPercent / 100);
+                          stateTaxValue += (qty * Rate) * (stateTaxPercent / 100);
+                          cessTaxValue += (qty * Rate) * (cessTaxPercent / 100);
+                          //centralTaxValue += (salesQuotationDetail[i].CentralTaxValue);
+                          //stateTaxValue += (salesQuotationDetail[i].StateTaxValue);
+                          //cessTaxValue += (salesQuotationDetail[i].CessValue);
 
                       }
                       NetGST = centralTaxValue + stateTaxValue + cessTaxValue;
@@ -188,42 +192,46 @@
                       content += '<tfoot>';
                       if (quotationDetails && quotationDetails.length > 0) {
                           content += '<tr>';
-                          content += '<td colspan="5" style="text-align:right; border: 1px solid #000; padding: 8px;">Total Amount:</td>';
-                          content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(quotationDetails[0].NetTotal).toFixed(2) + '</td>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">Total Amount:</td>';
+                          content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(quotationDetails[0].TotalAmount).toFixed(2) + '</td>';
                           content += '</tr>';
 
                           content += '<tr>';
-                          content += '<td colspan="5" style="text-align:right; border: 1px solid #000; padding: 8px;">Central Tax Value:</td>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">Central Tax Value:</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(centralTaxValue).toFixed(2) + '</td>';
                           content += '</tr>';
 
                           content += '<tr>';
-                          content += '<td colspan="5" style="text-align:right; border: 1px solid #000; padding: 8px;">State Tax Value:</td>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">State Tax Value:</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(stateTaxValue).toFixed(2) + '</td>';
                           content += '</tr>';
 
                           
                           content += '<tr>';
-                          content += '<td colspan="5" style="text-align:right; border: 1px solid #000; padding: 8px;">Net GST:</td>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">Net GST:</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(NetGST).toFixed(2) + '</td>';
                           content += '</tr>';
                           content += '<tr>';
-                          content += '<td colspan="5" style="text-align:right; border: 1px solid #000; padding: 8px;">Shipping Charges:</td>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">Shipping Charges:</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(quotationDetails[0].ShippingCharges).toFixed(2) + '</td>';
                           content += '</tr>';
                           content += '<tr>';
-                          content += '<td colspan="5" style="text-align:right; border: 1px solid #000; padding: 8px;">Net Amount:</td>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">Delivery Charges:</td>';
+                          content += '<td style="border: 1px solid #000; padding: 8px;">' + parseFloat(quotationDetails[0].Deliveycharges).toFixed(2) + '</td>';
+                          content += '</tr>';
+                          content += '<tr>';
+                          content += '<td colspan="6" style="text-align:right; border: 1px solid #000; padding: 8px;">Net Amount:</td>';
                           content += '<td style="border: 1px solid #000; padding: 8px;">' + Math.round(quotationDetails[0].NetAmount) + '</td>';
                           content += '</tr>';
                           content += '<tr>';
-                          content += '<td colspan="6" style="text-align:left; border: 1px solid #000; font-style: oblique;font-size:large; padding:8px"><span style="font-size: 10px">Net Amount In Word</span>  (' + netamountinword + ')</td>';
+                          content += '<td colspan="7" style="text-align:left; border: 1px solid #000; font-style: oblique;font-size:large; padding:8px"><span style="font-size: 10px">Net Amount In Word</span>  (' + netamountinword + ')</td>';
                           content += '</tr>';
 
                           content += '<tr>';
                           content += '<td colspan="2" style="text-align:left; border: 1px solid #000; padding:8px;padding-right:0px ;width:25%">Total Paid Amount :</td>';
                           content += '<td  style="text-align:left; border: 1px solid #000; font-style: oblique;font-size:large; padding:8px">' + (parseFloat(amountDetails[0]?.TotalPaid).toFixed(2)) + '</td>';
                           content += '<td colspan="2" style="text-align:left; border: 1px solid #000; padding:8px;padding-right:0px ">Outstanding Amount :</td>';
-                          content += '<td  style="text-align:left; border: 1px solid #000; font-style: oblique;font-size:large; padding:8px;">' + Math.round(parseFloat(amountDetails[0]?.OutstandingAmount).toFixed(2)) + '</td>';
+                          content += '<td  colspan="2" style="text-align:left; border: 1px solid #000; font-style: oblique;font-size:large; padding:8px;">' + Math.round(parseFloat(amountDetails[0]?.OutstandingAmount).toFixed(2)) + '</td>';
                           content += '</tr>';
 
                           //content += '<tr>';

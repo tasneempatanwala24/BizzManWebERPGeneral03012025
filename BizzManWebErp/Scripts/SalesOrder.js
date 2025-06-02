@@ -1,12 +1,10 @@
+var IsGstInclude = "";
 $(document).ready(function () {
     $("button").click(function (event) {
         event.preventDefault();
     });
     $('#ddlCustomer').select2();
-    $('#ddlMaterialName').select2();
-   
-
-    
+    $('#ddlMaterialName').select2();    
    
     BindCurrencyDropdown();
     BindCustomerTypeDropdown();
@@ -208,8 +206,10 @@ function attachKeydownListeners() {
     });
 
     $("#txtMaterialDiscount").on("keydown", function (event) {
+        console.log("Key pressed:", event.key);  // Debug log
         if (event.key === "Enter") {
             event.preventDefault();
+            console.log("Enter key pressed, running functions...");
             UpdateTotalAmount();
             SaveSalesOrderDetails();
         }
@@ -612,9 +612,6 @@ function BindCustomerTypeDropdown() {
 
 }
 
-
-
-
 function CreateSalesOrder() {
     $('#divSalesOrderList').hide();
     $('#divSalesOrderEntry').show();
@@ -651,8 +648,6 @@ function ViewSalesOrderList() {
  
 }
 
-
-
 function ClearAll() {
     $('#tbody_SalesOrderDetails').children('tr:not(:first)').remove();
      $('#txtMaterialQty').val('');
@@ -664,14 +659,14 @@ function ClearAll() {
     $('#txtMaterialTax').val('');
     $('#txtMaterialTotalAmount').val('');
     $("#txtExpirationDate").val(getCurrentDate());
-   
+    $('#txtShippingCharges').val(0);
     $('#ddlGSTTreatment').val('Registered Business - Regular');
     $('#ddlCurrency').val('1');
     $('#ddlPaymentTerms').val('Immediate Payment');
     $('#txtTermsConditions').val('');
     $('#txtTotalAmount').val('');
     $('#hdnSalesOrderId').val('');
-
+    $('#txtNetAmount').val(0);
     $('#txtCustomerName').val('');
     $('#ddlCustomerType').val('');
     $('#txtCompanyName').val('');
@@ -707,14 +702,12 @@ function ClearAll() {
     $("#txtAcNo").val("");
     $("#txtNetGST").val("0.00");
     $("#txtStateTax").val("0.00");
+    $("#txtCentralTax").val("0.00");
     $("#chkIsActive").prop("disabled", true);
     $("#chkIsActive").prop("checked", true);
-
     $("#chkIsSquareUp").prop("disabled", true); 
     $("#chkIsSquareUp").prop("checked", false);
 }
-
-
 
 function BindSalesOrderMasterList() {
     showLoader();
@@ -862,10 +855,13 @@ function FetchSalesOrderMasterDetails(id, OrderStatus) {
                     $('#ddlPaymentTerms').val((data[0].PaymentTerms != undefined ? data[0].PaymentTerms : ''));
                     $('#txtTermsConditions').val((data[0].TermCondition != undefined ? data[0].TermCondition : ''));
                     $('#txtTotalAmount').val((data[0].TotalAmount != undefined ? data[0].TotalAmount : ''));
+                    $('#txtShippingCharges').val((data[0].ShippingCharges != undefined ? data[0].ShippingCharges : ''));
+                    $('#txtNetAmount').val((data[0].NetAmount != undefined ? data[0].NetAmount : ''));
                     $('#txtOutstandingAmount').val((data[0].OutstandingAmount != undefined ? data[0].OutstandingAmount : ''));
                     $('#txtAdvance').val((data[0].Advance != undefined ? data[0].Advance : ''));
                     $('#ddlBranch').val((data[0].BranchCode != undefined ? data[0].BranchCode : ''));
                     $('#ddlDept').val((data[0].DepartmentID != undefined ? data[0].DepartmentID : ''));
+                    IsGstInclude = data[0].GST_Treatment != undefined ? data[0].GST_Treatment : 'y'
                     if (data[0].ExpirationDate != undefined) {
                         var dtExpirationDate = new Date(data[0].ExpirationDate);
                         $('#txtExpirationDate').val(formatDate(dtExpirationDate));
@@ -973,6 +969,7 @@ function FetchSalesOrderDetailsList(salesorderid) {
                 centralTaxValue += parseFloat(data[i].CentralTaxValue);
                 stateTaxValue += parseFloat(data[i].StateTaxValue);
                 cessTaxValue += parseFloat(data[i].CessValue);
+                IsGstInclude = data[i].GstIncludeRate;
                 $('#tbody_SalesOrderDetails').append('<tr><td style="display: none;">' + data[i].MaterialId + '<input type="hidden" value="' + data[i].CentralTaxPercent + '" class="hdnCentralTaxPercent"><input type="hidden" value="' + data[i].StateTaxPercent + '" class="hdnStateTaxPercent"><input type="hidden" value="' + data[i].CessPercent +'" class="hdnCessPercent"></td>'
                     + '<td style="width: 250px;">' + (data[i].MaterialName != undefined ? data[i].MaterialName : "") + '</td>'
                     + '<td style="width: 100px;">' + (data[i].Stock != undefined ? data[i].Stock : "") + '</td>'
@@ -1179,7 +1176,7 @@ function FetchMaterialDetails() {
                     $('#txtMaterialTax').val(data[0].IntegratedTaxPercent);
                     $('#txtMaterialStock').val(data[0].Stock);
                     $('#hdnCentralTaxPercent').val(data[0].CentralTaxPercent);
-
+                    IsGstInclude = data[0].GstIncludeRate;
                     $('#hdnStateTaxPercent').val(data[0].StateTaxPercent);
 
                     $('#hdnCessPercent').val(data[0].CessPercent);
@@ -1204,9 +1201,12 @@ function FetchMaterialDetails() {
 
 function calculateGrandTotal() {
     var grandTotal = 0;
+    var grandNetTotal = 0;
     var grandTotalGST = 0;
-    var shippingCharges = parseFloat($('#txtDeliveryCharges').val());
+    var deliveryCharges = parseFloat($('#txtDeliveryCharges').val());
+    var shippingCharges = parseFloat($('#txtShippingCharges').val());
     shippingCharges = isNaN(shippingCharges) ? 0 : shippingCharges;
+    deliveryCharges = isNaN(deliveryCharges) ? 0 : deliveryCharges;
     var centralTaxValue = 0;
     var stateTaxValue = 0;
     var cessTaxValue = 0;
@@ -1234,18 +1234,18 @@ function calculateGrandTotal() {
         }
     });
     grandTotalGST = centralTaxValue + stateTaxValue + cessTaxValue;
-    grandTotal += shippingCharges;
+    grandNetTotal = grandTotal + shippingCharges + deliveryCharges;
     debugger;
      $('#txtNetGST').val(grandTotalGST.toFixed(2));
     $('#txtCentralTax').val(centralTaxValue.toFixed(2));
     $('#txtStateTax').val(stateTaxValue.toFixed(2));
     $('#txtTotalAmount').val(grandTotal.toFixed(2));
-
+    $('#txtNetAmount').val(grandNetTotal.toFixed(2));
     var outstanding = 0;
     var advance = parseFloat($('#txtAdvance').val());
     advance = isNaN(advance) ? 0 : advance;
-
-    outstanding = grandTotal - advance;
+    outstanding = grandNetTotal - advance;
+    //outstanding = grandTotal - advance;
     $('#txtOutstandingAmount').val(outstanding.toFixed(2));
 }
 
@@ -1407,16 +1407,29 @@ function UpdateTotalAmount() {
             var rate = parseFloat($('#txtMaterialRate').val());
             var discount = parseFloat($('#txtMaterialDiscount').val());
             var tax = parseFloat($('#txtMaterialTax').val());
-
+            var delivery = parseFloat($('#txtDeliveryCharges').val()) || 0;
+            var shipping = parseFloat($('#txtShippingCharges').val()) || 0; 
+            
             // Convert NaN values to 0
             qty = isNaN(qty) ? 0 : qty;
             rate = isNaN(rate) ? 0 : rate;
             discount = isNaN(discount) ? 0 : discount;
             tax = isNaN(tax) ? 0 : tax;
-
-            // var totalAmnt = (qty * rate) * (1 - discount / 100) * (1 + tax / 100);
-            var totalAmnt = (qty * rate) * (1 - discount / 100) ;
-            $('#txtMaterialTotalAmount').val(totalAmnt.toFixed(2));
+            if (IsGstInclude == 'y') {
+                // var totalAmnt = (qty * rate) * (1 - discount / 100) * (1 + tax / 100);
+                var totalAmnt = (qty * rate) * (1 - discount / 100);
+                $('#txtMaterialTotalAmount').val(totalAmnt.toFixed(2));
+            }
+            else {               
+                var totalAmnt = (qty * rate) * (1 - discount / 100) * (1 + tax / 100);
+                $('#txtMaterialTotalAmount').val(totalAmnt.toFixed(2));
+            }
+            var netamt = totalAmnt + delivery + shipping;
+            if (!isNaN(netamt)) {
+                $('#txtNetAmount').val(netamt.toFixed(2));
+            } else {
+                $('#txtNetAmount').val('0.00');
+            }
         } else {
             $('#txtMaterialQty').val('');
             alertify.error('Please select any material first');
@@ -1633,7 +1646,9 @@ function AddSalesOrder() {
             "Active": $("#chkIsActive").prop("checked") == true? 'y':'n',
             "SquareUp": $("#chkIsSquareUp").prop("checked") == true? 'y':'n',
             "PaymentMode": $("#ddlPaymentMode").val(),
-            "AcNo": $("#txtAcNo").val()
+            "AcNo": $("#txtAcNo").val(),
+            "ShippingCharges": $('#txtShippingCharges').val()
+            //"NetAmount": $('#txtNetAmount').val(),
         }),
         dataType: "json",
         success: function (response) {
