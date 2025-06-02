@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BizzManWebErp {
-    
-    
-    public partial class wfAdminLogin {
-        
+namespace BizzManWebErp
+{
+
+
+    public partial class wfAdminLogin
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,34 @@ namespace BizzManWebErp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
+        /// <summary>
+        /// hfClientTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfClientTime;
+
+        /// <summary>
+        /// hfTimeZoneOffset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfTimeZoneOffset;
+
+        /// <summary>
+        /// hfIpAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfIpAddress;
+
         /// <summary>
         /// txtuser control.
         /// </summary>
@@ -29,7 +58,7 @@ namespace BizzManWebErp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtuser;
-        
+
         /// <summary>
         /// txtpassword control.
         /// </summary>
@@ -38,7 +67,7 @@ namespace BizzManWebErp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtpassword;
-        
+
         /// <summary>
         /// btn_login control.
         /// </summary>
@@ -47,7 +76,7 @@ namespace BizzManWebErp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_login;
-        
+
         /// <summary>
         /// messagelbl control.
         /// </summary>

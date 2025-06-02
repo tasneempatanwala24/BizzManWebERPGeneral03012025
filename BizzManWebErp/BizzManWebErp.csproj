@@ -133,6 +133,7 @@
     <Content Include="Scripts\AdminCompanyMasterNew.js" />
     <Content Include="Scripts\AdminModuleMaster.js" />
     <Content Include="Scripts\AdminRoleMaster.js" />
+    <Content Include="Scripts\AdminUserLoginDetail.js" />
     <Content Include="Scripts\AdminUserMaster.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bt.min.js" />
@@ -304,6 +305,7 @@
     <Content Include="wfAdminModuleMaster.aspx" />
     <Content Include="wfAdminRoleMaster.aspx" />
     <Content Include="wfAdminRoleModuleMaster.aspx" />
+    <Content Include="wfAdminUserLoginDetail.aspx" />
     <Content Include="wfAdminUserMaster.aspx" />
     <Content Include="wfCrmBkrmEnquiryRegister.aspx" />
     <Content Include="wfCrmBkrmLeadCollect.aspx" />
@@ -570,6 +572,13 @@
     </Compile>
     <Compile Include="wfAdminRoleModuleMaster.aspx.designer.cs">
       <DependentUpon>wfAdminRoleModuleMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfAdminUserLoginDetail.aspx.cs">
+      <DependentUpon>wfAdminUserLoginDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfAdminUserLoginDetail.aspx.designer.cs">
+      <DependentUpon>wfAdminUserLoginDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="wfAdminUserMaster.aspx.cs">
       <DependentUpon>wfAdminUserMaster.aspx</DependentUpon>

@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Org.BouncyCastle.Utilities.Net;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
-using BizzManWebErp.Model;
-using System.Text;
-using System.Drawing;
-using DocumentFormat.OpenXml.Office2010.Excel;
+using System.Web;
+
 
 namespace BizzManWebErp
 {
@@ -39,10 +34,31 @@ namespace BizzManWebErp
                 //========================
                 messagelbl.Text = "Login Successfully !";
                 messagelbl.ForeColor = System.Drawing.Color.Green;
-                //added by tasneem to log entry of logged in user
+                
+                //added by tasneem for Admin Login Details Logging---START
                 // Insert login details into tblAdminLoginDetail
-                InsertAdminLoginDetail(txtuser.Text, GetLocalIPAddress());
+                //string ipAddress = hfIpAddress.Value; // Now should contain IP address
+                string ipAddress = GetLocalIPAddress();
+                string clientTimeStr = hfClientTime.Value;
+               
+                DateTime clientTime;
+                if (!DateTime.TryParseExact(clientTimeStr, "yyyy-MM-dd HH:mm:ss",
+                                            CultureInfo.InvariantCulture,
+                                            DateTimeStyles.None, out clientTime))
+                {
+                    clientTime = DateTime.UtcNow; // Fallback
+                }
 
+               
+
+
+                //string ipAddress = Request.UserHostAddress;
+               // DateTime clientTime = DateTime.Now;
+
+                InsertAdminLoginDetail(txtuser.Text, ipAddress, clientTime);
+				//added by tasneem for Admin Login Details Logging---END
+              
+                
                 //===================
 
                 //  Response.Redirect("wfErpMain.aspx");
@@ -71,9 +87,10 @@ namespace BizzManWebErp
             }
 
         }
-        private void InsertAdminLoginDetail(string userId, string ipDetail)
+		  //added by tasneem for Admin Login Details Logging---START
+        private void InsertAdminLoginDetail(string userId, string ipDetail,DateTime ClientDateTime)
         {
-            SqlParameter[] objParam = new SqlParameter[2];
+            SqlParameter[] objParam = new SqlParameter[3];
 
            
             objParam[0] = new SqlParameter("@UserId", SqlDbType.NVarChar);
@@ -84,7 +101,10 @@ namespace BizzManWebErp
                 objParam[1].Direction = ParameterDirection.Input;
                 objParam[1].Value = ipDetail;
 
-          
+            objParam[2] = new SqlParameter("@ClientTime", SqlDbType.DateTime);
+            objParam[2].Direction = ParameterDirection.Input;
+            objParam[2].Value = ClientDateTime;
+
 
             var result = objMain.ExecuteProcedure("procAdminLoginDetail", objParam);
 
@@ -112,8 +132,10 @@ namespace BizzManWebErp
                 return ""; // Or throw the exception, or return a default value.
             }
         }
+        //added by tasneem for Admin Login Details Logging---END
 
-      
+
+
 
     }
 }
